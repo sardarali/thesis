@@ -1,0 +1,233 @@
+\startchapter{Background and Related Work}
+\label{chap:review}
+Due to our hight dependency on electric power, reliability of power networks has become critically important. A variety of hardware and software tools for measuring and monitoring the power quality are available. Before we detail the cutting-edge research work in the area, we discuss the most important causes of power quality problems as follows.
+
+\section{Main Causes of Power Quality Problems}
+%There are many causes of power quality problems. The most commons are grouped in the following five categories.
+%\subsection{Short-Duration Volate Variations}
+\subsection{Voltage Sags/Swells}
+The voltage sags are brief reductions in voltage while the voltage swells are brief increase in voltage level which may last from a cycle to a second. Voltage sags are caused by faults, sudden increases in loads or device impedance, short circuits or faults. Causes of voltage swells are an abrupt reduction in load on a circuit or a damage in neutral connection. Sag or swell is the largest cause of problems from the utility side. Sags or swells can occur in the power distribution network or at the point of use. These types of disturbances can lead to loss of production or electronic device failures. Measurement devices being used should be able to detect these events. A standard reference for measuring the power quality events largely used by industry is the Computer Business Manufacturers Association (CBEMA) also known as ITI Council profile curve~\cite{iti_curve}. Power quality monitoring devices use the ITI curve as a reference to highlight if the voltage events may result in any potential problem.
+
+\subsection{Harmonics}
+A harmonic is a periodic, an integer multiple wave of the fundamental frequency. They are caused by non-linear electric loads. Technically, voltage harmonics are caused by the combination of line impedance and current with a frequency other than the fundamental frequency. Harmonics in power grids are the main cause of power quality problems. A lot of harmonics in the power systems can cause malfunctioning or damage to the electric devices. Power quality measurement devices use the technique of Fourier Analysis to detect the magnitude and frequency of of voltage harmonics.
+
+\subsection{Interharmonics}
+Interharmonics are distortions in the current or voltage waveforms. They are different from ordinary harmonics in that it refers to voltages or currents having frequency components that are not integer multiple of the fundamental frequency. They can be found in networks of all voltage classes.They can be found in networks of all voltage classes. They can affect power-line carriers, lighting, computer displays, heating of transformers and motors, mis-operation of electronic devices etc. However, due to their small amplitude and uncertain frequency, they are difficult to detect.
+
+\subsection{Transients}
+Transients (also known as \textit{surges} or \textit{spikes}) are momentary changes in voltage or current that last for a very short period of time. The interval is usually less than $1/16^{th}$ of a voltage cycle or about 1 milliseconds. The typical duration of voltage transients is 50 microseconds while the duration of current transients is 20 microseconds. Transients can come from external sources as well as from within the system. The external sources include lightning, switching of facility loads, poor or loose connections in the distribution system, opening/closing of disconnects, tap changing on transformers, environmental changes. The main culprits within the system causing transients include device switching, arcing, static discharge, and adding or removing loads. If left unchecked, transients can lead to device degradation over time.
+
+\subsection{Other Causes}
+As discussed earlier, the life time of electric/electronic devices is dependent on the electric power quality. There are many other causes which effect the power quality in the electric network. In order to improve the reliability of the electric power network, the causes of the power quality problems need to be addresses. Some of the main other causes are as follows.
+
+\subsubsection{Over/Undervoltage}
+When the RMS value of the voltage in a power system raises above 110\% for a duration of greater then 1 minute, it is classified as an overvoltage. It happens when the system is either too weak to support the desired voltage or the voltage controls are sufficient. They are usually the result of switching off a large load. The overvoltage is usually protected using bulk capacitors.
+
+An undervoltage is a decrease in the RMS voltage value when it falls under 90\% of its original level for a duration of greater than 1 minute as classified by the CBEMA curve~\cite{iti_curve}. Its causes include overload circuits, load switching, and capacitor bank switching off. Undervoltages may result in premature shutdown of circuits, loss of important data, restart of electronic equipments.
+
+\subsubsection{Sustained Interruptions}
+It is a decrease in the voltage level to zero for a period of more than 1 minute as defined by IEEE standard~\cite{IEEE09_1159}. They are often permanent in nature which requires manual intervention to restore the system. This type of interruptions are caused by permanent faults caused by storms, equipment failures, trees striking lines, and other environmental factors. If not tackled on time, these faults may result in a complete shutdown of the facility.
+
+\subsubsection{Voltage Unbalance}
+It is defined as the largest difference of the RMS voltage value (or phase angles) on a line from its average value. It is quantified in terms of ratios of the negative and zero components to the positive sequence. Voltage unbalance is usually caused by uneven distribution of voltage between the phases of an n-phase (usually 3-phase) system. It may also caused by mismatch of the impedance of a transformer, a blown fuse, or a bad capacitor. The problem may cause premature equipment aging, power supply ripple, insulation degradation, decrease in mean time between failures (MTBF).
+
+\subsubsection{Frequency Variations}
+Frequency variation is the deviation of fundamental frequency from its nominal value. The size and duration of the frequency shift is dependent on the load characteristics. It is usually caused when a large load is disconnected or when a large power generator goes off-line. It can cause data loss, device crash/damage, or erratic operation in the electronic system.
+
+\section{Classification of Power Quality Disturbances}
+\label{PQclassification}
+It is a known phenomena that when a power system is disturbed either by a short circuit, sudden increase in load, or any other relevant cause, the balance of energy is disturbed. During the disturbance, energy exchange between the electric and magnetic fields occurs which deviates the waveshapes of voltages and currents in the power system. This electromagnetic phenomena is standardized by two leading knowledge bodies in the field by standards: 1) IEC/TS 61000-2-5; and 2) IEEE Std. 1159-1995.
+
+\begin{table}[!t]
+\centering \scriptsize
+\renewcommand{\tabcolsep}{0.08cm}
+\caption{Electromagnetic Disturbance Phenomena Categories~\cite{iec_61000}}
+\begin{tabular}{m{7.5cm} m{7.5cm}}
+\hline \hline
+\begin{enumerate} [itemsep=0pt,topsep=4pt]
+\item \textbf{Conducted low-frequency phenomena}
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+\item Harmonics, interharmonics
+\item signaling systems
+\item Voltage fluctuations
+\item Voltage dips and interruptions
+\item Voltage unbalance
+\item Power frequency variations
+\item Induced low-frequency voltages
+\item DC in AC networks
+\end{itemize}
+
+\item \textbf{Radiated low-frequency field phenomena}
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+\item Magnetic fields
+\item Electric field
+\end{itemize}
+\end{enumerate} & 
+\begin{enumerate}[itemsep=0pt,topsep=4pt]
+\setcounter{enumi}{2} 
+\item \textbf{Conducted high-frequency phenomena}
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+\item Directly coupled or induced voltages or currents
+\item Unidirectional transients
+\item Oscillatory transients
+\end{itemize}
+
+\item \textbf{Radiated high-frequency field phenomena}
+\begin{itemize}[itemsep=0pt,topsep=0pt]
+\item Magnetic fields
+\item Electric fields
+\item Electromagnetic fields
+\end{itemize}
+\item \textbf{Electrostatic discharge phenomena (ESD)}
+\item \textbf{High-altitude nuclear electromagnetic pulse (HEMP)}
+\end{enumerate}
+\\
+\hline
+\end{tabular}
+\label{tbl:iec_classification}
+\end{table}
+
+
+\newcommand*{\mystrut}{\strut}
+\newcommand*{\mywstrut}{\rule[0.1\baselineskip]{0pt}{\baselineskip}}
+\newcommand*{\mybox}[1]{\hbox{\mystrut #1}}
+\newcommand*{\mywbox}[1]{\hbox{\mywstrut #1}}
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{0.8}
+\centering \scriptsize \caption{Categories and typical characteristics of power system EM phenomena~\cite{IEEE09_1159}}
+\begin{tabular}{m{5.5cm} m{2.6cm} m{2cm} m{3cm}}\hline
+\hbox{\rule[1.5\baselineskip]{0pt}{0\baselineskip}\textbf{Categories}} & \textbf{Spectral Content} & \textbf{Duration} & \textbf{Voltage Magnitude}\\\hline\hline
+\begin{enumerate}[itemsep=0pt,topsep=1pt]
+\item Transients 
+   \begin{enumerate}[itemsep=0pt,topsep=0pt]
+      \item Impulsive 
+      \begin{enumerate}[itemsep=0pt,topsep=0pt]
+         \item Nanosecond
+         \item Microsecond
+         \item Millisecond
+      \end{enumerate}
+      \item Oscillatory
+      \begin{enumerate}[itemsep=0pt,topsep=0pt]
+         \item Low frequency
+         \item Medium frequency
+         \item High frequency
+      \end{enumerate}
+   \end{enumerate}
+\end{enumerate}
+ & \mybox{}\mybox{}\mybox{}\mybox{5-ns rise}\mybox{1-$\mu$s rise}\mybox{0.1-ms rise} \mybox{}\mybox{}\mybox{$<$ 5 kHz}\mybox{5 -- 500 kHz}\mybox{0.5 -- 5 MHz} & \mybox{}\mybox{}\mybox{}\mybox{$<$ 50 ns}\mybox{50 ns - 1 ms}\mybox{$>$ 1 ms} \mybox{}\mybox{}\mybox{0.3 -- 50 ms}\mybox{20 $\mu$s}\mybox{5 $\mu$s} & \mybox{}\mybox{}\mybox{}\mybox{} \mybox{}\mybox{} \mybox{}\mybox{}\mybox{0 -- 4 pu (per unit)}\mybox{0 -- 8 pu}\mybox{0 -- 4 pu}\\\hline
+
+\begin{enumerate}[itemsep=0pt,topsep=2pt]
+\setcounter{enumi}{1} 
+\item Short-duration RMS variations 
+   \begin{enumerate}[itemsep=0pt,topsep=0pt]
+      \item Instantaneous 
+      \begin{enumerate}[itemsep=0pt,topsep=0pt]
+         \item Sag
+         \item Swell
+      \end{enumerate}
+      \item Momentary
+      \begin{enumerate}[itemsep=0pt,topsep=0pt]
+         \item Interruption
+         \item Sag
+         \item Swell
+      \end{enumerate}
+      \item Temporary
+      \begin{enumerate}[itemsep=0pt,topsep=0pt]
+         \item Interruption
+         \item Sag
+         \item Swell
+      \end{enumerate}
+   \end{enumerate}
+\end{enumerate}
+ &  & \mybox{} \mybox{} \mybox{} \mywbox{0.5 -- 30 cycles} \mywbox{0.5 -- 30 cycles}  \mybox{} \mybox{0.5 cycles -- 3 s} \mywbox{30 cycles -- 3 s} \mywbox{30 cycles -- 3 s} \mybox{} \mybox{$>$ 3 s -- 1 min} \mybox{$>$ 3 s -- 1 min} \mybox{$>$ 3 s -- 1 min}  & \mybox{} \mybox{} \mybox{} \mywbox{0.1 -- 0.9 pu} \mywbox{1.1 -- 1.8 pu}  \mybox{} \mybox{$<$ 0.1 pu} \mywbox{0.1 -- 0.9 pu} \mywbox{0.1 -- 1.4 pu} \mybox{} \mybox{$<$ 0.1 pu} \mybox{0.1 -- 0.9 pu} \mybox{0.1 -- 1.2 pu} \\\hline
+
+\begin{enumerate}[itemsep=0pt,topsep=2pt]
+\setcounter{enumi}{2} 
+\item Long duration RMS variations
+      \begin{enumerate}[itemsep=0pt,topsep=0pt]
+         \item  Interruption, sustained
+         \item Undervoltages
+         \item Overvoltages
+         \item Current overload
+      \end{enumerate}
+\end{enumerate}
+ &  & \mywbox{}\mywbox{$>$ 1 min}\mywbox{$>$ 1 min}\mywbox{$>$ 1 min} \mywbox{$>$ 1 min}  & \mywbox{}\mywbox{0.0 pu}\mywbox{0.8 -- 0.9 pu}\mywbox{1.1 -- 1.2 pu}\mywbox{}\\\hline
+
+\begin{enumerate}[itemsep=0pt,topsep=2pt]
+\setcounter{enumi}{3} 
+\item Imbalance
+      \begin{enumerate}[itemsep=0pt,topsep=0pt]
+         \item Voltage
+         \item Current
+      \end{enumerate}
+\end{enumerate}
+ &  & \mywbox{} \mywbox{steady state} \mywbox{steady state} & \mywbox{} \mywbox{0.5 -- 2\%} \mywbox{1.0 -- 30\%}\\\hline
+
+\begin{enumerate}[itemsep=0pt,topsep=2pt]
+\setcounter{enumi}{4} 
+\item Waveform distortion
+      \begin{enumerate}[itemsep=0pt,topsep=0pt]
+         \item DC offset
+         \item Harmonics
+         \item Interharmonics
+         \item Notching
+         \item Noise
+      \end{enumerate}
+\end{enumerate}
+ & \mywbox{} \mywbox{} \mywbox{0 -- 9 kHz} \mywbox{0 -- 9 kHz} \mywbox{} \mywbox{broadband}  & \mywbox{} \mywbox{steady state} \mywbox{steady state} \mywbox{steady state} \mywbox{steady state} \mywbox{steady state} & \mywbox{} \mywbox{0 -- 0.1 \%} \mywbox{0 -- 20 \%} \mywbox{0 -- 2 \%} \mywbox{} \mywbox{0 -- 1 \%}  \\\hline
+
+\begin{enumerate}[itemsep=0pt,topsep=2pt]
+\setcounter{enumi}{5} 
+\item  Voltage fluctuations
+\end{enumerate}
+ & $<$ 25 Hz & intermittent &0.1 -- 7 \% (2.2 -- 2 Pst)\\\hline
+
+\begin{enumerate}[itemsep=0pt,topsep=2pt]
+\setcounter{enumi}{6} 
+\item  Power frequency variations
+\end{enumerate}
+&  & $<$ 10 s & $\pm$ 0.10 Hz\\\hline
+\end{tabular}
+\label{tbl:ieee_classification}
+\end{table}
+
+
+\subsection{The IEC Classification}
+The International Electrotechnical Commission (IEC) classifies various phenomenas that cause electromagnetic disturbances through their standard IEC/TS 61000-2-5~\cite{iec_61000}. These disturbances can reach the equipment either by conductive or radiative coupling pathways. When there is a physical pathway exists between the source of emission and the affected device, it is a conductive coupling. On the other hand, radiative coupling occurs when there is no physical pathway but the emission propagates through electric and magnetic fields. Based on couplings and relative frequencies of the disturbances, IEC classifies the electromagnetic phenomena into six categories as shown in Table~\ref{tbl:iec_classification}.
+
+\subsection{The IEEE Classification}
+The Institute of Electrical and Electronics Engineers (IEEE) put efforts to standardize power quality terminology to allow the parties involved in to have standard and consistent terms. The IEEE standard 1159-1995~\cite{IEEE09_1159} provides a classification of power quality events. The various power quality events are classified in seven general categories. The classification is based on event characteristics such as spectral content, duration, and magnitude as shown in Table~\ref{tbl:ieee_classification}.
+
+\section{Related Work}
+Power quality is a crucial component of power system reliability. Poor power quality may lead to service interruptions. To improve the reliability of power grid networks, power quality measurement devices are being deployed to closely monitor the  power quality on underlying power links. As discussed, it is not feasible to monitor every segments of the network. Instead we propose to 1) intelligently place the monitoring devices on selected network segments; and 2) estimate the power quality on unmonitored links base on the known information from the monitored links.
+
+We also address the relevant research problems such as 1) how many meters are required to achieve the desired level of network reliability; 2) based on reading from the monitoring devices, how to accurately identify a malfunctioning device that degrades the power quality in the power system; and 3) based on user requirements, environmental and physical constraints, what is the best choice for a monitoring device to be used. Note that, we need to use devices of different capabilities for different scenarios. This section covers the research work relevant to our proposed solutions addressing the above identified problems. We classify the existing research (and available techniques) related to this work in the following categories.
+
+\subsection{Classification of Power Quality Events}
+There are many approaches of classifying the power quality events. Typically, power quality is assigned a label which is based on magnitude and duration of the electromagnetic phenomena (e.g., voltage sag or swell). Electrical utilities typically report a System Average RMS Variation Frequency Index (SARFI) which is essentially a count of the number of times the magnitude and duration fall below (or above) a threshold. The IEEE and IEC also have their standards for classifying individual power quality events~\cite{iec_61000, IEEE09_1159}. These standards are detailed in Section~\ref{PQclassification}. We use a discrete classification system in this work, similar to that described in the IEEE standard~\cite{IEEE09_1159}. 
+
+\subsection{Power Reliability}
+The industry standard practices for electric power reliability in networks focus on measures such as Mean Time Between Failure (MTBF), reliability, and availability as defined by the IEEE Gold Book~\cite{goldbook}. These measures are theoretical values, measured or calculated for components and networks operating under standardized conditions. They serve as methods for comparison but are not intended as predictive tools for networks that operate in realistic environments with varying temperature, humidity, load, and power quality.
+
+Further, it is known that there exists a relationship between power quality and the lifetime and performance of components~\cite{iti_curve}. For an effective evaluation of power reliability, we need to accurately estimate power quality. ~\cite{catherine_pri}, which motivates for the work we are proposing. The work proposed in ~\cite{catherine_pri} is relevant to our power quality estimation solution (see Chapter~\ref{chap:PQEstimation}) where the authors propose an Expectation Maximization (EM) based algorithm to estimation the microgrid reliability. Although effective, the EM algorithm needs a long time to converge. We are thus motivated to find faster algorithms in power quality estimation.
+
+\subsection{Data Estimation Techniques}
+We use data estimation techniques to propose our power quality estimation solution (see Chapter~\ref{chap:PQEstimation}). Here we give a short description of the EM and MaxEnt algorithms used in our work:
+
+
+\subsubsection{The Expectation Maximization (EM)} EM is a general approach to iterative computation of maximum-likelihood estimates when the observations can be viewed as incomplete data. Since each of the iteration of the algorithm consists of an expectation step followed by a maximization step, the algorithm is named as the EM algorithm. The successive iterations always increase the likelihood and the algorithm converges at a stationary point.
+
+\subsubsection{Maximum Entropy (MaxEnt) Estimation} MaxEnt solves convex optimization problems of the form,
+\[\mathrm{\mathbf{maximize}}~g(\vec{x}) = - \sum_{i=1}^n x_i \log x_i \]
+\[\mathrm{subject~to~} \mathbf{A}\vec{x} \leq \mathbf{c},~ \mathbf{B}\vec{x} = \mathbf{1},\]
+
+where $\vec{x}\in \mathbb{R}^n$ is the optimization variable, $A \in \mathbb{R}^{m \times n}$, and $B \in \mathbb{R}^{m \times n}$ are problem parameters;  and \textbf{1} is a vector with all 1's.
+
+\subsection{Sensor Deployment}
+There is a great body of work on the optimal sensor deployment problem~\cite{Krause09}. The meaning of sensors is broad, including any measurement/monitoring devices. In the context of power networks, optimal deployment of phasor measurement units (PMU) has been studied~\cite{Yuill11}. Nevertheless, we have not seen any work on studying optimal meter deployment problem in the context of network-wide power quality estimation.
+
+\subsection{Bayesian Inference}
+We use Bayesian inference to identify high information locations for deploying smart meters (detailed in Chapter~\ref{chap:meterPlacement}). The Bayesian inference methods are helpful in providing the new estimates of the PQ values on non-monitored links given evidences are obtained from the metered locations. Bayesian inference is a general and well-investigated discipline which has applications in a wide range of fields. Several algorithms are available to address specific problem in this domain. For the problem of meter placement, several message passing algorithms could be used to
+help us determine the optimal meter placement. We chose the belief propagation or sum-product algorithm~\cite{pearl1988probabilistic} since it is well understood, has been shown to work for general topologies~\cite{yedidia2001generalized} including tree networks, and has several software libraries available.
+

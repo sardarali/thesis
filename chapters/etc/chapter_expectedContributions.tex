@@ -1,0 +1,59 @@
+\startchapter{Expected Contributions}
+\label{chap:contributions}
+The expected contributions and their corresponding milestones are listed in Table~\ref{tbl:contributions}. The time line of the expected research is shown as a Gantt chart in Fig.~\ref{fig:ganttChart}.
+
+\def\arraystretch{1.2}%  1 is the default, change whatever you need
+\newcommand{\minitab}[2][l]{\begin{tabular}{#1}#2\end{tabular}}
+\begin{table}[!h]
+\centering \footnotesize
+\begin{tabular}{|c|l|l|}\hline
+Research Topic & Expected Contribution & Completion Date \\ \hline
+\multirow{4}{4.2cm}{Analytical Framework for Power Quality Monitoring} &  Literature Review & Finished \\ \cline{2-3}
+ & Modeling  of Power Network & Finished \\ \cline{2-3}
+ & \multirow{2}{5cm}{Porting Identified Problems on the Framework} & \multirow{2}{*}{Finished} \\
+ &  & \\ \hline
+\multirow{5}{*}{Power Quality (PQ) Estimation} &  Literature Review on PQ & Finished \\ \cline{2-3}
+ & MaxEnt based PQ Estimation & Algorithm Designed \\ \cline{2-3}
+ &  Experiments & Done \\ \cline{2-3}
+ &  Paper Publication & Published \\ \cline{2-3}
+ &  Extension of the work & November, 2014 \\ \hline
+\multirow{7}{*}{Intelligent Meter Placement} &  Literature on Meter Placement  & Finished \\ \cline{2-3}
+ & \begin{tabular}{@{}l@{}}Proposed Solutions: \\1) Entropy Based \\2) Bayesian Network Based \end{tabular} & Algorithms Designed \\ \cline{2-3}
+ &  Experiments & Done \\ \cline{2-3}
+ &  Paper Publication & Published \\ \cline{2-3}
+ &  Extension of the work & April, 2014 \\ \hline
+\multirow{3}{4cm}{Detecting Malfunctioning Devices} & Literature Review & June, 2014 \\ \cline{2-3}
+ &  Proposed Solution & July, 2014 \\ \cline{2-3}
+ &  Paper Writing & August, 2014 \\ \hline
+\multirow{3}{4cm}{Investigating the Meter Choices} & Literature Review & January, 2015 \\ \cline{2-3}
+ &  Proposed Solution & February, 2015 \\ \cline{2-3}
+ &  Paper Writing & March, 2015 \\ \hline
+ &  Ph.D Dissertation & June, 2015 \\ \hline
+\end{tabular}
+\caption{Expected Contributions and their Expected Completion Dates.}
+\label{tbl:contributions}
+\end{table}
+
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+\begin{figure}[!t]
+    \centering
+    \hspace*{-1.25in}
+    %\vspace*{-0.8in}%space between caption and fig
+    \includegraphics[width=1.35\textwidth]{ganttChart}
+    \caption{Gantt Chart of Expected Contributions.}
+    \label{fig:ganttChart}
+\end{figure}
+
+%  \begin{gantt}[xunitlength=0.6cm,fontsize=\small,titlefontsize=\small,drawledgerline=true]{10}{16}
+%    \begin{ganttitle}
+%      \numtitle{9}{1}{12}{1}
+%      \numtitle{1}{1}{12}{1}
+%    \end{ganttitle}
+%    \ganttbar{a task}{0}{2}
+%    \ganttbarcon{a consecutive task}{2}{4.6}
+%    \ganttbarcon{another consecutive task}{2}{2}
+%    \ganttbar{another task}{2}{2}
+%    \ganttbar[color=cyan]{another coloured task}{2}{1.5}
+%  \end{gantt}

@@ -1,0 +1,14 @@
+\startchapter{A Prediction Model}
+\label{chap:predictionModel}
+\section{Motivation}
+As discussed in Chapter~\ref{chapter:introduction}, the main objective of this work is to increase the reliability of power networks in terms of power quality. In order to monitor the power quality, power quality measurement devices are being deployed. Since power quality meters are expensive devices, we propose to intelligently place the power meters on selected segments in the power network. We then estimate power quality on unmonitored links based on the known values from monitored links. Since the power quality readings (exact readings from monitored links, estimated reading from unmonitored links) are available now, we can use this information to estimate the state of the network and identify any potential malfunctioning device. Our research problem becomes: \textit{how to detect a potential malfunctioning device in the power network based on available PQ readings}. Next section briefly elaborate the proposed idea of detecting the potential malfunctioning devices in the power network.
+
+\section{The Model}
+
+\section{Evaluations}
+Assume that one or more smart meters have continuously measured poor power quality. The power quality is indicated by some specific power quality index, for instance the System Average RMS Variation Frequency (SARFI) index . Based on the measured and estimated PQ values, we would like to know which device is most likely to be malfunctioning. Here, we assume that we know the transform function of each device if the device is working properly. We call these transfer functions the regular transform functions of the devices. Now, a malfunctioning device is the one whose estimated transform function deviates significantly from its regular transform function.
+
+We plan to first give a comprehensive mathematical model of the problem. We then device a mechanism to calculate the deviation in transfer functions and finally we plan to propose an algorithm to efficiently identify any potential malfunctioning device in the power network. The proposed algorithm will be evaluated on various tree and bus structured network; specifically we will use the IEEE standard test networks for our simulations.
+
+\section{Conclusion}
+Power quality meters play an important role in the reliability of power networks. We plan to investigate the problem of identifying devices that degrade the power quality in the system. The proposed solution will be built on top of our already proposed work.

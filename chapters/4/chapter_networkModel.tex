@@ -1,0 +1,64 @@
+\startchapter{A Network Approach}
+\label{chap:networkModel}
+\section{Motivation}
+The power network has many logical and physical similarities with data networks. We model the power network as data-driven network which give us the opportunity to use the well-investigated network monitoring and data estimation algorithms to solve the network quality monitoring in power grids. The proposed network model is described in the next section.
+
+\section{The Model}
+We now model the power grid as a data-driven network, {\em analogically}, where electrical components are represented as nodes, power links as data links, and power flow as data flow. Hence the power grid can be viewed as a data network where we have nodes connected via data links and the data links transmit numeric data (i.e., power quality values/events in our case).
+
+In order to classify flow of current as data (integer values), we divide the time into small slices where in each slice we classify the flow of power on any link as integer values. For the sake of generality, we represent these classes from $c_1$ to $c_n$. The power meters measure power quality continuously and assign a power quality class to each time slice according to the power quality in the interval. So in every time slice, we know power quality values in terms of integers on links where the power meters are installed. 
+
+\begin{figure}[!t]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{d_channel}
+    \caption{Power quality transition at each device $d$ as a channel.}
+    \label{fig:d_channel}
+\end{figure}
+
+In order to simplify our model, we treat the power flow through each node as a channel (shown in Figure~\ref{fig:d_channel}). The input and output of this channel at each node comprises $n$ power quality classes. The probability that a power quality $c_x$ will be received as $c_y$ at the output of the channel at each device $d$ is represented by the symbol $p_{c_y  \mid c_x}^{(d)}$. For each device $d$ (or a subnet consisting of the concatenation of several devices), we call the $n\times n$ matrix consisting of the probability values  $p_{c_y  \mid c_x}^{(d)}$ the {\em power quality transition function\footnote{For a device (or subnet) having multiple inputs/outputs, a power quality transition function is associated with each input/output pair.}}, or simply {\em transition function}. We represent the power quality transfer function $f(d)$ of a device $d$ as a matrix as
+
+\begin{equation}
+f(d) = \left[\begin{array}{cccc} p_{c_1 \mid c_1}^{(d)} & p_{c_2 \mid c_1}^{(d)} & \cdots & p_{c_n \mid c_1}^{(d)}\\
+p_{c_1 \mid c_2}^{(d)} & p_{c_2 \mid c_2}^{(d)} & \cdots & p_{c_n \mid c_2}^{(d)}\\
+\vdots & \vdots& \ddots & \vdots\\
+p_{c_1 \mid c_n}^{(d)} & p_{c_2 \mid c_n}^{(d)} & \cdots & p_{c_n \mid c_n}^{(d)}
+\end{array}\right],
+%\label{eqn:pqf}
+\end{equation}
+
+\noindent
+where $p_{c_y \mid c_x}^{(d)}$ is the probability that the input quality $c_x$ is received as $c_y$ at the output of device $d$. Note that every row in the above matrix should sum to $1$.
+
+The above model significantly simplify the network complexity of the power grid. Using this analytical model, in the next few chapters, we propose various algorithms for power quality monitoring and demonstrate that this model significantly helps simplify things out there. A short summary of the proposing algorithms as applications of our analytical model is given in the next section.
+
+\section{Applications}
+We build various applications on top of the analytical framework we proposed in this Chapter. The applications are as follows.
+
+\begin{figure*}[!t]
+    \centering
+    \includegraphics[width=0.85\textwidth]{powerNetwork}
+    \caption{A simple view of power microgrid}
+    \label{fig:gridNetwork}
+\end{figure*}
+
+
+\subsection{Power Quality Estimation}
+Figure~\ref{fig:gridNetwork} shows a view of a power grid where there are different types of electrical devices connected to each other via power links. The smart meters are also installed on selected links. Moreover, every type of device has a power quality function which may be unknown. We want to estimate all the power quality functions based on the power quality values available on selected links where smart meters are installed.
+
+In order to estimate the reliability of every device in the network, we need to estimate the power quality function $f(d_j)$ for each device $d_j$ based on the quality function $f(s)$ of the subnet. It is clear that
+
+\begin{equation}
+\label{eqn:prod}
+f(s) = \prod_{j} f(d_j),
+\end{equation}
+
+Our objective is to estimate $p_{c_y \mid c_x}^{(d_j)}$ (probability that power quality $c_x$ will be mapped to power quality $c_y$ at each device $d_j$). In order to solve the above research problem, we model the power network as data network which give us the opportunity to use the already proposed data estimation techniques to solve Eq.~(\ref{eqn:prod}).
+
+\subsection{Intelligent Meter Placement}
+For the meter placement problem, we propose an iterative approach for identifying network segments suitable for power meter placement. During each iteration of the algorithm we identify in a greedy manner the network segment that suffers from the most unpredictable power quality given the meters deployed so far. We then deploy the next power meter at that location. Our proposed meter placement algorithms take advantage of our network model to calculate the uncertainty of the power quality values on various network segments.
+
+Similarly, we use the same network model to solve the problem of getting the optimized number of meters required to achieve certain level of reliability. We formulate this problem as an optimization problem where the objective is to reduce the number of meters while maintaining an acceptable level of reliability. In order to calculate the reliability (the uncertainty of power quality) on power links, we use this network model which simplify the representation of the power network as a data network.
+
+
+\subsection{Detecting a Malfunction Device}
+Our third contribution is detecting a malfunction device in the power grid. Since the model we propose to detect a malfunction device uses our meter placement algorithms, the same concept of simplifying the power grid as a data network need to be used here as well. The proposed model is using the exact PQ values from the metered locations and inferred values from the non-metered locations in the network. A device is considered malfunction when it consistently behaving abnormal by generating significantly different PQ values than the expected ones. The acceptable behaviour is derived with the help of CBEMA curve.

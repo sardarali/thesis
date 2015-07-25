@@ -1,0 +1,14 @@
+\newpage
+\TOCadd{Abstract}
+
+%\noindent \textbf{Supervisory Committee}
+%\tpbreak
+%\panel
+
+\begin{center}
+\textbf{ABSTRACT}
+\end{center}
+
+Due to the high measuring cost, the monitoring of power quality is non-trivial. This work is aimed at reducing the cost of power quality monitoring in power network. Using a real-world power quality dataset, this work adopts a learn-from-data approach to obtain a device latent feature model, which captures the device behaviour as a power quality transition function. With the latent feature model, the power network could be modeled, in analogy, as a data-driven network, which presents the opportunity to use the well-investigated network monitoring and data estimation algorithms to solve the network quality monitoring problem in power grid. Based on this network model, algorithms are proposed to: 1) intelligently place measurement devices on suitable power links to reduce the uncertainty of power quality estimation on unmonitored power links, 2) estimate the power quality in unmonitored segments of a power network, using only a small number of measurement points, and 3) identify a potential malfunction device in the network.
+
+The meter placement algorithms use entropy-based measurements and Bayesian network models to identify the most suitable power links for power meter placement. Experimental results show that the meter placement solution is efficient, and has the potential to significantly reduce the uncertainty of power quality values on unmonitored power links. After deploying power quality meters on selected links, for the unmonitored segments in the network, a maximum entropy (MaxEnt) based approach is presented to estimate power quality in smart grid. Compared to other existing methods such as Monte Carlo Expectation Maximization (MCEM), the MaxEnt based approach is much faster. Finally, using reading from our metered locations, we propose a prediction model that derive an acceptable device behaviour with the help of CBEMA curve to identify a potential malfunction device in the power grid. Our simulation results show that our prediction model accurately detect the malfunction devices and makes the device maintenance/replacement recommendations.
