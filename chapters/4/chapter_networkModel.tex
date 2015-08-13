@@ -4,9 +4,7 @@
 The power network has many logical and physical similarities with data networks. We model the power network as data-driven network which give us the opportunity to use the well-investigated network monitoring and data estimation algorithms to solve the network quality monitoring in power grids. The proposed network model is described in the next section.
 
 \section{The Model}
-We now model the power grid as a data-driven network, {\em analogically}, where electrical components are represented as nodes, power links as data links, and power flow as data flow. Hence the power grid can be viewed as a data network where we have nodes connected via data links and the data links transmit numeric data (i.e., power quality values/events in our case).
-
-In order to classify flow of current as data (integer values), we divide the time into small slices where in each slice we classify the flow of power on any link as integer values. For the sake of generality, we represent these classes from $c_1$ to $c_n$. The power meters measure power quality continuously and assign a power quality class to each time slice according to the power quality in the interval. So in every time slice, we know power quality values in terms of integers on links where the power meters are installed. 
+We model the power network as a data-driven network, in analogy, where we represent the electrical components as network nodes, power links as data links, and the flow of power as data flow on the links. We assign the power quality on a link at an instance in time as a discrete class (from $c_1$ to $c_n$). Aligning with the meters' sampling interval, the time is slotted, and in every time slot, we record a power quality class of each link where a power quality meter is installed. 
 
 \begin{figure}[!t]
     \centering
@@ -15,7 +13,7 @@ In order to classify flow of current as data (integer values), we divide the tim
     \label{fig:d_channel}
 \end{figure}
 
-In order to simplify our model, we treat the power flow through each node as a channel (shown in Figure~\ref{fig:d_channel}). The input and output of this channel at each node comprises $n$ power quality classes. The probability that a power quality $c_x$ will be received as $c_y$ at the output of the channel at each device $d$ is represented by the symbol $p_{c_y  \mid c_x}^{(d)}$. For each device $d$ (or a subnet consisting of the concatenation of several devices), we call the $n\times n$ matrix consisting of the probability values  $p_{c_y  \mid c_x}^{(d)}$ the {\em power quality transition function\footnote{For a device (or subnet) having multiple inputs/outputs, a power quality transition function is associated with each input/output pair.}}, or simply {\em transition function}. We represent the power quality transfer function $f(d)$ of a device $d$ as a matrix as
+Moreover, in order to simplify our model, we treat the power flow through each node as a channel (shown in Figure~\ref{fig:d_channel}). The input and output of this channel at each node comprises $n$ power quality classes. The probability that a power quality $c_x$ will be ``received" as $c_y$ at the output of the channel at each device $d$ is represented by the symbol $p_{c_y  \mid c_x}^{(d)}$. For each device $d$, we call the $n\times n$ matrix consisting of the probability values  $p_{c_y  \mid c_x}^{(d)}$ the \emph{power quality transition function}, or simply \emph{transition function}. For a device (subnet) having multiple inputs/outputs, a power quality transition function is associated with each input/output pair. We represent the power quality transition function $f(d)$ of a device $d$ as a matrix as
 
 \begin{equation}
 f(d) = \left[\begin{array}{cccc} p_{c_1 \mid c_1}^{(d)} & p_{c_2 \mid c_1}^{(d)} & \cdots & p_{c_n \mid c_1}^{(d)}\\
@@ -23,13 +21,13 @@ p_{c_1 \mid c_2}^{(d)} & p_{c_2 \mid c_2}^{(d)} & \cdots & p_{c_n \mid c_2}^{(d)
 \vdots & \vdots& \ddots & \vdots\\
 p_{c_1 \mid c_n}^{(d)} & p_{c_2 \mid c_n}^{(d)} & \cdots & p_{c_n \mid c_n}^{(d)}
 \end{array}\right],
-%\label{eqn:pqf}
+\label{eqn:pqf}
 \end{equation}
 
 \noindent
-where $p_{c_y \mid c_x}^{(d)}$ is the probability that the input quality $c_x$ is received as $c_y$ at the output of device $d$. Note that every row in the above matrix should sum to $1$.
+where $p_{c_y \mid c_x}^{(d)}$ is the probability that the input quality $c_x$ is received as $c_y$ at the output of device $d$. Note that every row in the above matrix should sum to $1$. 
 
-The above model significantly simplify the network complexity of the power grid. Using this analytical model, in the next few chapters, we propose various algorithms for power quality monitoring and demonstrate that this model significantly helps simplify things out there. A short summary of the proposing algorithms as applications of our analytical model is given in the next section.
+The above model significantly simplify the network complexity of the power grid. Using this analytical model, in the next few chapters, we propose various algorithms for power quality monitoring and demonstrate that this model significantly simplify our solutions. A short summary of the proposing algorithms as applications of our analytical model is given in the next section.
 
 \section{Applications}
 We build various applications on top of the analytical framework we proposed in this Chapter. The applications are as follows.
