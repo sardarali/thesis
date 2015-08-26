@@ -95,7 +95,7 @@ The original power quality events reported by our power quality meters carry det
 
 Using IEEE Standard 1159~\cite{IEEE09_1159}, we classify the power quality events based on the fluctuation of the voltage for a predefined period. There are $14$ different power quality classes defined in the standard, denoted from $c_1$ to $c_{14}$, respectively. Table~\ref{tbl:sampleClassData} shows samples of the events we classify using the IEEE standard where the power quality class is shown in the last column of the table. The frequency of events belonging to the IEEE power quality class ($c_1$ to $c_{14}$) is shown in Table~\ref{tbl:perClassFreq}.
 
-\subsection{Capturing the Latent Feature/Transition Function ($f(d)$)}
+\section{Capturing the Latent Feature/Transition Function ($f(d)$)}
 Using the real-world power quality dataset, we capture the device latent feature in three simple steps as follows:
 
 \begin{enumerate} \setlength{\itemsep}{5pt}
@@ -144,7 +144,7 @@ Using the real-world power quality dataset, we capture the device latent feature
 \item  \textbf{Frequency to probability mapping:} Finally, the transition function is calculated by dividing every element of the frequency table ($fr(d)$) by the sum of the row containing that element, i.e., $f(d, i, j) = fr(d, i, j) / \sum_{k=1}^{14} fr(d, i, k)$. Here, we slightly abuse the notation by using $f(d, i, j)$ to represent the value at the intersection of the $i$-th row and the $j$-th column in matrix $f(d)$. Hence, the transition function is represented with a matrix. If every element in a row (say $i$-th row) of the frequency table is a $0$, we assume the same probability (i.e., $1/14$) for each element in that row in the transition function, implying that no knowledge can be learned from the dataset about the corresponding input event ($c_i$) on this device, and as such we assume the maximum uncertainty on its output events to avoid biased estimation. Table~\ref{tbl:sampleTF} shows a sample transition function formulated from Table~\ref{tbl:freqTable}.
 \end{enumerate}
 
-\subsection{Cross-validation of $f(d)$}
+\section{Cross-validation of $f(d)$}
 We use $k$-fold cross-validation technique to measure the accuracy of latent features we learned. We partition the dataset into $k$ random samples of equal size. Out of the $k$ samples, we use $k-1$ samples to generate a training transition function and one sample to generate the test transition function. The cross-validation is repeated $k$ times where each of the k-samples is used exactly once for validation. The $k$ results are then averaged to produce a single estimation for each device.
 
 The Mean-Square Error (MSE) is used to measure the variation of the validation/test function (represented as $f_v(d)$) from its training function (represented as $f_t(d)$).  The MSE is calculated as: \[mse = \sum_{i=1}^{14} \sum_{j=1}^{14} \mid f_v(d, i, j) - f_t(d, i, j) \mid / (i \times j).\]
