@@ -5,7 +5,16 @@ As discussed in Chapter~\ref{chapter:introduction}, the main objective of this w
 
 Since the power quality readings (exact readings from monitored links, estimated reading from unmonitored links) are available now, we use this information to estimate the state of the network and identify any potential malfunctioning device. The research objective is to address the problem: \textit{how to detect a potential malfunctioning device in the power network based on available power quality readings}. In the next section, we propose an algorithm that helps to detect the malfunctioning devices in the power network.
 
-\section{The Model}
+\section{Problem Formulation}
+\begin{enumerate}
+\item We know the transition functions or behavior of devices
+\item device significantly deviating form its normal behavior need to be detected
+\item if no smart meter installed on that device, need to estimate from neighboring links
+\item the metered link detects deviation and estimate the deviations of all devices between itself and parent metered link
+\end{enumerate}
+
+\section{Our Prediction Algorithm}
+
 
 \section{Evaluations}
 Assume that one or more smart meters have continuously measured poor power quality. The power quality is indicated by some specific power quality index, for instance the System Average RMS Variation Frequency (SARFI) index . Based on the measured and estimated PQ values, we would like to know which device is most likely to be malfunctioning. Here, we assume that we know the transform function of each device if the device is working properly. We call these transfer functions the regular transform functions of the devices. Now, a malfunctioning device is the one whose estimated transform function deviates significantly from its regular transform function.
