@@ -12,22 +12,44 @@ As discussed in Chapter~\ref{chapter:introduction}, the main objective of this w
 Since the power quality readings (exact readings from monitored links, and estimated PQ values from unmonitored links) are available now, we use these readings to estimate the state of the network and identify any potential malfunctioning device in the power network. Our objective in this chapter is to address the research challenge: \textit{how to detect a potential malfunctioning device in the power network based on available power quality readings}. In the next section, we propose an algorithm that helps to detect the malfunctioning devices in the power network.
 
 \section{Problem Formulation}
+\subsection{Assumptions}
 We make below assumptions about the problem:
-
 \begin{enumerate}
 \item \textit{The transfer function or behavior $\left(f\left(d\right)\right)$ of each device $d$ in the network is known}. As discussed earlier, a device-specific power quality transfer function could be estimated through physical modeling or through the assessment of historical PQ data. In Chapter~\ref{chap:latentF}, using a real power quality dataset, we have shown how accurately an $f(d)$ could be estimated.
+
 \item \textit{All potential malfunction devices need to be on a monitored segment.} A potential malfunction device could effectively be detected when the device itself or any of its child device is monitored in real time using a PQ meter. This assumption is realistic in the sense that if the underline link is not monitored, we cannot get the real-time status of PQ values and would not be able to detect if a device is not behaving normally. The idea is to detect if a device is significantly deviating form its normal behavior.
 
-\item \textit{The power grid network is a tree-structured network where the electric current flows from root node to the child nodes.}
-\item \textit{The probability mass function $\left(pmf\left(d_0\right)\right)$ of power quality values at the input link to the root node is known}
+\item \textit{The power grid network is a tree-structured network where the electric current flows from root node to the child nodes.} Note that this is a reasonable assumption at any particular instance in time. While enterprise level power grids used in places such as hospitals and data centers often have two utility feeds available as well as an independent emergency power source, only one power source is typically used at one time. See the IEEE Gold Book~\cite{goldbook} for further information on recommended practices in the design of critical power systems.
+
+\item \textit{The probability mass function} (\textit{pmf}$\left(d_0\right)$)\textit{ of power quality values at the input link to the root node is known.} In other words, the distribution of power quality at the input to the network, usually the utility feed, is known. This is also a reasonable assumption, since electrical utilities typically report on indices such as System Average RMS Variation Frequency Index (SARFI) which is essentially a count of the number of times the magnitude and duration falls below a threshold. Furthermore, there are often independent bodies that gather statistics on power delivery service reliability that can also be incorporated into an estimate of power quality distribution~\cite{chowdhury2004reliability}.
 \end{enumerate}
 
-- If no smart meter installed on that device, need to estimate from neighboring links
+\subsection{The Problem}
+We now formalize the problem of detecting a malfunction device in the network. The objective is to detect a device $d$ in the network as a malfunction device when its power quality output degrades persistently from its normal behavior. Since the transition function $f(d)$ of each device $d$ is known, we know the probability distribution of each of the output power quality (\emph{pmf}$\left(d\right)$) of each device in the network.   any variation $\delta_d$ from $f(d)$ need to be detected and classified. model is     
+
+If no smart meter installed on that device, need to estimate from neighboring links
 
 - The metered link detects deviation and estimate the deviations of all devices between itself and parent metered link
 
 
 \section{Our Prediction Algorithm}
+for every sample -> check if f(d) varies by f1(d)\\
+for the detected segment, use maxent to estimate f(d1) to f(dn)\\
+sort them by descending order of variation\\
+the top one is high probable.
+
+bad power quality events\\
+unit time interval\\
+window size\\
+an interval is bad quality interval when it is classified as >= 4\\
+threshold number of bad quality intervals\\
+misbehaving device on the detected link\\
+candidate links are\\
+use maxent
+
+
+using input pdf simulation dataset was generated\\
+we use f(d) as in chapter 3
 
 
 \section{Evaluations}
