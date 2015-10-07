@@ -51,6 +51,12 @@ use maxent
 using input pdf simulation dataset was generated\\
 we use f(d) as in chapter 3
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.98\textwidth]{PQOutputDistribution}
+\caption{Power quality distributions at the output links of various devices. The average power quality class and computed threshold is shown as vertical lines in each  distribution graph.}
+\label{fig:outputPQDistributions}
+\end{figure}
 
 \section{Evaluations}
 Assume that one or more smart meters have continuously measured poor power quality. The power quality is indicated by some specific power quality index, for instance the System Average RMS Variation Frequency (SARFI) index . Based on the measured and estimated PQ values, we would like to know which device is most likely to be malfunctioning. Here, we assume that we know the transform function of each device if the device is working properly. We call these transfer functions the regular transform functions of the devices. Now, a malfunctioning device is the one whose estimated transform function deviates significantly from its regular transform function.
