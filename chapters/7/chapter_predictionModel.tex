@@ -80,22 +80,59 @@ The above correlation measure could be used to compare the actual and observed P
 \end{figure}
 
 \subsubsection{Missed Detection Scenarios}
-This scenario arises when a device is producing a very bad power quality (malfunctioning) and the system does not detect it. The system will classify the observed distribution as perfectly normal (similar to the normal) when the correlation is +1 (or close to +1). For all normal behaving devices, the observed distribution will be very similar to the normal and a +1 correlation will perfectly classifying them as normal. Nevertheless, we identified cases where the PQ is significantly degraded and the distributions were highly correlated. In all those cases, we cannot use the simple correlation formula. Figure~\ref{corr_positive} shows one such example where the power quality is significantly degraded and the correlation coefficient is a +1.
+This scenario arises when a device is producing a very bad power quality (malfunctioning) and the system does not detect it. The system will classify the observed distribution as perfectly normal (similar to the actual) when the correlation is +1 (or close to +1). For all normal behaving devices, the observed distribution will be very similar to the actual and a +1 correlation will perfectly classifying them as normal. Nevertheless, we identified cases where the PQ is significantly degraded and the distributions were highly correlated. In all those cases, we cannot use the simple correlation formula. Figure~\ref{corr_positive} shows one such example where the power quality is significantly degraded and the correlation coefficient is a +1.
 
 \subsubsection{False Detection Scenarios}
-We classify a detection as false when its power quality output is similar (or slightly degraded) from its normal. Using the correlation measure, a device is detected as malfunction when the correlation coefficient is smaller (close to 0 or smaller than 0). Although we observed that this measure works in various cases, we have also been able to identify few scenarios where the simple correlation measure miss-classify devices as malfunction. These scenarios are explained in two categories as follows:
+We classify a detection as false when its power quality output is similar (or slightly degraded) to its actual distribution. Using the correlation measure, a device is detected as malfunction when the correlation coefficient is smaller (close to 0 or smaller than 0). Although we observed that this measure works in various cases, we have also been able to identify few scenarios where the simple correlation measure miss-classify devices as malfunction. These scenarios are explained in two categories as follows:
 
 \begin{enumerate}
 \item \textbf{Zero Correlation:} A zero correlation means the two distributions do not share any particular correlation. In our case, most probably, observing a distribution which do not share any correlation implies degradation in the power quality. But we cannot tell for sure if the observed distribution is good or bad. Figure~\ref{corr_zero} represents a scenario where the observed power quality is better and we can not classify the device as a malfunction simply based on a zero correlation.
 
-\item \textbf{Negative Correlation:} In a negative correlation between two variables, the value of one variable increases while the other decreases, and vice versa. Although theoretically possible, it is rare to get a perfectly negative correlation in power quality measures. In a negative correlation, the observed distribution is either a bad or good PQ distribution than its normal. Although the probability of getting a bad PQ is higher than that of a good, it cannot always be guaranteed.
+\item \textbf{Negative Correlation:} In a negative correlation between two variables, the value of one variable increases while the other decreases, and vice versa. Although theoretically possible, it is rare to get a perfectly negative correlation in power quality measures. In a negative correlation, the observed distribution is either bad or good compared to the actual distribution. Although the probability of getting a bad PQ is higher than that of a good, it cannot always be guaranteed.
 
 Further, although the negative correlation can quantify the symmetry of the distribution, in cannot essentially quantify how much the distribution are different. For instance, Figure~\ref{corr_negative_low} shows a perfect -1 correlation but the actual PQ degradation is very minor. Finally, for the sack of theoretical proof, Figure~\ref{corr_negative_high} demonstrate a significant PQ improvement as a power quality degradation.
 
 \end{enumerate}
 
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.6\textwidth]{average_pq_exception}
+\caption{Two very different power quality distributions with same expected/average PQ output/class.}
+\label{fig:average_pq_exception}
+\end{figure}
 
-\subsection{The Average PQ class based algorithm}
+\subsection{An average PQ measure}
+This measure is based on average power quality. A device is classified as a malfunction if its PQ output is significantly deviated from its normal average power quality. Clearly, if a device start malfunction by producing bad PQ output, its average output will deviate from its actual average output.
+
+\[\Delta_d = E[f_x(d)] - E[\widehat {f_x}(d)] \leq \theta_d \]
+
+\noindent where $\theta_d$ is the threshold/maximum value allowed at which a device is classified as malfunction. In other words, $\theta_d$ is the maximum allowed deviation between the expected PQ classes of the two distributions. The value of $\theta_d$ could be fixed for all devices, for instance, by using $\theta_d = 1$, any device whose average output is varied by 1 class from its actual average output will be classified as a malfunction device. We use $\theta_d$ equal to standard deviation of the observed output distribution, i.e., $\theta_d=\sigma_d$. Using standard deviation as threshold will allow us to use slightly larger/relaxed threshold for devices generating less uncertain outputs in normal conditions (compared to other devices in the same network). Figure~\ref{fig:outputPQDistributions} shows the expected value and corresponding threshold values form various devices in our sample power grid.
+
+It is theoretically possible to produce two very different PQ distributions with same average output PQ.  One such scenario is demonstrated in Figure~\ref{fig:average_pq_exception}. Although it is debatable whether the observed distribution in Figure~\ref{fig:average_pq_exception} is acceptable as normal or not, we take a safer approach and address the problem by proposing a composite measure.
+
+\subsection{A composite measure}
+As discussed earlier, it is very clear the average power quality ($E[\widehat{f_x}(d)]$) will degrade (higher PQ class) when a device produce significantly bad power quality than its actual average power quality. Simply measuring the difference between expected values of actual, and observed PQ classes can detect if a device is a malfunction. Although this simple technique works well, theoretically it is possible that the actual and a very different observed PQ output distributions may produce similar expected value. To tackle this problem, we propose a composite expected value measure which guarantees the true detection of a malfunction device in terms of power quality degradation.
+
+In the composite expected value measure, we calculate two separate expected values: 1) expected value of the complete distribution; and 2) expected value of the PQ classes greater than the average class computed on complete distribution. The second measure allow the algorithm to detect a potential malfunction device not detected by the first measure. In other words, for a malfunction device, if the observed expected value is similar to the actual expected value, the probability values for higher classes must be greater (or the device is not a malfunction). Our proposed algorithm is shown as Algorithm~\ref{algo:malfunDetectionAlgo}.
+
+\begin{algorithm}[!t]
+\begin{small}
+\KwIn{distribution function of input link to device 1 i.e., $f_x^{(0)}$, transfer function $f(d)$, network topology, positions of the installed power meters $M$}
+\KwOut{$L$ (list of devices detected as malfunction)}
+\Begin{
+   \ForEach {(device $d$)}{
+      $\hat d \leftarrow getParent(d);$ \\
+      /* Note that device 1 (root of the tree) has no parent i.e., \emph{getParent(1) = 0} and $f_x(0)$ is given */\\
+      $f_x(d) \leftarrow f_x(\hat d) \times f(d)$; \\
+      $H(d) \leftarrow - \sum_{i=1}^n p_{c_i}^{(d)} \log p_{c_i}^{(d)};$\\
+      /* where $p_{c_i}^{(d)}$ is the $i^{th}$ component of $f_x(d)$ vector */
+   }
+/* get $N$ high entropy devices in vector $H$ */\\
+$L \leftarrow getHighEntopyDevices(H, N)$
+}
+\caption{A malfunction device detection algorithm} \label{algo:malfunDetectionAlgo}
+\end{small}
+\end{algorithm}
 
 for every sample -> check if f(d) varies by f1(d)\\
 for the detected segment, use maxent to estimate f(d1) to f(dn)\\
@@ -120,6 +157,9 @@ If no smart meter installed on that device, need to estimate from neighboring li
 - The metered link detects deviation and estimate the deviations of all devices between itself and parent metered link
 
 \section{Evaluations}
+simulation setup
+dataset generation
+Performance
 Assume that one or more smart meters have continuously measured poor power quality. The power quality is indicated by some specific power quality index, for instance the System Average RMS Variation Frequency (SARFI) index . Based on the measured and estimated PQ values, we would like to know which device is most likely to be malfunctioning. Here, we assume that we know the transform function of each device if the device is working properly. We call these transfer functions the regular transform functions of the devices. Now, a malfunctioning device is the one whose estimated transform function deviates significantly from its regular transform function.
 
 We plan to first give a comprehensive mathematical model of the problem. We then device a mechanism to calculate the deviation in transfer functions and finally we plan to propose an algorithm to efficiently identify any potential malfunctioning device in the power network. The proposed algorithm will be evaluated on various tree and bus structured network; specifically we will use the IEEE standard test networks for our simulations.
