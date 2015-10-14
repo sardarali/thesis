@@ -132,7 +132,7 @@ Given the transition function $f(d)$, we use a Monte Carlo (MC) method to obtain
 \end{figure}
 
 \subsubsection{Event Inference using Belief Propagation}
-The samples obtained by the MC simulation of power quality propagation contain consistent sets of power quality values at both metered and non-metered locations. We use Bayesian inference to infer the power quality at non-metered locations as a function of the  simulated values observed at the metered locations and compare the resulting predictions to the simulated value seen at the non-metered locations. This process gives a relative indication of the predictive strength on each link of the network. Figure~\ref{flowchart} shows a high-level description of this process.
+The samples obtained by the MC simulation of power quality propagation contain consistent sets of power quality values at both metered and unmetered locations. We use Bayesian inference to infer the power quality at unmetered locations as a function of the  simulated values observed at the metered locations and compare the resulting predictions to the simulated value seen at the unmetered locations. This process gives a relative indication of the predictive strength on each link of the network. Figure~\ref{flowchart} shows a high-level description of this process.
 
 \begin{algorithm}[!ht]
 \begin{small}
@@ -151,7 +151,7 @@ $M \leftarrow 0;$ $\delta_{curr} \leftarrow \delta_{max};$ \\
       \ForEach {(Monte Carlo Sample $k$)} {
 				%$x = ( x_m \cup \hat x_m ) \leftarrow $ sample of instantaneous network state;\\
 				$L \leftarrow$ set of metered links $\in$ $T$; \\
-				$L' \leftarrow$ set of non-metered links $\in$ $T$;\\
+				$L' \leftarrow$ set of unmetered links $\in$ $T$;\\
 				$\widehat C_k\leftarrow$ predictPowerQuality($L', L, T$);\\
 				 /* $\widehat C_k$ is the $k^{th}$ set of predicted power quality values while $C_k$ is the $k^{th}$ set of sampled values at all links*/\\  
       	\ForEach {(link $l \in L'$)} {
@@ -180,7 +180,7 @@ $function$ predictPowerQuality($L', L, T$) : $C_k$\\
 \end{algorithm}
 
 \noindent \\
-To do the prediction, we first model the power network as a factor graph (Figure \ref{factorgraph}) and then use belief propagation to find the inferred values of power quality at the output of each node using the (simulated) evidence obtained from the power meters. The factor graph has conditional probability nodes $t$, equality nodes $x$, and evidence nodes $y$. The $t$ nodes represent actual electrical devices with a known transition function. The $x$ nodes represent wired connections on our network for which we have already obtained a set of samples using MC sampling. These nodes are constrained so that all edges connected to them are equal. The $y$ nodes represent locations where a power meter could be placed. The non-metered nodes are initialized to a uniform \emph{pmf} and the metered nodes are set to a trivial \emph{pmf} with a probability of $1$ at the true power quality event and $0$ everywhere else. 
+To do the prediction, we first model the power network as a factor graph (Figure \ref{factorgraph}) and then use belief propagation to find the inferred values of power quality at the output of each node using the (simulated) evidence obtained from the power meters. The factor graph has conditional probability nodes $t$, equality nodes $x$, and evidence nodes $y$. The $t$ nodes represent actual electrical devices with a known transition function. The $x$ nodes represent wired connections on our network for which we have already obtained a set of samples using MC sampling. These nodes are constrained so that all edges connected to them are equal. The $y$ nodes represent locations where a power meter could be placed. The unmetered nodes are initialized to a uniform \emph{pmf} and the metered nodes are set to a trivial \emph{pmf} with a probability of $1$ at the true power quality event and $0$ everywhere else. 
 
 For each time slot $t_{i}$ we infer the maximum likelihood power
 quality event that would appear at each node given the current meter
@@ -354,7 +354,7 @@ placed by BP while the solid circles show the meter placed by MinEntropy.}
 %\vspace{-0.15in}
 \end{figure}
 
-Figure~\ref{NetworkDiagrams} shows the meters placed by the two algorithms in various network topologies. The positions of the meters placed by both algorithms are essentially similar. The MinEntropy algorithm achieves much faster results, completing in less than a second in all cases. On the other hand, the BP takes a longer time to complete. This is because BP compares individual samples on all links for every possible placement while the MinEntropy approach computes the conditional entropies at non-metered locations using probability mass functions instead of using individual samples. Algorithm completion times for both BP and CE approaches are shown in Table~\ref{network_configuration_results}.
+Figure~\ref{NetworkDiagrams} shows the meters placed by the two algorithms in various network topologies. The positions of the meters placed by both algorithms are essentially similar. The MinEntropy algorithm achieves much faster results, completing in less than a second in all cases. On the other hand, the BP takes a longer time to complete. This is because BP compares individual samples on all links for every possible placement while the MinEntropy approach computes the conditional entropies at unmetered locations using probability mass functions instead of using individual samples. Algorithm completion times for both BP and CE approaches are shown in Table~\ref{network_configuration_results}.
 
 \begin{table}[!t]
 \renewcommand{\tabcolsep}{0.05 cm}
@@ -396,7 +396,7 @@ Figure~\ref{NetworkDiagrams} shows the meters placed by the two algorithms in va
 %\vspace{-0.02in}
 \end{table}
 
-The meter placements are then passed to the belief propagation benchmark to compare the accuracy of the two algorithms in terms of mean-square error (MSE), i.e., the mean error between the estimated and actual transition functions on unmonitored links. We collect a set of known samples for a given meter configuration and infer the maximum likelihood power quality event that would appear at each non-metered node using belief propagation. We then estimate the error rate for each node. If the inferred event differs from the event given by the MC sample, we add $1/N$ for that sample. The mean error rate across all nodes is taken as the final performance metric. As shown in Table~\ref{network_configuration_results}, the MSEs are very small for both algorithms in all networks we tested. The BP algorithm gave slightly better estimations than MinEntropy in some cases at a cost of longer running times.
+The meter placements are then passed to the belief propagation benchmark to compare the accuracy of the two algorithms in terms of mean-square error (MSE), i.e., the mean error between the estimated and actual transition functions on unmonitored links. We collect a set of known samples for a given meter configuration and infer the maximum likelihood power quality event that would appear at each unmetered node using belief propagation. We then estimate the error rate for each node. If the inferred event differs from the event given by the MC sample, we add $1/N$ for that sample. The mean error rate across all nodes is taken as the final performance metric. As shown in Table~\ref{network_configuration_results}, the MSEs are very small for both algorithms in all networks we tested. The BP algorithm gave slightly better estimations than MinEntropy in some cases at a cost of longer running times.
 
 We also compare the accuracy of our algorithms in terms of cost savings. Table~\ref{cost_analysis} shows the number of meters needed by each algorithm where it can be clearly seen that using our solution to achieve the same accuracy (error rate of $< 0.05$) can reduce the number of meters by 33\%. Results of the Random placement algorithm were obtained by randomly placing meters until the desired accuracy was achieved.
 

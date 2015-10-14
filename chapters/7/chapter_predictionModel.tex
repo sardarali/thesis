@@ -153,7 +153,7 @@ In the composite expected value measure, we calculate two different expected val
 
 \section{Evaluations}
 \subsection{Simulation setup}
-We simulate the power grid network in Matlab. Various inputs required include: 1) Network topology as an adjacency matrix, 2) device type (e.g., bus, switch, UPS, transformer etc) of each node, 3) transfer matrix $f(d)$ for each node $d$, 3) PQ distribution vector $f_x(d_0)$ of the utility feed, and 4) vector of metered locations.
+We simulate the power grid network in MATLAB. Various inputs required include: 1) Network topology as an adjacency matrix, 2) device type (e.g., bus, switch, UPS, transformer etc) of each node, 3) transfer matrix $f(d)$ for each node $d$, 3) PQ distribution vector $f_x(d_0)$ of the utility feed, and 4) vector of metered locations.
 
 The power quality events were generated using the input distribution $f_x(d_0)$, and transfer function $f(d)$ in level order starting from the root node of the tree. A power quality event $e_d$ at a node $d$ is generated based on the event at its parent link ($e_{\widehat d}$). For example a PQ event of class $c_3$ at a parent link will result into a child event following the distribution in $3^{rd}$ row of $f(d)$. Since the transfer matrices $f(d)$ are computed using our real PQ dataset (see Chapter~\ref{chap:latentF}), the simulated events possesses similar statistical features.
 

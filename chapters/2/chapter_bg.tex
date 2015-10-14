@@ -1,6 +1,6 @@
 \startchapter{Background and Related Work}
 \label{chap:review}
-Due to our hight dependency on electric power, reliability of power networks has become critically important. A variety of hardware and software tools for measuring and monitoring the power quality are available. Before we detail the cutting-edge research work in the area, we discuss the most important causes of power quality problems as follows.
+Due to our high dependency on electric power, reliability of power networks has become critically important. A variety of hardware and software tools for measuring and monitoring the power quality are available. Before we detail the cutting-edge research work in the area, we discuss the most important causes of power quality problems as follows.
 
 \section{Main Causes of Power Quality Problems}
 %There are many causes of power quality problems. The most commons are grouped in the following five categories.
@@ -12,7 +12,7 @@ The voltage sags are brief reductions in voltage while the voltage swells are br
 A harmonic is a periodic, an integer multiple wave of the fundamental frequency. They are caused by non-linear electric loads. Technically, voltage harmonics are caused by the combination of line impedance and current with a frequency other than the fundamental frequency. Harmonics in power grids are the main cause of power quality problems. A lot of harmonics in the power systems can cause malfunctioning or damage to the electric devices. Power quality measurement devices use the technique of Fourier Analysis to detect the magnitude and frequency of of voltage harmonics.
 
 \subsection{Interharmonics}
-Interharmonics are distortions in the current or voltage waveforms. They are different from ordinary harmonics in that it refers to voltages or currents having frequency components that are not integer multiple of the fundamental frequency. They can be found in networks of all voltage classes.They can be found in networks of all voltage classes. They can affect power-line carriers, lighting, computer displays, heating of transformers and motors, mis-operation of electronic devices etc. However, due to their small amplitude and uncertain frequency, they are difficult to detect.
+Interharmonics are distortions in the current or voltage wave-forms. They are different from ordinary harmonics in that it refers to voltages or currents having frequency components that are not integer multiple of the fundamental frequency. They can be found in networks of all voltage classes.They can be found in networks of all voltage classes. They can affect power-line carriers, lighting, computer displays, heating of transformers and motors, miss-operation of electronic devices etc. However, due to their small amplitude and uncertain frequency, they are difficult to detect.
 
 \subsection{Transients}
 Transients (also known as \textit{surges} or \textit{spikes}) are momentary changes in voltage or current that last for a very short period of time. The interval is usually less than $1/16^{th}$ of a voltage cycle or about 1 milliseconds. The typical duration of voltage transients is 50 microseconds while the duration of current transients is 20 microseconds. Transients can come from external sources as well as from within the system. The external sources include lightning, switching of facility loads, poor or loose connections in the distribution system, opening/closing of disconnects, tap changing on transformers, environmental changes. The main culprits within the system causing transients include device switching, arcing, static discharge, and adding or removing loads. If left unchecked, transients can lead to device degradation over time.
@@ -21,9 +21,9 @@ Transients (also known as \textit{surges} or \textit{spikes}) are momentary chan
 As discussed earlier, the life time of electric/electronic devices is dependent on the electric power quality. There are many other causes which effect the power quality in the electric network. In order to improve the reliability of the electric power network, the causes of the power quality problems need to be addresses. Some of the main other causes are as follows.
 
 \subsubsection{Over/Undervoltage}
-When the RMS value of the voltage in a power system raises above 110\% for a duration of greater then 1 minute, it is classified as an overvoltage. It happens when the system is either too weak to support the desired voltage or the voltage controls are sufficient. They are usually the result of switching off a large load. The overvoltage is usually protected using bulk capacitors.
+When the RMS value of the voltage in a power system raises above 110\% for a duration of greater then 1 minute, it is classified as an over-voltage. It happens when the system is either too weak to support the desired voltage or the voltage controls are sufficient. They are usually the result of switching off a large load. The over-voltage is usually protected using bulk capacitors.
 
-An undervoltage is a decrease in the RMS voltage value when it falls under 90\% of its original level for a duration of greater than 1 minute as classified by the CBEMA curve~\cite{iti_curve}. Its causes include overload circuits, load switching, and capacitor bank switching off. Undervoltages may result in premature shutdown of circuits, loss of important data, restart of electronic equipments.
+An under-voltage is a decrease in the RMS voltage value when it falls under 90\% of its original level for a duration of greater than 1 minute as classified by the CBEMA curve~\cite{iti_curve}. Its causes include overload circuits, load switching, and capacitor bank switching off. Under-voltages may result in premature shutdown of circuits, loss of important data, restart of electronic equipment.
 
 \subsubsection{Sustained Interruptions}
 It is a decrease in the voltage level to zero for a period of more than 1 minute as defined by IEEE standard~\cite{IEEE09_1159}. They are often permanent in nature which requires manual intervention to restore the system. This type of interruptions are caused by permanent faults caused by storms, equipment failures, trees striking lines, and other environmental factors. If not tackled on time, these faults may result in a complete shutdown of the facility.
@@ -36,7 +36,7 @@ Frequency variation is the deviation of fundamental frequency from its nominal v
 
 \section{Classification of Power Quality Disturbances}
 \label{PQclassification}
-It is a known phenomena that when a power system is disturbed either by a short circuit, sudden increase in load, or any other relevant cause, the balance of energy is disturbed. During the disturbance, energy exchange between the electric and magnetic fields occurs which deviates the waveshapes of voltages and currents in the power system. This electromagnetic phenomena is standardized by two leading knowledge bodies in the field by standards: 1) IEC/TS 61000-2-5; and 2) IEEE Std. 1159-1995.
+It is a known phenomena that when a power system is disturbed either by a short circuit, sudden increase in load, or any other relevant cause, the balance of energy is disturbed. During the disturbance, energy exchange between the electric and magnetic fields occurs which deviates the wave-shapes of voltages and currents in the power system. This electromagnetic phenomena is standardized by two leading knowledge bodies in the field by standards: 1) IEC/TS 61000-2-5; and 2) IEEE Std. 1159-1995.
 
 \begin{table}[!t]
 \centering \scriptsize
@@ -147,8 +147,8 @@ It is a known phenomena that when a power system is disturbed either by a short 
 \item Long duration RMS variations
       \begin{enumerate}[itemsep=0pt,topsep=0pt]
          \item  Interruption, sustained
-         \item Undervoltages
-         \item Overvoltages
+         \item Under-voltages
+         \item Over-voltages
          \item Current overload
       \end{enumerate}
 \end{enumerate}
@@ -194,7 +194,7 @@ It is a known phenomena that when a power system is disturbed either by a short 
 
 
 \subsection{The IEC Classification}
-The International Electrotechnical Commission (IEC) classifies various phenomenas that cause electromagnetic disturbances through their standard IEC/TS 61000-2-5~\cite{iec_61000}. These disturbances can reach the equipment either by conductive or radiative coupling pathways. When there is a physical pathway exists between the source of emission and the affected device, it is a conductive coupling. On the other hand, radiative coupling occurs when there is no physical pathway but the emission propagates through electric and magnetic fields. Based on couplings and relative frequencies of the disturbances, IEC classifies the electromagnetic phenomena into six categories as shown in Table~\ref{tbl:iec_classification}.
+The International Electrotechnical Commission (IEC) classifies various phenomena that cause electromagnetic disturbances through their standard IEC/TS 61000-2-5~\cite{iec_61000}. These disturbances can reach the equipment either by conductive or radiative coupling pathways. When there is a physical pathway exists between the source of emission and the affected device, it is a conductive coupling. On the other hand, radiative coupling occurs when there is no physical pathway but the emission propagates through electric and magnetic fields. Based on couplings and relative frequencies of the disturbances, IEC classifies the electromagnetic phenomena into six categories as shown in Table~\ref{tbl:iec_classification}.
 
 \subsection{The IEEE Classification}
 The Institute of Electrical and Electronics Engineers (IEEE) put efforts to standardize power quality terminology to allow the parties involved in to have standard and consistent terms. The IEEE standard 1159-1995~\cite{IEEE09_1159} provides a classification of power quality events. The various power quality events are classified in seven general categories. The classification is based on event characteristics such as spectral content, duration, and magnitude as shown in Table~\ref{tbl:ieee_classification}.
@@ -239,6 +239,6 @@ Another work~\cite{chen2006placement} shows that adding few extra PMUs could imp
 \end{enumerate}
 
 \subsection{Bayesian Inference}
-We use Bayesian inference to identify high information locations for deploying smart meters (detailed in Chapter~\ref{chap:meterPlacement}). The Bayesian inference methods are helpful in providing the new estimates of the PQ values on non-monitored links given evidences are obtained from the metered locations. Bayesian inference is a general and well-investigated discipline which has applications in a wide range of fields. Several algorithms are available to address specific problem in this domain. For the problem of meter placement, several message passing algorithms could be used to
+We use Bayesian inference to identify high information locations for deploying smart meters (detailed in Chapter~\ref{chap:meterPlacement}). The Bayesian inference methods are helpful in providing the new estimates of the PQ values on unmonitored links given evidences are obtained from the metered locations. Bayesian inference is a general and well-investigated discipline which has applications in a wide range of fields. Several algorithms are available to address specific problem in this domain. For the problem of meter placement, several message passing algorithms could be used to
 help us determine the optimal meter placement. We chose the belief propagation or sum-product algorithm~\cite{pearl1988probabilistic} since it is well understood, has been shown to work for general topologies~\cite{yedidia2001generalized} including tree networks, and has several software libraries available.
 
