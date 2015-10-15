@@ -38,15 +38,16 @@ Frequency variation is the deviation of fundamental frequency from its nominal v
 \label{PQclassification}
 It is a known phenomena that when a power system is disturbed either by a short circuit, sudden increase in load, or any other relevant cause, the balance of energy is disturbed. During the disturbance, energy exchange between the electric and magnetic fields occurs which deviates the wave-shapes of voltages and currents in the power system. This electromagnetic phenomena is standardized by two leading knowledge bodies in the field by standards: 1) IEC/TS 61000-2-5; and 2) IEEE Std. 1159-1995.
 
-\begin{table}[!t]
-\centering \scriptsize
+
+\begin{table}[!p]
+\centering
 \renewcommand{\tabcolsep}{0.08cm}
 \caption{Electromagnetic Disturbance Phenomena Categories~\cite{iec_61000}}
-\begin{tabular}{m{7.5cm} m{7.5cm}}
+\begin{tabular}{m{12cm}}
 \hline \hline
-\begin{enumerate} [itemsep=0pt,topsep=4pt]
+\begin{enumerate} [itemsep=5pt,topsep=4pt]
 \item \textbf{Conducted low-frequency phenomena}
-\begin{itemize}[itemsep=0pt,topsep=0pt]
+\begin{itemize}[itemsep=5pt,topsep=0pt]
 \item Harmonics, interharmonics
 \item signaling systems
 \item Voltage fluctuations
@@ -58,22 +59,24 @@ It is a known phenomena that when a power system is disturbed either by a short 
 \end{itemize}
 
 \item \textbf{Radiated low-frequency field phenomena}
-\begin{itemize}[itemsep=0pt,topsep=0pt]
+\begin{itemize}[itemsep=5pt,topsep=0pt]
 \item Magnetic fields
 \item Electric field
 \end{itemize}
-\end{enumerate} & 
-\begin{enumerate}[itemsep=0pt,topsep=4pt]
+\end{enumerate}
+
+
+\begin{enumerate}[itemsep=5pt,topsep=4pt]
 \setcounter{enumi}{2} 
 \item \textbf{Conducted high-frequency phenomena}
-\begin{itemize}[itemsep=0pt,topsep=0pt]
+\begin{itemize}[itemsep=5pt,topsep=0pt]
 \item Directly coupled or induced voltages or currents
 \item Unidirectional transients
 \item Oscillatory transients
 \end{itemize}
 
 \item \textbf{Radiated high-frequency field phenomena}
-\begin{itemize}[itemsep=0pt,topsep=0pt]
+\begin{itemize}[itemsep=5pt,topsep=0pt]
 \item Magnetic fields
 \item Electric fields
 \item Electromagnetic fields
@@ -93,11 +96,16 @@ It is a known phenomena that when a power system is disturbed either by a short 
 \newcommand*{\mybox}[1]{\hbox{\mystrut #1}}
 \newcommand*{\mywbox}[1]{\hbox{\mywstrut #1}}
 
-\begin{table}[!t]
-\renewcommand{\arraystretch}{0.8}
+\newcommand{\ml}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\makeatletter
+
+\begin{table}[!p]
+\renewcommand{\arraystretch}{1.5}
 \centering \scriptsize \caption{Categories and typical characteristics of power system EM phenomena~\cite{IEEE09_1159}}
 \begin{tabular}{m{5.5cm} m{2.6cm} m{2cm} m{3cm}}\hline
-\hbox{\rule[1.5\baselineskip]{0pt}{0\baselineskip}\textbf{Categories}} & \textbf{Spectral Content} & \textbf{Duration} & \textbf{Voltage Magnitude}\\\hline\hline
+Categories & \ml{Spectral\\Content} & Duration & \ml{Voltage\\Magnitude}\\
+\hline\hline
 \begin{enumerate}[itemsep=0pt,topsep=1pt]
 \item Transients 
    \begin{enumerate}[itemsep=0pt,topsep=0pt]

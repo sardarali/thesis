@@ -6,9 +6,9 @@ The power network has many logical and physical similarities with data networks.
 \section{The Model}
 We model the power network as a data-driven network, in analogy, where we represent the electrical components as network nodes, power links as data links, and the flow of power as data flow on the links. We assign the power quality on a link at an instance in time as a discrete class (from $c_1$ to $c_n$). Aligning with the meters' sampling interval, the time is slotted, and in every time slot, we record a power quality class of each link where a power quality meter is installed. 
 
-\begin{figure}[!t]
+\begin{figure}[!p]
     \centering
-    \includegraphics[width=0.6\columnwidth]{d_channel}
+    \includegraphics[width=0.8\columnwidth]{d_channel}
     \caption{Power quality transition at each device $d$ as a channel.}
     \label{fig:d_channel}
 \end{figure}
@@ -32,18 +32,19 @@ The above model significantly simplifies the network complexity of the power gri
 \section{Applications}
 We build various applications on top of the analytical framework we proposed in this Chapter. The applications are as follows.
 
-\begin{figure*}[!t]
-    \centering
-    \includegraphics[width=0.85\textwidth]{powerNetwork}
-    \caption{A simple view of power microgrid}
-    \label{fig:gridNetwork}
-\end{figure*}
-
-
 \subsection{Power Quality Estimation}
 Figure~\ref{fig:gridNetwork} shows a view of a power grid where there are different types of electrical devices connected to each other via power links. The smart meters are also installed on selected links. Moreover, every type of device has a power quality function which may be unknown. We want to estimate all the power quality functions based on the power quality values available on selected links where smart meters are installed.
 
 In order to estimate the reliability of every device in the network, we need to estimate the power quality function $f(d_j)$ for each device $d_j$ based on the quality function $f(s)$ of the subnet. It is clear that
+
+\begin{landscape}
+\begin{figure*}[!p]
+    \centering
+    \includegraphics[width=0.98\textwidth]{powerNetwork}
+    \caption{A simple view of power microgrid}
+    \label{fig:gridNetwork}
+\end{figure*}
+\end{landscape}
 
 \begin{equation}
 \label{eqn:prod}

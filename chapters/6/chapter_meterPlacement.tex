@@ -71,14 +71,14 @@ We propose to deployed the power quality meters on network segments where the po
 \[H(d) = H(l_{o}^{(d)}) = -\sum_{i=1}^n p_{c_i}^{(d)} \log p_{c_i}^{(d)},\]
 where $p_{c_i}^{(d)}$ is the probability of power quality $c_i$ at the output link of device $d$.
 
-\begin{algorithm}[!t]
-\begin{small}
-\KwIn{distribution function of input link to device 1 i.e., $f_x^{(0)}$, transfer function $f(d)$, number of power meters $M$}
+\begin{algorithm}[!p]
+\setstretch{2}
+\KwIn{distribution function of input link to device 1 i.e., $f_x^{(0)}$, \\transfer function $f(d)$, number of power meters $M$}
 \KwOut{$L$ (list of devices to be selected for meter placement)}
 \Begin{
    \ForEach {(device $d$)}{
       $\hat d \leftarrow getParent(d);$ \\
-      /* Note that device 1 (root of the tree) has no parent i.e., \emph{getParent(1) = 0} and $f_x(0)$ is given */\\
+      /* Note that device 1 (root of the tree) has no parent \\ i.e., \emph{getParent(1) = 0} and $f_x(0)$ is given */\\
       $f_x(d) \leftarrow f_x(\hat d) \times f(d)$; \\
       $H(d) \leftarrow - \sum_{i=1}^n p_{c_i}^{(d)} \log p_{c_i}^{(d)};$\\
       /* where $p_{c_i}^{(d)}$ is the $i^{th}$ component of $f_x(d)$ vector */
@@ -87,7 +87,6 @@ where $p_{c_i}^{(d)}$ is the probability of power quality $c_i$ at the output li
 $L \leftarrow getHighEntopyDevices(H, N)$
 }
 \caption{A Simple Entropy-Based Algorithm} \label{algo-1}
-\end{small}
 \end{algorithm}
 
 In order to calculate $H(d)$, we need to know the power quality distribution function of link $l_{o}^{(d)}$. Starting from the root node of the tree-structured network, we traverse all the nodes (devices) in level-order fashion to calculate the distribution function $f_{x}(d)$ as $f_{x}(d) = f_x(\hat d) \times f(d)$. After calculating $f_{x}(d) = [p_{c_1}^{(d)} \ p_{c_2}^{(d)} \ \dots \ p_{c_n}^{(d)}]$ where $p_y(d) = \sum_{x=1}^n p_x^{(d)} \times p_{c_y \mid c_x}^{(d)} \ \forall \ y = 1,2,\dots,n$.
@@ -105,16 +104,16 @@ To tackle the above challenge, we cast the problem as a Bayesian network and mod
 \subsubsection{MC Event Sampling}
 Given the transition function $f(d)$, we use a Monte Carlo (MC) method to obtain a set of $K$ samples at each node $d$. We first compute a \emph{pmf} $f_x{(d)}$ for each node $d$ using its transition function $f(d)$ and the \emph{pmf} of its parent node $\widehat{d}$ as $f_x(d) = f(d) \times f_x(\widehat{d})$. Then, at each time slot $i \in \{1\ldots K\}$, we draw a sample $c_{i}^{(d)}$ from $f_x(d)$ at each node $d$. We repeat this at each node of the tree starting from the root and ending at the leaves. The result is a set of $K$ simulated samples $C_{i}=\{c_{i}^{(1)},c_{i}^{(2)},\ldots,c_{i}^{(N)}\}$ for each of the $N$ links in the power network. 
 
-\begin{figure}[t]
+\begin{figure}[!p]
 \centering
-\includegraphics[width=0.65\columnwidth]{flowchart_worst_predicted_error}
+\includegraphics[width=0.8\columnwidth]{flowchart_worst_predicted_error}
 \caption{Data flow diagram of meter selection process during a single iteration of the greedy algorithm.}
 \label{flowchart}
 \end{figure}
 
-\begin{figure}[!t]
+\begin{figure}[!p]
 \centering
-\includegraphics[width=0.85\columnwidth]{factorgraph}
+\includegraphics[width=0.98\columnwidth]{factorgraph}
 \caption{Power network modeled as a factor graph}
 \label{factorgraph}
 \end{figure}
@@ -122,8 +121,8 @@ Given the transition function $f(d)$, we use a Monte Carlo (MC) method to obtain
 \subsubsection{Event Inference using Belief Propagation}
 The samples obtained by the MC simulation of power quality propagation contain consistent sets of power quality values at both metered and unmetered locations. We use Bayesian inference to infer the power quality at unmetered locations as a function of the  simulated values observed at the metered locations and compare the resulting predictions to the simulated value seen at the unmetered locations. This process gives a relative indication of the predictive strength on each link of the network. Figure~\ref{flowchart} shows a high-level description of this process.
 
-\begin{algorithm}[!ht]
-\begin{small}
+\begin{algorithm}[!p]
+\setstretch{1.2}
 \KwIn{The topology $T$ of the power grid; 
 the $pmf$ of the input feed to first device i.e., $f_x{(0)}$; 
 transition functions $f(d)$;
@@ -164,7 +163,6 @@ $function$ predictPowerQuality($L', L, T$) : $C_k$\\
 	$C_k = \{c_k^{(l)} \}$ 
 }
 \caption{Monte Carlo Predicted Error Algorithm} \label{alg-3}
-\end{small}
 \end{algorithm}
 
 \noindent \\
@@ -211,7 +209,7 @@ Finally:
 
 
 %\setlength{\textfloatsep}{-0.1in}
-\begin{algorithm}[!htp]
+\begin{algorithm}[!p]
 \begin{small}
 \KwIn{The topology $T$ of the power grid; 
 the $pmf$ of the input feed to first device i.e., $f_x{(0)}$; 
@@ -282,19 +280,11 @@ In order to calculate the network entropy for every candidate link $l_{out}^{(d_
 \label{sec:experiments}
 We evaluate the two algorithms on a set of simulated networks. The evaluation process is depicted in Fig.~\ref{fig:benchmark} where each algorithm is given the same network topology to place a set of $M$ meters. The devices considered include bus, switch, transformer and UPS. Power quality events are assigned a number from 1-5 in order of severity in accordance with~\cite{epri2002} where the lower number represents a clean input. These are listed in Table \ref{EventDescriptions} along with their descriptions. Table~\ref{tbl:dev_trans} lists transition functions of various electrical components obtained from a real-world power quality dataset using our latent feature model. From the same dataset, we learn a prior on the utility feed of $\begin{array}{ccccc}[\ 0.9947 & 0.005 & 0.0002 & 0.00009 & 0.00001\ ].\end{array}$The algorithms we propose are generic and could be used for placing meters in other network configuration. We evaluate our algorithms on different topologies and network configurations including the IEEE 13-node distribution test feeder network. For the BP algorithm, we collect $N=10000$ samples for each device using MC sampling. For each network configuration we place $M=5$ meters in order of importance.
 
-\begin{figure}[!t]
+\begin{table}[!p]
 \centering
-\includegraphics[width=0.5\textwidth]{benchmark}
-\caption{An overview of the meter placement evaluation process. }
-\label{fig:benchmark}
-\end{figure}
-
-\begin{table}[!t]
-\centering
-\small
 \caption{Event Types}
 \label{EventDescriptions}
-{\renewcommand{\arraystretch}{1.0}
+{\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|p{0.82\columnwidth}|}
 \hline 
 Type  & Event Description\tabularnewline
@@ -308,7 +298,17 @@ Type  & Event Description\tabularnewline
 \end{tabular}}
 \end{table}
 
-\begin{figure}[!t]
+\begin{figure}[!p]
+\centering
+\includegraphics[width=0.6\textwidth]{benchmark}
+\caption{An overview of the meter placement evaluation process. }
+\label{fig:benchmark}
+\end{figure}
+
+
+
+
+\begin{figure}[!p]
 \centering
 \subfloat[Homogenous line network]{\label{Homogeneous line network}
 \includegraphics[width=0.68\columnwidth]{line_network_same}
@@ -344,12 +344,11 @@ placed by BP while the solid circles show the meter placed by MinEntropy.}
 
 Figure~\ref{NetworkDiagrams} shows the meters placed by the two algorithms in various network topologies. The positions of the meters placed by both algorithms are essentially similar. The MinEntropy algorithm achieves much faster results, completing in less than a second in all cases. On the other hand, the BP takes a longer time to complete. This is because BP compares individual samples on all links for every possible placement while the MinEntropy approach computes the conditional entropies at unmetered locations using probability mass functions instead of using individual samples. Algorithm completion times for both BP and CE approaches are shown in Table~\ref{network_configuration_results}.
 
-\begin{table}[!t]
-\renewcommand{\tabcolsep}{0.05 cm}
-\renewcommand{\arraystretch}{1.0}
+\begin{table}[!p]
+\renewcommand{\tabcolsep}{0.3 cm}
+\renewcommand{\arraystretch}{1.2}
 \centering
 \caption{Results for each network configuration}
-%\vspace{-0.1in}
 \label{network_configuration_results}
 \begin{tabular}{|c|c|c|c|c|}
 \hline \specialcell{Network\\Topology} & Algorithm & \specialcell{Meter Placement \\ Sequence} & \specialcell{Mean \\ Error Rate} & \specialcell{Elapsed Time \\  (seconds)} \tabularnewline \hline 
@@ -364,14 +363,12 @@ Figure~\ref{NetworkDiagrams} shows the meters placed by the two algorithms in va
 \multirow{2}{*}{\specialcell{IEEE 13-Node\\Test Feeder}}& BP & 671,634,645,652,675 & 0.052381  & 802  \tabularnewline \cline{2-5}
 & MinEnt &  671,645,634,611,675 & 0.052381 & 0.138 \tabularnewline \hline 
 \end{tabular}
-%\vspace{-0.02in}
 \end{table}
 
-\begin{table}[!t]
-\renewcommand{\tabcolsep}{0.05 cm}
-\renewcommand{\arraystretch}{1.0}
+\begin{table}[!p]
+\renewcommand{\tabcolsep}{0.3 cm}
+\renewcommand{\arraystretch}{1.2}
 \centering
-%\vspace{-0.05in}
 \caption{Number of meters required in various networks to restrict the mean error rate to 0.05 (5\%).}
 %\vspace{-0.1in}
 \label{cost_analysis}
@@ -381,7 +378,6 @@ Figure~\ref{NetworkDiagrams} shows the meters placed by the two algorithms in va
  MinEnt & 5 & 6 & 6 & 6 & 6 \tabularnewline \hline 
  \specialcell{Random} & 7 & 8 & 8 & 8 & 8 \tabularnewline \hline 
 \end{tabular}
-%\vspace{-0.02in}
 \end{table}
 
 The meter placements are then passed to the belief propagation benchmark to compare the accuracy of the two algorithms in terms of mean-square error (MSE), i.e., the mean error between the estimated and actual transition functions on unmonitored links. We collect a set of known samples for a given meter configuration and infer the maximum likelihood power quality event that would appear at each unmetered node using belief propagation. We then estimate the error rate for each node. If the inferred event differs from the event given by the MC sample, we add $1/N$ for that sample. The mean error rate across all nodes is taken as the final performance metric. As shown in Table~\ref{network_configuration_results}, the MSEs are very small for both algorithms in all networks we tested. The BP algorithm gave slightly better estimations than MinEntropy in some cases at a cost of longer running times.
