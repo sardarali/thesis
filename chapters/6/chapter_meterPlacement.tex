@@ -1,16 +1,6 @@
 \startchapter{Intelligent Meter Placement}
 \label{chap:meterPlacement}
-
-\small
-\textbf{Summary:} Power quality is a crucial component of power grid reliability. Due to the high cost of measurement devices, the monitoring of power quality is non-trivial. As discussed earlier, this work is aimed at reducing the cost of power quality monitoring in power network. To realize our objective, we use our network model that represents the power grid network as a data-driven network. Using entropy-based measurements and Bayesian network models, we propose different algorithms to intelligently place measurement devices on suitable power links to reduce the uncertainty of power quality estimation on unmonitored power links.
-
-The meter placement algorithms use entropy-based measurements and Bayesian network models to identify the most suitable power links for power meter placement. Evaluation results on various simulated networks including IEEE distribution test feeder system show that the meter placement solution is efficient, and has the potential to significantly reduce the uncertainty of power quality values on unmonitored power links.
-
-Further, we also formulate a model that estimates the required number of monitoring device in the power gird network to achieve a certain level of reliability. Our mathematical analysis show that the proposed model accurately calculates the required number of meters.
-
-\vspace{0.25in}
-\begin{keywords} Bayesian networks, conditional entropy, Monte Carlo simulations, power quality monitoring. \end{keywords}
-\vspace{-0.1in}
+In this chapter, we solve the meter placement problem using entropy-based measurements and Bayesian network models to identify the most suitable power links for power meter placement. To ease understanding, we list the nomenclature used in this chapter first. 
 
 \small
 \setlength{\nomitemsep}{-0.1em}
@@ -30,9 +20,7 @@ Further, we also formulate a model that estimates the required number of monitor
 
 \normalsize
 \section{Introduction / Motivation}
-Electrical power networks are one of the critical infrastructures of our society. Due to our high dependence on electricity, the reliability in electric networks has become a core research interest in the smart grid area~\cite{Moslehim10}. Reliability evaluation of power grid, however, is challenging~\cite{Albert04}. One of the most influential factors impacting the reliability and energy saving of power networks is the power quality delivered to, and experienced by, critical electric equipment. Poor power quality, such as voltage sags, may lead to power outage and service interruptions. Hence, the monitoring of power quality is a crucial component of assessing and maintaining reliability in power grid.
-
-Monitoring power quality, however, is not an easy task. Since the power quality measurement devices~\cite{schneider_meter} are expensive, it is financially impractical to monitor every segment of a power network. The overhead of interconnecting these power meters and developing the power management system further increases the cost. Therefore, we need to intelligently place power quality meters on selected power links to reduce the uncertainty of power quality estimation on unmonitored links in the power grid. The following core challenge needs to address: given a fixed number of available power meters, which grid segments should be selected for monitoring such that power quality can be inferred in the remaining unmonitored segments of the network.
+Monitoring power quality is not an easy task. Since the power quality measurement devices~\cite{schneider_meter} are expensive, it is financially impractical to monitor every segment of a power network. The overhead of interconnecting these power meters and developing the power management system further increases the cost. Therefore, we need to intelligently place power quality meters on selected power links to reduce the uncertainty of power quality estimation on unmonitored links in the power grid. The following core challenge needs to address: given a fixed number of available power meters, which grid segments should be selected for monitoring such that power quality can be inferred in the remaining unmonitored segments of the network.
 
 As the first step to tackle the above challenge, the probabilistic calculation of power quality values on unmonitored links requires the behavior (latent feature) of each device to be known. We represent the latent feature of a device as a transition function which is usually estimated through physical modeling or through the assessment of historical power monitoring data. Using a real power quality dataset, we show that historical data can be used to capture the latent features of a device.
 
