@@ -51,26 +51,36 @@ To compare two probability distributions, the correlation measure is usually use
 The above correlation measure could be used to compare the actual and observed PQ distributions. Generally speaking, this measure can accurately tell how much the observed distribution is similar to (or different from) the actual distribution of the same device. When a device is perfectly behaving like its actual distribution, the measure returns a maximum value (  +1). On the other hand, when a device is producing a very different distribution (for instance producing very bad PQ), it returns a smaller value (the smallest possible is -1). The value 0 (or closer to 0) represents that the two distributions have no correlation, i.e., they are asymmetric. Although this technique is simple to use, we found various scenarios where it is not able to accurately detect the power quality degradation. We classify the identified scenarios in two classes: 1) a malfunction device is not detected; and 2) a better PQ producing device is classified as a malfunction. Both cases are explained as follows.
 
 \begin{figure}[!p]
-\begin{centering}
+\centering
 \subfloat[Positive correlation ($\rho_{X,Y} = +0.95 \approx +1$)]{\label{corr_positive}
-\includegraphics[width=0.48\columnwidth]{corr_positive}
+\includegraphics[width=0.7\columnwidth]{corr_positive}
 }
-\subfloat[Zero correlation ($\rho_{X,Y} = 0$)]{\label{corr_zero}
-\includegraphics[width=0.48\columnwidth]{corr_zero}
-}
-\end{centering}
 
-\begin{centering}
-\subfloat[Negative correlation ($\rho_{X,Y} = -1$)]{\label{corr_negative_low}
-\includegraphics[width=0.48\columnwidth]{corr_negative_low}
-}
-\subfloat[Negative correlation ($\rho_{X,Y} = -1$)]{\label{corr_negative_high}
-\includegraphics[width=0.485\columnwidth]{corr_negative_high}
-}
-\end{centering}
 \vspace{1cm}
-\caption{Various PQ distribution scenarios where the simple correlation technique is not useful.} 
-\label{correlationAnalysis}
+
+\subfloat[Zero correlation ($\rho_{X,Y} = 0$)]{\label{corr_zero}
+\includegraphics[width=0.7\columnwidth]{corr_zero}
+}
+\caption{Positive correlation scenarios where the simple correlation technique is not useful.} 
+\label{correlationAnalysisPositive}
+%\vspace{-0.15in}
+\end{figure}
+
+
+\begin{figure}[!p]
+\centering
+\subfloat[Negative correlation ($\rho_{X,Y} = -1$)]{\label{corr_negative_low}
+\includegraphics[width=0.7\columnwidth]{corr_negative_low}
+}
+
+\vspace{1cm}
+
+\subfloat[Negative correlation ($\rho_{X,Y} = -1$)]{\label{corr_negative_high}
+\includegraphics[width=0.7\columnwidth]{corr_negative_high}
+}
+\vspace{1cm}
+\caption{Negative correlation scenarios where the simple correlation technique is not useful.} 
+\label{correlationAnalysisNegative}
 %\vspace{-0.15in}
 \end{figure}
 
@@ -89,7 +99,7 @@ We call it a false detection when a device that is generating similar or slightl
 
 \begin{figure}[!p]
 \centering
-\includegraphics[width=0.8\textwidth]{average_pq_exception}
+\includegraphics[width=0.7\textwidth]{average_pq_exception}
 \caption{Two very different power quality distributions with same expected/average PQ output/class.}
 \label{fig:average_pq_exception}
 \end{figure}

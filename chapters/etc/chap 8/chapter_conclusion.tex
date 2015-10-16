@@ -1,7 +1,9 @@
 \documentclass[12pt,oneside]{book}
 \include{macros/style}
 \include{macros/use_packages}
+\usepackage{makecell}
 \providecommand{\keywords}[1]{\textbf{Index terms---} #1}
+
 \begin{document}
 %/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -16,7 +18,6 @@ Finally, using the power quality readings/events from monitored segments, we ide
 \section{Future Work}
 \subsection{Scaling the MaxEnt-based PQ Estimation}
 Our proposed MaxEnt-based model opens a new scope of methods to quantitatively measure and solve the reliability problems in smart grid. The proposed solution may not converge efficiently for sub-nets of larger sizes. The scalability problem arises as the number of unknown variables increases exponentially with increase in the number of components in a subnet. The idea for the extended work is to divide the larger subnets in logical components where each logical component will represent several physical components. Instead of computing individual transfer functions for each physical device, transfer functions of the logical components could be estimated first. In the second round, transfer functions of individual physical components could be estimated from the logical transfer functions. Note that this is a high level guideline which only sever as a good starting point towards the final solution. The final solution could be based on a comprehensive mathematical model. Finally, for the evaluation of such a system, various larger IEEE standard test networks could be used.
-
 
 \subsection{Extending the Meter Placement Solution to Larger Networks that Containing Loops}
 Our meter placement solution could be used for meter placement in several standard power networks including the 13-Node IEEE Test Feeder. As a future work, one could look into the possibility of extending our work to cover the networks that containing loops to relax our tree network assumption.
