@@ -20,8 +20,10 @@ The EM algorithm is one of the most widely-used algorithms for estimation and ha
 \begin{landscape}
 \begin{figure}[!p]
     \centering
-    \includegraphics[width=1.3\textwidth]{subnetview}
+    \includegraphics[width=1.2\textwidth]{subnetview}
+    \vspace{0.5cm}    
     \caption{View of the power grid network under consideration. Subnets (within dotted lines) are formulated based on the positions of the power meters.}
+    \vspace{1.5cm}
     \label{fig:subnetview}
 \end{figure}
 \end{landscape}
@@ -141,8 +143,8 @@ This work focuses on a centralized processing and as such we assume that there e
 
 \begin{table}[!p]
 \centering  \caption{Transition Functions of Various Electrical Components Obtained Using Our Latent Feature Model} \label{tbl:dev_trans}
-\renewcommand{\tabcolsep}{0.5 cm}
-\renewcommand*{\arraystretch}{1.2}
+\renewcommand{\tabcolsep}{0.3 cm}
+\renewcommand*{\arraystretch}{1.1}
 \subfloat[Bus]{
 \begin{tabular}{|m{0.3cm}m{0.3cm}|m{1cm}m{1cm}m{1cm}m{1cm}m{0.5cm}|}
 \hline
@@ -202,19 +204,19 @@ This work focuses on a centralized processing and as such we assume that there e
 \hline
 \end{tabular}
 }
-%\vspace{-0.05in}
 \end{table}
 
 \begin{figure}[!p]
 \centering \vspace{2cm}
-	\subfloat{\includegraphics[width=0.24\columnwidth]{s1}}\\ \vspace{1cm}
-	\subfloat{\includegraphics[width=0.4\columnwidth]{s2}}
+	\subfloat{\includegraphics[width=0.20\columnwidth]{s1}}\\ \vspace{1cm}
+	\subfloat{\includegraphics[width=0.33\columnwidth]{s2}}
+	\vspace{0.5cm}
 \caption{Two different kinds of subnets. The one at the left side containing two devices (switch, transformer) and the one shown at the right side containing four devices (switch, bus, switch, and UPS).} \label{fig:twosubnets} \vspace{2cm}
 \end{figure}
 
 \begin{table}[!p]
-\vspace{4cm}
-\renewcommand{\tabcolsep}{0.3 cm}
+\vspace{2cm}
+\renewcommand{\tabcolsep}{0.2 cm}
 \renewcommand*{\arraystretch}{2}
 \centering \caption{Convergence time (in seconds) comparison of MaxEnt vs EM algorithms.}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -232,7 +234,7 @@ This work focuses on a centralized processing and as such we assume that there e
 
 
 \begin{table}[!p]
-\renewcommand{\tabcolsep}{0.3 cm}
+\renewcommand{\tabcolsep}{0.2 cm}
 \renewcommand*{\arraystretch}{2}
 \centering \caption{Mean Squared Error comparison of MaxEnt vs EM algorithms.}
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -245,8 +247,8 @@ This work focuses on a centralized processing and as such we assume that there e
 & 4 & 0.00030 & 0.00025 & 0.00019 & 0.00014\\
 \hline
 \end{tabular}
-\label{tbl:eval_mse}
 \vspace{4cm}
+\label{tbl:eval_mse}
 \end{table}
 
 \section{Performance Evaluation}

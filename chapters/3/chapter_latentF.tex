@@ -6,9 +6,8 @@ The objective of this work is to reduce the cost of power quality monitoring by 
 In this chapter, we first introduce a latent feature model to capture the behavior of electric devices in the power network. Using a real power quality dataset, we then demonstrate that the historical data can be used to capture the latent features of a device. We use $k$-fold cross-validation technique to measure the accuracy of latent features we obtain using our dataset. Experimental evaluations show that the captured latent features are consistent. The latent features (or transition functions) are then used to propose our meter placement algorithms.
 
 \begin{figure}[!p]
-\vspace{2cm}
 \center
-\includegraphics[width=0.98\columnwidth]{latentModel}
+\includegraphics[width=0.8\columnwidth]{latentModel}
 \caption{Latent feature model of a device $d$ where the two circles represent the power quality meters at input and output of node $d$; the matrix inside the node $d$ represents the transition function of the node.}
 \label{fig:latentModel}
 
@@ -16,10 +15,10 @@ In this chapter, we first introduce a latent feature model to capture the behavi
 
 \begin{figure}[!p]
 \center
-\includegraphics[width=0.98\columnwidth]{pqeNetwork}
+\includegraphics[width=0.9\columnwidth]{pqeNetwork}
 \caption{Graph network of power quality meters installed in a power network.}
 \label{fig:pqeNetwork}
-\vspace{2cm}
+\vspace{3cm}
 \end{figure}
 
 \section{The Latent Feature Model}
@@ -55,7 +54,7 @@ Our power quality dataset was collected at an enterprise power network for a per
 
 \begin{table}[!p]
 \caption{Sample events from the dataset collected.}
-\centering \renewcommand*{\arraystretch}{1.5} 
+\centering \renewcommand*{\arraystretch}{1.3} 
 \begin{tabular}{|c|c|c|c|c|c|c|}
 \hline  \textbf{\thead{Event\\ID}} & \textbf{\thead{Node\\ID}} & \textbf{\thead{Duration\\(seconds)}} & \textbf{\thead{Magnitude\\(volts)}} & \textbf{Severity}  & \textbf{Phase} & \textbf{Type}\tabularnewline
 \hline 119 & 5 & 0.02 & 292	& 3.19  & V1 &  Transient\tabularnewline
@@ -64,7 +63,7 @@ Our power quality dataset was collected at an enterprise power network for a per
 \hline 
 \end{tabular}
 \label{tbl:sampleData}
-\vspace{2cm}
+\vspace{4cm}
 \end{table}
 
 The original power quality events reported by our power quality meters carry detailed information where some of the reported attributes are not directly relevant to power quality monitoring. For instance, we have a large number of branch circuit monitors installed that log every 15 minutes. Second, due to the detailed information content, the size of the raw dataset was about $40$ GB. In order to simplify the format and make the dataset concise and easy to analyze, we transform the reported events into a tabular form consisting of the power quality attributes we used. As a result, there are about $6000$ power quality events recorded in the dataset. Sample events from the dataset are shown in Table~\ref{tbl:sampleData}.
@@ -81,7 +80,7 @@ Using IEEE Standard 1159~\cite{IEEE09_1159}, we classify the power quality event
 \begin{table}[!p]
 \caption{Sample events classification using IEEE Standard 1159~\cite{IEEE09_1159}.}
 \centering \renewcommand*{\arraystretch}{2} 
-\renewcommand{\tabcolsep}{0.5 cm}
+\renewcommand{\tabcolsep}{0.2 cm}
 \begin{tabular}{|c|c|c|c|c|}
 \hline \textbf{\thead{Node\\ID}} & \textbf{Start Time} & \textbf{\thead{Duration\\(seconds)}} & \textbf{\thead{Magnitude\\(volts)}} & \textbf{\thead{IEEE Event\\Class}}\tabularnewline
 \hline 4 & 733051.9385 & 0.00065 & 127 & $c_1$\tabularnewline
@@ -97,6 +96,7 @@ Using IEEE Standard 1159~\cite{IEEE09_1159}, we classify the power quality event
 \hline 
 \end{tabular}
 \label{tbl:sampleClassData}
+\vspace{2cm}
 \end{table}
 
 
@@ -112,9 +112,10 @@ Using the real-world power quality dataset, we capture the device latent feature
 \end{enumerate}
 
 \begin{table}[!p]
+\vspace{1cm}
 \caption{A sample frequency table showing the number of events mapped from input power quality $c_i$ to output power quality $c_j$ at device $d_8$.}
-\centering \renewcommand*{\arraystretch}{2} 
-\renewcommand{\tabcolsep}{0.5 cm}
+\centering \renewcommand*{\arraystretch}{1.5} 
+\renewcommand{\tabcolsep}{0.4 cm}
 \begin{tabular}{|cc|llllll|}
 \hline
 & & \multicolumn{6}{c|}{\textbf{Output PQ ($c_j$)}} \\
@@ -133,8 +134,8 @@ Using the real-world power quality dataset, we capture the device latent feature
 
 \begin{table}[!p]
 \caption{A sample transfer function captured at device $d_8$. Rows and columns having all values set to 0 are omitted. }
-\centering \renewcommand*{\arraystretch}{2}  
-\renewcommand{\tabcolsep}{0.5 cm}
+\centering \renewcommand*{\arraystretch}{1.5}  
+\renewcommand{\tabcolsep}{0.3 cm}
 \begin{tabular}{|cc|llllll|}
 \hline
 & & \multicolumn{6}{c|}{\textbf{Output PQ ($c_j$)}} \\
@@ -149,6 +150,7 @@ Using the real-world power quality dataset, we capture the device latent feature
 \hline
 \end{tabular}
 \label{tbl:sampleTF}
+\vspace{2cm}
 \end{table}
 
 \begin{table}[!p]
@@ -174,7 +176,7 @@ Using the real-world power quality dataset, we capture the device latent feature
 \hline
 \end{tabular}
 \label{tbl:mse}
-%\vspace{-0.1in}
+\vspace{2cm}
 \end{table}
 
 \section{Cross-validation of $f(d)$}

@@ -109,17 +109,19 @@ Given the transition function $f(d)$, we use a Monte Carlo (MC) method to obtain
 \begin{figure}[!p]
 \vspace{1cm}
 \centering
-\includegraphics[width=0.8\columnwidth]{flowchart_worst_predicted_error}
+\includegraphics[width=0.7\columnwidth]{flowchart_worst_predicted_error}
+\vspace{0.5cm}
 \caption{Data flow diagram of meter selection process during a single iteration of the greedy algorithm.}
 \label{flowchart}
 \end{figure}
 
 \begin{figure}[!p]
 \centering
-\includegraphics[width=0.98\columnwidth]{factorgraph}
+\includegraphics[width=0.9\columnwidth]{factorgraph}
+\vspace{0.5cm}
 \caption{Power network modeled as a factor graph}
 \label{factorgraph}
-\vspace{1cm}
+\vspace{2cm}
 \end{figure}
 
 \subsubsection{Event Inference using Belief Propagation}
@@ -291,7 +293,7 @@ We evaluate the two algorithms on a set of simulated networks. The evaluation pr
 \caption{Event Types}
 \label{EventDescriptions}
 {\renewcommand{\arraystretch}{1.5}
-\begin{tabular}{|c|p{0.82\columnwidth}|}
+\begin{tabular}{|c|p{0.6\columnwidth}|}
 \hline 
 \textbf{Type}  & \textbf{Event Description}\tabularnewline
 \hline 
@@ -306,10 +308,11 @@ We evaluate the two algorithms on a set of simulated networks. The evaluation pr
 
 \begin{figure}[!p]
 \centering
-\includegraphics[width=0.7\textwidth]{benchmark}
+\includegraphics[width=0.55\textwidth]{benchmark}
+\vspace{0.5cm}
 \caption{An overview of the meter placement evaluation process. }
 \label{fig:benchmark}
-\vspace{1cm}
+\vspace{2cm}
 \end{figure}
 
 
@@ -353,7 +356,7 @@ Figure~\ref{NetworkDiagrams} shows the meters placed by the two algorithms in va
 
 \begin{table}[!p]
 \vspace{1cm}
-\renewcommand{\tabcolsep}{0.3 cm}
+\renewcommand{\tabcolsep}{0.1 cm}
 \renewcommand{\arraystretch}{1.8}
 \centering
 \caption{Results for each network configuration}
@@ -374,8 +377,8 @@ Figure~\ref{NetworkDiagrams} shows the meters placed by the two algorithms in va
 \end{table}
 
 \begin{table}[!p]
-\renewcommand{\tabcolsep}{0.2 cm}
-\renewcommand{\arraystretch}{1.6}
+\renewcommand{\tabcolsep}{0.1 cm}
+\renewcommand{\arraystretch}{1.4}
 \centering
 \caption{Number of meters required in various networks to restrict the mean error rate to 0.05 (5\%).}
 %\vspace{-0.1in}
@@ -386,7 +389,7 @@ Figure~\ref{NetworkDiagrams} shows the meters placed by the two algorithms in va
  MinEnt & 5 & 6 & 6 & 6 & 6 \tabularnewline \hline 
  \specialcell{Random} & 7 & 8 & 8 & 8 & 8 \tabularnewline \hline 
 \end{tabular}
-\vspace{1cm}
+\vspace{2cm}
 \end{table}
 
 The meter placements are then passed to the belief propagation benchmark to compare the accuracy of the two algorithms in terms of mean-square error (MSE), i.e., the mean error between the estimated and actual transition functions on unmonitored links. We collect a set of known samples for a given meter configuration and infer the maximum likelihood power quality event that would appear at each unmetered node using belief propagation. We then estimate the error rate for each node. If the inferred event differs from the event given by the MC sample, we add $1/N$ for that sample. The mean error rate across all nodes is taken as the final performance metric. As shown in Table~\ref{network_configuration_results}, the MSEs are very small for both algorithms in all networks we tested. The BP algorithm gave slightly better estimations than MinEntropy in some cases at a cost of longer running times.
