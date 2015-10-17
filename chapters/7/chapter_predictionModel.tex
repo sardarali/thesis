@@ -4,7 +4,7 @@
 \startchapter{A Prediction Model}
 \label{chap:predictionModel}
 \section{Motivation}
-As discussed in Chapter~\ref{chapter:introduction}, the main objective of this work is to increase the reliability of power networks in terms of power quality within given financial budget/resources. In order to monitor the power quality, power quality meters are being deployed. Since power quality meters are expensive devices, we (in Chapter~\ref{chap:PQEstimation}) proposed MaxEnt based algorithm for power quality estimation on unmonitored network segments. For meter placements, we proposed conditional entropy based efficient algorithms (in Chapter~\ref{chap:meterPlacement}) that intelligently place power meters on selected network segments so that the power quality could be inferred as accurately as possible.
+As discussed in Chapter~\ref{chapter:introduction}, the main objective of this work is to increase the reliability of power networks in terms of power quality within given financial budget/resources. In order to monitor the power quality, power quality meters are being deployed. Since power quality meters are expensive devices, we (in Chapter~\ref{chap:PQEstimation}) proposed MaxEnt-based algorithm for power quality estimation on unmonitored network segments. For meter placements, we proposed conditional entropy-based efficient algorithms (in Chapter~\ref{chap:meterPlacement}) that intelligently place power meters on selected network segments so that the power quality could be inferred as accurately as possible.
 
 Since the power quality readings (exact readings from monitored links, and estimated PQ values from unmonitored links) are available now, we use these readings to estimate the state of the network and identify any potential malfunctioning device in the power network. Our objective in this chapter is to address the research challenge: \textit{how to detect a potential malfunction device in the power network based on available power quality readings}. In this chapter, we propose a measure that helps to detect the malfunction devices in the power network. The simulation results confirm that the proposed solution is efficient, and accurate.
 
@@ -109,7 +109,7 @@ We call it a false detection when a device that is generating similar or slightl
 \label{fig:average_pq_exception}
 \end{figure}
 
-\subsection{An Expected Value Based PQ Measure}
+\subsection{An Expected Value-based PQ Measure}
 This measure is based on measuring the average power quality output over a period. A device is classified as a malfunction if its observed PQ output significantly degrades from its actual average power quality output. Clearly, if a device starts to malfunction by producing bad PQ output, its average output will deviate from its actual average output. We measure this deviation as $\Delta_d$ and is computed as follows.
 
 \[\Delta_d = E[f_x(d)] - E[\overset{\circ}{f_x}(d)] \leq \theta_d \]
@@ -166,8 +166,8 @@ In the composite expected value measure, we calculate two different expected val
 \end{enumerate}
 
 
-\section{Evaluations}
-\subsection{Simulation setup}
+\section{Performance Evaluation}
+\subsection{Simulation Setup}
 We simulate the power grid network in MATLAB. The inputs include: 1) Network topology as an adjacency matrix, 2) device type (e.g., bus, switch, UPS, transformer etc) of each node, 3) transfer matrix $f(d)$ for each node $d$, 3) PQ distribution vector $f_x(d_0)$ of the utility feed, and 4) vector of metered locations.
 
 The power quality events were generated using the input distribution $f_x(d_0)$, and transfer function $f(d)$ in level order starting from the root node of the tree. A power quality event $e_d$ at a node $d$ is generated based on the event at its parent link ($e_{\widehat d}$). For example a PQ event of class $c_3$ at a parent link will result into a child event following the distribution in $3^{rd}$ row of $f(d)$. Since the transfer matrices $f(d)$ are computed using our real PQ dataset (see Chapter~\ref{chap:latentF}), the simulated events possesses similar statistical features.
@@ -216,7 +216,7 @@ We select a device $d$ in the start of our simulation as a malfunction device an
 %In a malfunction $\acute f(d)$, the probability of generating a good power quality is reduced while the probability of generating bad power quality is increased. In our experiments, the changed in $\acute f(d)$ were: 1) decreased the probability of power quality classes $c_1$ and $c_2$ by 0.2; 2) $c_3$ were left unchanged, 3) $c_4$, and $c_5$ were increased by 0.2. 
 
 
-\subsection{Simulation results}
+\subsection{Simulation Results}
 Figure~\ref{mf_networks_used} show various network types used in our simulation to evaluate the accuracy of our proposed solution. The metered position are obtained using our meter placement solution from Chapter~\ref{chap:meterPlacement}. We evaluated all 4 networks for all devices that are on monitored segments and the algorithm correctly identified the malfunction segment.
 
 \section{Conclusion}

@@ -19,7 +19,7 @@ In this chapter, we solve the meter placement problem using entropy-based measur
 \printnomenclature
 
 \normalsize
-\section{Introduction / Motivation}
+\section{Introduction/Motivation}
 Monitoring power quality is not an easy task. Since the power quality measurement devices~\cite{schneider_meter} are expensive, it is financially impractical to monitor every segment of a power network. The overhead of interconnecting these power meters and developing the power management system further increases the cost. Therefore, we need to intelligently place power quality meters on selected power links to reduce the uncertainty of power quality estimation on unmonitored links in the power grid. The following core challenge needs to address: given a fixed number of available power meters, which grid segments should be selected for monitoring such that power quality can be inferred in the remaining unmonitored segments of the network.
 
 As the first step to tackle the above challenge, the probabilistic calculation of power quality values on unmonitored links requires the behavior (latent feature) of each device to be known. We represent the latent feature of a device as a transition function which is usually estimated through physical modeling or through the assessment of historical power monitoring data. Using a real power quality dataset, we show that historical data can be used to capture the latent features of a device.
@@ -29,7 +29,7 @@ With devices' latent features captured, we in the second step introduce a networ
 Finally, we solve the intelligent meter placement problem by proposing an iterative approach for identifying network segments suitable for power meter placement. During each iteration of the algorithm we identify in a greedy manner the network segment whose power quality is most unpredictable given the meters placed so far. We then place the next power meter at that location. In this chapter, we make the following contributions. 
 \begin{enumerate}
 	\item A network model for power quality estimation, based on the device latent features that are learned from a real-world dataset, 
-	\item An intelligent entropy-based algorithm and a Bayesian network based approach to solve the meter placement problem.
+	\item An intelligent entropy-based algorithm and a Bayesian network-based approach to solve the meter placement problem.
 	\item Formulate the problem of estimating the number of required power meters to achieve the desired level of reliability as an optimization problem.
 \end{enumerate}
 
@@ -65,7 +65,7 @@ Given the assumptions listed above we can define a power meter placement algorit
 an input: the topology of the smart grid, an \textit{a priori} estimate of the feed \emph{pmf}, the power quality transfer function for each component, and the total number of meters $M$. The output of the algorithm is a set of $L$ locations for deploying power meters. 
 
 \section{Meter Placement Algorithms}
-\subsection{A Simple Entropy-Based Approach}
+\subsection{A Simple Entropy-based Approach}
 \label{sec:simpleH}
 We propose to deployed the power quality meters on network segments where the power quality values are most uncertain. We measure the uncertainty of power quality on a link using Shannon's entropy measure. Therefore, the entropy formula to measure uncertainty at the output link of a device $d$ becomes
 \[H(d) = H(l_{o}^{(d)}) = -\sum_{i=1}^n p_{c_i}^{(d)} \log p_{c_i}^{(d)},\]
@@ -88,16 +88,16 @@ where $p_{c_i}^{(d)}$ is the probability of power quality $c_i$ at the output li
 $L \leftarrow getHighEntopyDevices(H, N);$
 }
 
-\vspace{0.2cm}\caption{A Simple Entropy-Based Algorithm}\vspace{0.2cm} \label{algo-1}
+\vspace{0.2cm}\caption{A Simple Entropy-based Algorithm}\vspace{0.2cm} \label{algo-1}
 \end{algorithm}
 
 In order to calculate $H(d)$, we need to know the power quality distribution function of link $l_{o}^{(d)}$. Starting from the root node of the tree-structured network, we traverse all the nodes (devices) in level-order fashion to calculate the distribution function $f_{x}(d)$ as $f_{x}(d) = f_x(\hat d) \times f(d)$. After calculating $f_{x}(d) = [p_{c_1}^{(d)} \ p_{c_2}^{(d)} \ \dots \ p_{c_n}^{(d)}]$ where $p_y(d) = \sum_{x=1}^n p_x^{(d)} \times p_{c_y \mid c_x}^{(d)} \ \forall \ y = 1,2,\dots,n$.
 
 The detail of our entropy-based meter placement algorithm is shown as Algorithm~\ref{algo-1} where the power meters are placed on network segments having maximum uncertainty in power quality values. This simple algorithm is fast and useful when there is negligible impact of a link on any other link in the network. For instance, if a node always produces a power quality $c_1$ as output irrespective of the input quality (a stabilizer). Nevertheless, in most cases the network links are dependent on each other. Therefore, we need to consider the link dependency while calculating the uncertainty of a link, i.e., a meter reduces the entropy not only on the measured link, but also on other links in the network. Further, based on our initial tests with the simple Algorithm~\ref{algo-1}, we conclude that it may create a poor allocation scheme for some cases. In the remainder of this section, we further investigate the problem and propose more robust methods to address the power meter placement problem. 
 
-\subsection{Bayesian Network Based Approach}
+\subsection{Bayesian Network-based Approach}
 \label{sec:predict} 
-This section describes a Bayesian network based algorithm for selecting locations for placing power meters in a power grid. The approach uses Monte Carlo sampling and probabilistic inference approaches to identify locations in the power grid which exhibit unpredictable power quality events.
+This section describes a Bayesian network-based algorithm for selecting locations for placing power meters in a power grid. The approach uses Monte Carlo sampling and probabilistic inference approaches to identify locations in the power grid which exhibit unpredictable power quality events.
 
 The problem is inherently challenging as the information received from a power meter flows not only the forward direction from the root nodes toward the leaf nodes, but also in reverse or upstream direction toward the root node (utility main) and back to all other nodes in the network. 
 
@@ -185,10 +185,10 @@ rate. We terminate the algorithm when all meters have been placed.
 
 The number of required power quality meters could be determined based on: 1) the available financial budget, and 2) the desired estimation accuracy. We consider both aspects. The proposed algorithms keep placing meters until either the maximum meter limit is exhausted or the desired estimation accuracy is achieved. The estimation accuracy is captured by the certainty of PQ values on network segments. See Algorithm \ref{alg-3} and Figure \ref{flowchart} for further details.
 
-\subsection{Conditional Entropy (CE) Based Approach}
-Since the PQ values on network segments are dependent on each other, we exploit the idea of conditional entropy to propose another new algorithm. Further, this approach is much faster than the Bayesian network (BN) based approach without compromising the accuracy. The idea here is to install each power meter under consideration on a network segment $i$ which results in maximum reduction in overall network entropy. We consider all possible placement points for every meter to be placed and choose a link which reduce the network entropy at maximum. Note that a reduction in network entropy is the sum of entropy reduction on the underlying link $i$ and all other links whose entropy is minimized/reduced in effect of meter placement on a segment $i$. The one time matrix multiplications in this approach are much faster than our previous requirement of re-sampling the network state after every possible meter placement.
+\subsection{Conditional Entropy (CE)-based Approach}
+Since the PQ values on network segments are dependent on each other, we exploit the idea of conditional entropy to propose another new algorithm. Further, this approach is much faster than the Bayesian network (BN)-based approach without compromising the accuracy. The idea here is to install each power meter under consideration on a network segment $i$ which results in maximum reduction in overall network entropy. We consider all possible placement points for every meter to be placed and choose a link which reduce the network entropy at maximum. Note that a reduction in network entropy is the sum of entropy reduction on the underlying link $i$ and all other links whose entropy is minimized/reduced in effect of meter placement on a segment $i$. The one time matrix multiplications in this approach are much faster than our previous requirement of re-sampling the network state after every possible meter placement.
 
-The CE based algorithm is efficient and scalable to large scale real-world networks. Both the BN and CE approaches are based on similar concepts of predicting the state of PQ values at unmonitored links given the current network configuration (positions of meters already placed). The CE based approach, which we will call MinEntropy, uses a heuristic to combine evidence but results in orders of magnitude faster running time.
+The CE-based algorithm is efficient and scalable to large scale real-world networks. Both the BN and CE approaches are based on similar concepts of predicting the state of PQ values at unmonitored links given the current network configuration (positions of meters already placed). The CE-based approach, which we will call MinEntropy, uses a heuristic to combine evidence but results in orders of magnitude faster running time.
 
 \subsubsection{Methodology}
 As discussed earlier in this paper, the uncertainty of power quality values on a link is dependent on the uncertainty of power quality values on other links (parents, children, sibling nodes etc) in the network. Therefore, any new information about PQ values at a link increase our belief of the PQ values on other dependent links in the same network. Technically, the entropy of any link in the network is reduced by an amount of $\ge0$ by knowing the values of PQ on any other link in the network. We also know that, the entropy of a link given another link is always less than or equal to its original entropy i.e., $H(Y \mid X) \leq H(Y)$. Since every link $l_{out}^{(d)}$, if chosen for meter placement, influences the uncertainty of PQ values on other links, we consider the conditional entropy of all monitored links while placing power meter at a link $l_{out}^{(d)}$.
@@ -278,19 +278,19 @@ This is an interesting case where the devices $d_o$ and $d_i$ belong to two diff
 \end{enumerate}
 
 \subsubsection{The MinEntropy Algorithm}
-Algorithm~\ref{algo-2} illustrates our conditional entropy based solution to power meter placement. The idea here is to install each meter under consideration on a link $i$ of the network which results in maximum reduction in overall network entropy. We consider all possible placement points for every meter to be placed and choose a link that reduce the network entropy to a minimum. Note that a reduction in network entropy is the sum of entropy reduction on the underlying link $i$ and all other links whose entropy is minimized/reduced in effect of meter placement on link $i$.
+Algorithm~\ref{algo-2} illustrates our conditional entropy-based solution to power meter placement. The idea here is to install each meter under consideration on a link $i$ of the network which results in maximum reduction in overall network entropy. We consider all possible placement points for every meter to be placed and choose a link that reduce the network entropy to a minimum. Note that a reduction in network entropy is the sum of entropy reduction on the underlying link $i$ and all other links whose entropy is minimized/reduced in effect of meter placement on link $i$.
 
 In order to calculate the network entropy for every candidate link $l_{out}^{(d_o)}$, we first calculate the entropy of every link $l_{out}^{(d_i)}$ given $l_{out}^{(d_o)}$. These conditional entropies are efficiently calculated by multiplying $f_x(d_o)$ with transition functions of all devices on the path between links $l_{out}^{(d_o)}$ and $l_{out}^{(d_i)}$. We do not need to explicitly identify the path from $l_{out}^{(d_o)}$ to $l_{out}^{(d_i)}$ and we do not need to multiply the same transition functions again and again. The entropy calculation works in recursive fashion. Once we calculate the conditional entropy for a directly connecting neighbor of $l_{out}^{(d_o)}$, we then recursively calculate the entropies of neighboring links of that neighbor. Here, it should be noted that 1) every link trigger the neighboring links except the one who triggered the link itself. So no infinite recursion takes place and every link is accessed only once; 2) The product of transition functions calculated from $l_{out}^{(d_o)}$ to some $l_{out}^{(d_k)}$ is used to calculate the next product; 3) if a link is invoking its parent link, we use reverse transition function $f^\prime(d)$ of that device. Otherwise, the normal transition function $f(d)$ is used. After every meter placement, the link entropies are updated. The same process is repeated until all power quality meters are placed.
 
 
-\section{Evaluations}
+\section{Performance Evaluation}
 \label{sec:experiments}
 We evaluate the two algorithms on a set of simulated networks. The evaluation process is depicted in Fig.~\ref{fig:benchmark} where each algorithm is given the same network topology to place a set of $M$ meters. The devices considered include bus, switch, transformer and UPS. Power quality events are assigned a number from 1-5 in order of severity in accordance with~\cite{epri2002} where the lower number represents a clean input. These are listed in Table \ref{EventDescriptions} along with their descriptions. Table~\ref{tbl:dev_trans} lists transition functions of various electrical components obtained from a real-world power quality dataset using our latent feature model. From the same dataset, we learn a prior on the utility feed of $\begin{array}{ccccc}[\ 0.9947 & 0.005 & 0.0002 & 0.00009 & 0.00001\ ].\end{array}$The algorithms we propose are generic and could be used for placing meters in other network configuration. We evaluate our algorithms on different topologies and network configurations including the IEEE 13-node distribution test feeder network. For the BP algorithm, we collect $N=10000$ samples for each device using MC sampling. For each network configuration we place $M=5$ meters in order of importance.
 
 \begin{table}[!p]
 \vspace{1cm}
 \centering
-\caption{Event Types}
+\caption{Event types}
 \label{EventDescriptions}
 {\renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|p{0.6\columnwidth}|}
@@ -399,4 +399,4 @@ We also compare the accuracy of our algorithms in terms of cost savings. Table~\
 
 \section{Conclusion}
 \label{sec:conclusion}
-Power quality meters are expensive devices and it is financially infeasible to install them on every link in the power network. We proposed algorithms which intelligently place power meters on selected power links to reduce the cost of power quality monitoring. We formulated the problem of selecting suitable meter placements in power networks such that power quality can be best predicted. Two approaches were presented, one based on conditional entropy and one considering prediction error. Experiments in various simulation networks including the IEEE 13-node distribution test feeder suggested that the conditional entropy based MinEntropy approach is much faster. Finally, the proposed solutions significantly reduce the uncertainty of power quality values on unmonitored power links.
+Power quality meters are expensive devices and it is financially infeasible to install them on every link in the power network. We proposed algorithms which intelligently place power meters on selected power links to reduce the cost of power quality monitoring. We formulated the problem of selecting suitable meter placements in power networks such that power quality can be best predicted. Two approaches were presented, one based on conditional entropy and one considering prediction error. Experiments in various simulation networks including the IEEE 13-node distribution test feeder suggested that the conditional entropy-based MinEntropy approach is much faster. Finally, the proposed solutions significantly reduce the uncertainty of power quality values on unmonitored power links.

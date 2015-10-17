@@ -1,0 +1,94 @@
+SmartGridComm
+-----------------------
+1. Fault Detection and Localization in Smart Grid: A Probabilistic Dependence Graph Approach
+@inproceedings{he2010fault,
+  title={Fault detection and localization in smart grid: A probabilistic dependence graph approach},
+  author={He, Miao and Zhang, Junshan},
+  booktitle={Smart Grid Communications (SmartGridComm), 2010 First IEEE International Conference on},
+  pages={43--48},
+  year={2010},
+  organization={IEEE}
+}
+
+2. Cascading Failures in Smart Grid - Benefits of Distributed Generation
+@inproceedings{chen2010cascading,
+  title={Cascading failures in smart grid-benefits of distributed generation},
+  author={Chen, Xian and Dinh, Hieu and Wang, Bing},
+  booktitle={Smart Grid Communications (SmartGridComm), 2010 First IEEE International Conference on},
+  pages={73--78},
+  year={2010},
+  organization={IEEE}
+}
+
+3. Challenges of using smart local devices for the management of the Smart Grid
+@inproceedings{lopez2011challenges,
+  title={Challenges of using smart local devices for the management of the Smart Grid},
+  author={Lopez-Rodriguez, Ignacio and Hern{\'a}ndez-Tejera, Mario},
+  booktitle={Smart Grid Communications (SmartGridComm), 2011 IEEE International Conference on},
+  pages={73--77},
+  year={2011},
+  organization={IEEE}
+}
+
+4. PMU Placement and Error Control using Belief Propagation
+@inproceedings{deka2011pmu,
+  title={PMU placement and error control using belief propagation},
+  author={Deka, Deepjyoti and Vishwanath, Sriram},
+  booktitle={Smart Grid Communications (SmartGridComm), 2011 IEEE International Conference on},
+  pages={552--557},
+  year={2011},
+  organization={IEEE}
+}
+
+5. Smart Meter Deployment Optimization for Efficient Electrical Appliance State Monitoring
+@inproceedings{hao2012smart,
+  title={Smart meter deployment optimization for efficient electrical appliance state monitoring},
+  author={Hao, Xiaohong and Wang, Yongcai and Wu, Chenye and Song, Lei and Hu, Changjian and Yu, Lu and others},
+  booktitle={Smart Grid Communications (SmartGridComm), 2012 IEEE Third International Conference on},
+  pages={25--30},
+  year={2012},
+  organization={IEEE}
+}
+
+6. Smart meter deployment optimization for efficient electrical appliance state monitoring
+@inproceedings{hao2012smart,
+  title={Smart meter deployment optimization for efficient electrical appliance state monitoring},
+  author={Hao, Xiaohong and Wang, Yongcai and Wu, Chenye and Song, Lei and Hu, Changjian and Yu, Lu and others},
+  booktitle={Smart Grid Communications (SmartGridComm), 2012 IEEE Third International Conference on},
+  pages={25--30},
+  year={2012},
+  organization={IEEE}
+}
+
+7. Approximate solutions and performance bounds for the sensor placement problem
+@inproceedings{uddin2012approximate,
+  title={Approximate solutions and performance bounds for the sensor placement problem},
+  author={Uddin, Muslem and Kuh, Anthony and Kavcic, Aleksandar and Tanaka, Toshihisa},
+  booktitle={Smart Grid Communications (SmartGridComm), 2012 IEEE Third International Conference on},
+  pages={31--36},
+  year={2012},
+  organization={IEEE}
+}
+
+8. Graph-Theoretic Algorithms for PMU Placement in Power Systems Under Measurement Observability Constraints
+@inproceedings{anderson2012graph,
+  title={Graph-theoretic algorithms for PMU placement in power systems under measurement observability constraints},
+  author={Anderson, Joel E and Chakrabortty, Aranya},
+  booktitle={Smart Grid Communications (SmartGridComm), 2012 IEEE Third International Conference on},
+  pages={617--622},
+  year={2012},
+  organization={IEEE}
+}
+
+APSIPA Transactions
+--------------------------
+1. Nested performance bounds and approximate solutions for the sensor placement problem
+@article{uddin2014nested,
+  title={Nested performance bounds and approximate solutions for the sensor placement problem},
+  author={Uddin, Muhammad Sharif and Kuh, Anthony and Kavcic, Aleksandar and Tanaka, Toshihisa},
+  journal={APSIPA Transactions on Signal and Information Processing},
+  volume={3},
+  pages={e4},
+  year={2014},
+  publisher={Cambridge Univ Press}
+}

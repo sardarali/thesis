@@ -36,6 +36,7 @@ Figure~\ref{fig:subnetview} shows a view of a power grid where there are differe
 
 Now, we consider every subnet as a single node which we call a black-box. For every black-box, we know the power quality values at the input as well as at the output. Based on this known power quality information, we calculate the power quality transition function by using some sample readings from the smart meters attached to both sides of every black-box. Figure~\ref{fig:subnet} shows a sample subnet as a single node. We represent the calculated power quality function $f(s)$  of subnet $s$ as a matrix as follows:
 
+\vspace{1cm}
 \begin{equation}
 f(s) = \left[\begin{array}{cccc} p_{c_1 \mid c_1}^{(s)} & p_{c_2 \mid c_1}^{(s)} & \cdots & p_{c_n \mid c_1}^{(s)}\\
 p_{c_1 \mid c_2}^{(s)} & p_{c_2 \mid c_2}^{(s)} & \cdots & p_{c_n \mid c_2}^{(s)}\\
@@ -44,6 +45,7 @@ p_{c_1 \mid c_n}^{(s)} & p_{c_2 \mid c_n}^{(s)} & \cdots & p_{c_n \mid c_n}^{(s)
 \end{array}\right],
 %\label{eqn:pqf}
 \end{equation}
+\vspace{1cm}
 
 \noindent
 where $p_{c_y  \mid c_x}^{(s)}$ is the probability that the input quality $c_x$ is received as $c_y$ at the output of the subnet $s$. Moreover, the value of $p_{c_y  \mid c_x}^{(s)}$ can be easily calculated by measuring power quality values at the input and output smart meters of the subnet. Note that every row in the above matrix must sum to $1$.
@@ -53,19 +55,22 @@ where $p_{c_y  \mid c_x}^{(s)}$ is the probability that the input quality $c_x$ 
 	\subfloat[A subnet containing 2 devices.]{\includegraphics[width=0.7\textwidth]{subnet_1}}\\ \vspace{1cm}
 	\subfloat[Subnet as a single power transition matrix.]{\includegraphics[width=0.7\textwidth]{subnet_2}}\\ \vspace{1cm}
 	\subfloat[Power transition matrix of each device $d_j$.]{\includegraphics[width=0.98\textwidth]{subnet_3}} \\\vspace{0.5cm}
-\caption{Subnet power transition matrix as a product of power transition matrices of individual devices.} \label{fig:subnet}
+\caption{The power transition matrix $f(s)$ of a subnet $s$ as a product of the power transition matrices of individual devices.} \label{fig:subnet}
 \end{figure*}
 
 Figure~\ref{fig:subnet}(a) shows a subnet containing two devices. The power quality transition function (as a matrix) of the subnet is shown inside the black-box in Figure~\ref{fig:subnet}(b). Our objective is to correctly estimate the transition functions of every device $d_j$ in the subnet. These unknown functions are shown as matrices in Figure~\ref{fig:subnet}(c).
 
 In order to estimate the reliability of every device in the network, we need to estimate the power quality function $f(d_j)$ for each device $d_j$ based on the quality function $f(s)$ of the subnet. It is clear that
 
+\vspace{0.5cm}
 \begin{equation}
 f(s) = \prod_{j} f(d_j),
 \end{equation}
+\vspace{0.5cm}
 
 \noindent
 which implies that
+
 
 \begin{equation}
 \left[\begin{array}{ccc}
@@ -78,23 +83,27 @@ p_{c_1 \mid c_1}^{(d_j)} & \cdots & p_{c_n  \mid c_1}^{(d_j)}\\
 p_{c_1 \mid c_n}^{(d_j)} & \cdots & p_{c_n \mid c_n}^{(d_j)}\end{array}\right]}
 \label{eqn:product}
 \end{equation}
+\vspace{1cm}
 
 Our objective is to estimate $p_{c_y \mid c_x}^{(d_j)}$ (probability that power quality $c_x$ will be mapped to power quality $c_y$ at each device $d_j$). We use the data estimation techniques to solve Eq.~(\ref{eqn:product}).
 
+\vspace{0.5cm}
 \section{Power Quality Estimation using Entropy Maximization}
 \label{sec:formulation}
-Modeling the microgrids as data-driven networks helps us utilize the best available data estimation techniques to solve the power quality estimation problem. One of the most popular and widely-used data estimation techniques is EM algorithm. In a recent study~\cite{catherine_pri}, the authors successfully applied the EM algorithm to power quality estimation in microgrid. Although effective, the EM algorithm took a long time to converge. In this work, we propose to use a MaxEnt approach to estimating the power quality of unmonitored segments of the grid. Before we formulate the power quality estimation problem as a MaxEnt problem, first we give a short description of EM and MaxEnt algorithms:
+Modeling the microgrids as data-driven networks helps us utilize the best available data estimation techniques to solve the power quality estimation problem. One of the most popular and widely-used data estimation techniques is EM algorithm. In a recent study~\cite{catherine_pri}, the authors successfully applied the EM algorithm to power quality estimation in microgrid. Although effective, the EM algorithm took a long time to converge. In this work, we propose to use a MaxEnt approach to estimating the power quality of unmonitored segments of the grid. Before we formulate the power quality estimation problem as a MaxEnt problem, first we give a short description of EM and MaxEnt algorithms.
 
-\begin{itemize}\itemsep0.7em
-\item \textbf{The Expectation Maximization (EM):} EM is a general approach to iterative computation of maximum-likelihood estimates when the observations can be viewed as incomplete data. Since each of the iteration of the algorithm consists of an expectation step followed by a maximization step, the algorithm is named as the EM algorithm. The successive iterations always increase the likelihood and the algorithm converges at a stationary point.
-\item \textbf{MaxEnt:} MaxEnt solves convex optimization problems of the form,
+\vspace{0.5cm}
+\subsection{The Expectation Maximization (EM) Algorithm} EM is a general approach to iterative computation of maximum-likelihood estimates when the observations can be viewed as incomplete data. Since each of the iteration of the algorithm consists of an expectation step followed by a maximization step, the algorithm is named as the EM algorithm. The successive iterations always increase the likelihood and the algorithm converges at a stationary point.
+
+\vspace{0.5cm}
+\subsection{The Maximum Entropy (MaxEnt) Algorithm} MaxEnt solves convex optimization problems of the form,
 \[\mathrm{\mathbf{maximize}}~g(\vec{x}) = - \sum_{i=1}^n x_i \log x_i \]
 \[\mathrm{subject~to~} \mathbf{A}\vec{x} \leq \mathbf{c},~ \mathbf{B}\vec{x} = \mathbf{1},\]
 
 where $\vec{x}\in \mathbb{R}^n$ is the optimization variable, $A \in \mathbb{R}^{m \times n}$, and $B \in \mathbb{R}^{m \times n}$ are problem parameters;  and \textbf{1} is a vector with all 1's.
-\end{itemize}
 
-Now, we model the power quality estimation problem as the MaxEnt problem to accurately estimate the power quality transition functions $f(d_j)$ with acceptable efficiency. Obviously, there are multiple possible power quality functions $f(d_j)$ which are consistent with Eq.~(\ref{eqn:product}). We consider only those solutions which not only satisfy Eq.~(\ref{eqn:product}) but are consistent with other design constraints, for instance: 1) every row in the matrix $f(d_j)$ must sum to $1$ (or at least very close to $1$); and 2) $p_{c_y \mid c_x}^{(d_j)}$ must not be negative. Other possible constraints are discussed later in this section.
+\vspace{0.5cm}
+\subsection{Our MaxEnt-based Estimation of Power Quality} We model the power quality estimation problem as the MaxEnt problem to accurately estimate the power quality transition functions $f(d_j)$ with acceptable efficiency. Obviously, there are multiple possible power quality functions $f(d_j)$ which are consistent with Eq.~(\ref{eqn:product}). We consider only those solutions which not only satisfy Eq.~(\ref{eqn:product}) but are consistent with other design constraints, for instance: 1) every row in the matrix $f(d_j)$ must sum to $1$ (or at least very close to $1$); and 2) $p_{c_y \mid c_x}^{(d_j)}$ must not be negative. Other possible constraints are discussed later in this section.
 
 The basic idea of using MaxEnt here is that out of all possible quality functions (probability distributions) consistent with the design constraints, we choose the one with maximum uncertainty. Intuitively, the principle of MaxEnt implies that we should make use of all the information (design constraints) that is available and avoid making (biased) assumptions about information that is not available. Our objective function becomes,
 \begin{equation} \label{objective}
@@ -142,7 +151,7 @@ This work focuses on a centralized processing and as such we assume that there e
 \end{remark}
 
 \begin{table}[!p]
-\centering  \caption{Transition Functions of Various Electrical Components Obtained Using Our Latent Feature Model} \label{tbl:dev_trans}
+\centering  \caption{Transition functions of various electrical components obtained using our latent feature model.} \label{tbl:dev_trans}
 \renewcommand{\tabcolsep}{0.3 cm}
 \renewcommand*{\arraystretch}{1.1}
 \subfloat[Bus]{
@@ -236,7 +245,7 @@ This work focuses on a centralized processing and as such we assume that there e
 \begin{table}[!p]
 \renewcommand{\tabcolsep}{0.2 cm}
 \renewcommand*{\arraystretch}{2}
-\centering \caption{Mean Squared Error comparison of MaxEnt vs EM algorithms.}
+\centering \caption{Mean squared error comparison of MaxEnt vs EM algorithms.}
 \begin{tabular}{|c|c|c|c|c|c|}
  \hline \multicolumn{2}{|c|}{\multirow{2}{*}{}} & \multirow{2}{*}{\textbf{MaxEnt}} & \multicolumn{3}{c|}{\textbf{Expectation Maximization (EM)}}\\
 \cline{4-6}

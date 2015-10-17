@@ -8,7 +8,7 @@ In this chapter, we first introduce a latent feature model to capture the behavi
 \begin{figure}[!p]
 \center
 \includegraphics[width=0.8\columnwidth]{latentModel}
-\caption{Latent feature model of a device $d$ where the two circles represent the power quality meters at input and output of node $d$; the matrix inside the node $d$ represents the transition function of the node.}
+\caption{Latent feature model of a device $d$ where the two circles represent the power quality meters at input and output of a node $d$; the matrix inside the node $d$ represents the transition function of the node.}
 \label{fig:latentModel}
 
 \end{figure}
@@ -16,14 +16,16 @@ In this chapter, we first introduce a latent feature model to capture the behavi
 \begin{figure}[!p]
 \center
 \includegraphics[width=0.9\columnwidth]{pqeNetwork}
-\caption{Graph network of power quality meters installed in a power network.}
+\caption{Graph network of the power quality meters installed in a power network.}
 \label{fig:pqeNetwork}
 \vspace{3cm}
 \end{figure}
 
+\vspace{0.5cm}
 \section{The Latent Feature Model}
 The latent feature model is basically a mechanism for capturing and mathematically representing the behavior of a device. We capture this behavior by monitoring the input and output links of electric devices and representing it as a transition function. A transition function ($f(d)$) of a device $d$ is the matrix consisting of real values representing the probabilities that a power quality input $c_x$ is mapped to another power quality $c_y$ at the output link of a device $d$. Figure~\ref{fig:latentModel} shows the proposed latent feature model we use to capture $f(d)$. We use a real-world power quality dataset collected for a period of over 4 years to capture the latent features of various electric devices. The latent feature $f(d)$ is then used to estimate the power quality at unmonitored power links in the power network.
 
+\vspace{0.5cm}
 \section{Power Quality Dataset}
 Our power quality dataset was collected at an enterprise power network for a period of four years. For privacy and security reasons, the physical network structure/diagram is omitted. Instead, we represent the topology/positions of the installed power quality meters via a graph network as shown in Fig.~\ref{fig:pqeNetwork}. There are a total of $10$ power quality meters (numbered from $m_1$ to $m_{10}$) installed. Each meter reported the power quality events (sag/swell, transient, etc.) to the data collection server via Ethernet network. It is important to mention that we currently do not consider power transmission network, which is large-scale and may involve multiple utilities across a country, but only focus on power distribution network at the enterprise-level, e.g., university campus. Hence, we collect the power quality dataset at an enterprise network located at the distribution level. The network is using a standard three-phase distribution system. Devices of varying loads are using this network, including electric vehicles and large motors. Three-phase transformers with four-wire output are used for $120$ volt service. Table~\ref{tbl:perDevFreq} shows the number of events reported by each power quality meter while the positions of the meters are shown in Fig.~\ref{fig:pqeNetwork}.
 
@@ -99,21 +101,20 @@ Using IEEE Standard 1159~\cite{IEEE09_1159}, we classify the power quality event
 \vspace{2cm}
 \end{table}
 
-
+\vspace{0.5cm}
 \section{Capturing the Latent Feature/Transition Function ($f(d)$)}
-Using the real-world power quality dataset, we capture the device latent feature in three simple steps as follows:
+Using the real-world power quality dataset, we capture the device latent feature in three simple steps.
 
-\begin{enumerate} \setlength{\itemsep}{5pt}
-\item \textbf{Synchronizing the PQ events:} The power quality meters in our data collection network were configured to report only bad power quality events. We noticed that, in some cases, there are bad power quality events reported at some links while nothing reported by other meters at that time instance. This happens when a device, for instance a UPS, maps a bad quality to good quality. In such cases, we assume a nominal PQ value (PQ class $c_{14}$) at the monitored but unreported points.
+\subsection{Synchronizing the PQ events} The power quality meters in our data collection network were configured to report only bad power quality events. We noticed that, in some cases, there are bad power quality events reported at some links while nothing reported by other meters at that time instance. This happens when a device, for instance a UPS, maps a bad quality to good quality. In such cases, we assume a nominal PQ value (PQ class $c_{14}$) at the monitored but unreported points.
 
-\item \textbf{Building frequency tables:} We now put all the PQ events in a $2$-dimensional array $M(i, j)$ of events where the first dimension of the array represents an event $i$ in the time series while the second dimension represents the corresponding event for each device $j$. We then count the input to output PQ mappings at each device. This results in a $14 \times 14$ frequency table ($fr(d)$) for each device $d$. As an example, frequency table for device $d_8$ is shown in Table~\ref{tbl:freqTable}.
+\subsection{Building frequency tables} We now put all the PQ events in a $2$-dimensional array $M(i, j)$ of events where the first dimension of the array represents an event $i$ in the time series while the second dimension represents the corresponding event for each device $j$. We then count the input to output PQ mappings at each device. This results in a $14 \times 14$ frequency table ($fr(d)$) for each device $d$. As an example, frequency table for device $d_8$ is shown in Table~\ref{tbl:freqTable}.
 
-\item  \textbf{Frequency to probability mapping:} Finally, the transition function is calculated by dividing every element of the frequency table ($fr(d)$) by the sum of the row containing that element, i.e., $f(d, i, j) = fr(d, i, j) / \sum_{k=1}^{14} fr(d, i, k)$. Here, we slightly abuse the notation by using $f(d, i, j)$ to represent the value at the intersection of the $i$-th row and the $j$-th column in matrix $f(d)$. Hence, the transition function is represented with a matrix. If every element in a row (say $i$-th row) of the frequency table is a $0$, we assume the same probability (i.e., $1/14$) for each element in that row in the transition function, implying that no knowledge can be learned from the dataset about the corresponding input event ($c_i$) on this device, and as such we assume the maximum uncertainty on its output events to avoid biased estimation. Table~\ref{tbl:sampleTF} shows a sample transition function formulated from Table~\ref{tbl:freqTable}.
-\end{enumerate}
+\subsection{Frequency to probability mapping} Finally, the transition function is calculated by dividing every element of the frequency table ($fr(d)$) by the sum of the row containing that element, i.e., $f(d, i, j) = fr(d, i, j) / \sum_{k=1}^{14} fr(d, i, k)$. Here, we slightly abuse the notation by using $f(d, i, j)$ to represent the value at the intersection of the $i$-th row and the $j$-th column in matrix $f(d)$. Hence, the transition function is represented with a matrix. If every element in a row (say $i$-th row) of the frequency table is a $0$, we assume the same probability (i.e., $1/14$) for each element in that row in the transition function, implying that no knowledge can be learned from the dataset about the corresponding input event ($c_i$) on this device, and as such we assume the maximum uncertainty on its output events to avoid biased estimation. Table~\ref{tbl:sampleTF} shows a sample transition function formulated from Table~\ref{tbl:freqTable}.
+
 
 \begin{table}[!p]
 \vspace{1cm}
-\caption{A sample frequency table showing the number of events mapped from input power quality $c_i$ to output power quality $c_j$ at device $d_8$.}
+\caption{A sample frequency table showing the number of events mapped from input power quality class $c_i$ to output power quality class $c_j$ at a device $d_8$.}
 \centering \renewcommand*{\arraystretch}{1.5} 
 \renewcommand{\tabcolsep}{0.4 cm}
 \begin{tabular}{|cc|llllll|}
@@ -154,7 +155,7 @@ Using the real-world power quality dataset, we capture the device latent feature
 \end{table}
 
 \begin{table}[!p]
-\caption{Mean Square Errors (MSEs) in estimated and expected probabilities of the transition functions; standard deviation in PQ values of the $k$-fold test data.}
+\caption{Mean square errors (MSEs) in estimated and expected probabilities of the transition functions; standard deviation in PQ values of the $k$-fold test data.}
 \centering \renewcommand*{\arraystretch}{2} 
 \renewcommand{\tabcolsep}{0.3 cm}
 \begin{tabular}{|cc|llll|llll|}
@@ -179,14 +180,20 @@ Using the real-world power quality dataset, we capture the device latent feature
 \vspace{2cm}
 \end{table}
 
+\vspace{0.5cm}
 \section{Cross-validation of $f(d)$}
 We use $k$-fold cross-validation technique to measure the accuracy of latent features we learned. We partition the dataset into $k$ random samples of equal size. Out of the $k$ samples, we use $k-1$ samples to generate a training transition function and one sample to generate the test transition function. The cross-validation is repeated $k$ times where each of the k-samples is used exactly once for validation. The $k$ results are then averaged to produce a single estimation for each device.
 
-The Mean-Square Error (MSE) is used to measure the variation of the validation/test function (represented as $f_v(d)$) from its training function (represented as $f_t(d)$).  The MSE is calculated as: \[mse = \sum_{i=1}^{14} \sum_{j=1}^{14} \mid f_v(d, i, j) - f_t(d, i, j) \mid / (i \times j).\]
+The Mean-Square Error (MSE) is used to measure the variation of the validation/test function (represented as $f_v(d)$) from its training function (represented as $f_t(d)$).  The MSE is calculated as: 
+
+\vspace{0.5cm}
+\[mse = \sum_{i=1}^{14} \sum_{j=1}^{14} \mid f_v(d, i, j) - f_t(d, i, j) \mid / (i \times j).\]
+\vspace{0.5cm}
 
 We validate the latent features of all devices on various sample sizes. The largest training sample size is at $k=2$ where we divide the entire dataset in $2$ subsets of equal size; in this case, one subset is used to train the model while the other is used for validation. At the other extreme, at $k=500$, the dataset is divided into $500$ subsets where one of the subsets is used for validation while all other subsets are used for training.
 
 Table~\ref{tbl:mse} shows the MSEs for all devices in the network with $k$-fold cross validation, where $k$ is set to be different values. For each $k$-fold cross validation test, we also calculated the standard deviation of the $k$ test results. It can be seen that when the value of $k$ increases, the MSEs remain relatively stable with minor changes, but the standard deviation becomes larger. This is reasonable. When $k$ increases, the number of samples in the test dataset becomes smaller, and the transition function built with a small number of samples in the test dataset becomes less accurate and leads to large variance in the test results. Nevertheless, the MSEs together with the standard deviation indicate that the test results with different $k$ values do not exhibit significant statistical differences, and the small MSE values suggest that a device behavior (latent feature) can be captured accurately with historical PQ data from power quality meters.
 
+\vspace{0.5cm}
 \section{Conclusion}
 In this chapter, we proposed a device latent feature model which learns a device transfer function from real data. The device transfer function is needed to estimate the power quality values on unmonitored links in the power gird. In order to validate the proposed model, We used a real power quality dataset collected by Schneider Electric Inc. in a power grid in Canada. We demonstrated that the historical data can be used to capture the latent features of a device. The $k$-fold cross-validation technique was used to measure the accuracy of latent features we obtained using our dataset. Experimental evaluations showed that the captured latent features are consistent. The latent features learnt in this chapter are used by our meter placement algorithms proposed in Chapter~\ref{chap:meterPlacement}.
