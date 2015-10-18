@@ -99,7 +99,7 @@ The International Electrotechnical Commission (IEC) classifies various phenomena
 \begin{center}
 \renewcommand*{\arraystretch}{1}
 \begin{longtable}{m{6cm} m{2.5cm} m{3cm} m{3cm}}
-\caption{Characteristics of the electromagnetic phenomena~\cite{IEEE09_1159}.} \label{tbl:ieee_classification} \\
+\caption{Characteristics of the EM phenomena~\cite{IEEE09_1159}.} \label{tbl:ieee_classification} \\
 
 \hline \multicolumn{1}{c}{\textbf{Categories}} & \textbf{\thead{Spectral\\Content}} & \textbf{Duration} & \textbf{\thead{Voltage\\Magnitude}} \\ \hline  \hline
 \endfirsthead
@@ -230,12 +230,16 @@ There are many approaches to the problem of classifying the power quality events
 
 
 \subsection{Power Reliability}
-The industry standard practices for electric power reliability in networks focus on measures such as Mean Time Between Failure (MTBF), reliability, and availability as defined by the IEEE Gold Book~\cite{goldbook}. These measures are theoretical values, measured or calculated for components and networks operating under standardized conditions. They serve as methods for comparison but are not intended as predictive tools for networks that operate in realistic environments with varying temperature, humidity, load, and power quality.
+
+
+
+The industry standard practices for electric power reliability in networks focus on measures such as Mean Time Between Failure (MTBF), reliability, and availability as defined by the IEEE Gold Book~\cite{goldbook}. Some of these aspects are discussed in~\cite{falahati2013reliability} and a mathematical model to assess the impact of these measures on power grid reliability. Another similar evaluation model was proposed in~\cite{wang2010reliability} that includes the failure rate, failure frequency and
+average outage duration as reliability indices. Another analytical formulation~\cite{conti2014reliability} was proposed recently that evaluated the distribution system reliability indices based on telecontrol and islanding. The measures proposed in the IEEE Gold Book~\cite{goldbook} are theoretical values, measured or calculated for components and networks operating under standardized conditions. They serve as methods for comparison but are not intended as predictive tools for networks that operate in realistic environments with varying temperature, humidity, load, and power quality.
 
 Further, it is known that there exists a relationship between power quality and the lifetime and performance of components~\cite{iti_curve}. For an effective evaluation of power reliability, we need to accurately estimate power quality, which motivates the meter placement, and power quality estimation problems studied in this work.
 
 \subsection{Power Quality Estimation/Improvement}
-There have been recent studies to improve the electric power quality. In~\cite{mcbee2012utilizing}, a proactive approach was introduced to identify bad power quality events before they become a concern to end-users. The approach determines voltage threshold limits to determine if a potential voltage problem exists. Another recent study~\cite{almeida2013harmonic} uses Genetic Algorithm (GA) to estimate the harmonic states of the power network. The methodology was shown to be effective for estimating voltage and current state variables. A secondary control scheme is proposed in~\cite{savaghebi2012secondary} to enhance the voltage quality of sensitive load bus (SLB) in microgrids. Another recent work~\cite{farzanehrafat2013power} proposed a transient state estimator to detect losses due to poor power quality. The estimator was validated on a test system to detect the presence of voltage sag/dip. Another estimator was proposed in~\cite{ghiocel2014phasor} that improves the power consistency by identifying angle biases and current scaling errors using phasor-measurement based state estimator (PSE).
+There have been recent studies to improve the electric power quality. In~\cite{mcbee2012utilizing}, a proactive approach was introduced to identify bad power quality events before they become a concern to end-users. The approach determines voltage threshold limits to determine if a potential voltage problem exists. Another recent study~\cite{almeida2013harmonic} uses Genetic Algorithm (GA) to estimate the harmonic states of the power network. The methodology was shown to be effective for estimating voltage and current state variables. A secondary control scheme is proposed in~\cite{savaghebi2012secondary} to enhance the voltage quality of sensitive load bus (SLB) in microgrids. Historical data-driven approaches were presented in~\cite{weng2013historical, weng2014data} to estimate the state of power system using EM and Bayesian estimations. Another recent work~\cite{farzanehrafat2013power} proposed a transient state estimator to detect losses due to poor power quality. The estimator was validated on a test system to detect the presence of voltage sag/dip. Another estimator was proposed in~\cite{ghiocel2014phasor} that improves the power consistency by identifying angle biases and current scaling errors using phasor-measurement based state estimator (PSE). A PMU deployment algorithm for network state estimation was recently presented in~\cite{damavandirobust}.
 
 We use data estimation techniques to propose our power quality estimation solution (see Chapter~\ref{chap:PQEstimation}). A short description of the EM and MaxEnt algorithms used in our work are as follows:
 
@@ -248,16 +252,33 @@ We use data estimation techniques to propose our power quality estimation soluti
 where $\vec{x}\in \mathbb{R}^n$ is the optimization variable, $A \in \mathbb{R}^{m \times n}$, and $B \in \mathbb{R}^{m \times n}$ are problem parameters;  and \textbf{1} is a vector with all 1's.
 
 \subsection{Meter Placement}
-There is a great body of work on the optimal sensor deployment problem~\cite{Krause09}. The meaning of sensors is broad, including any measurement/monitoring devices. In the context of power networks, optimal deployment of phasor measurement units (PMU) has been studied~\cite{Yuill11}. 
+There is a great body of work on the optimal sensor deployment problem~\cite{Krause09}. The meaning of sensors is broad, including any measurement/monitoring devices. In the context of power networks, optimal deployment of phasor measurement units (PMU) has been studied~\cite{Yuill11}. Another work~\cite{chen2006placement} shows that adding few extra PMUs could improve the bad data detection in the network state estimation. A relevant work addressing the problem of distribution system state estimation (DSSE) was proposed~\cite{singh2011meter} to minimize the state estimation errors. The optimal PMU placement and its communication infrastructure was designed~\cite{shahraeini2012co} to address the problem of state estimation. A procedure finding the optimal trade-offs between PMUs and metering devices for distribution state estimation was investigated in~\cite{liu2012trade}. Using integer-programming and NP-approximation, the upper bound on the number of PMU was extimated in~\cite{uddin2012approximate, uddin2014nested}. Multiple access schemes for smart metering are studied in~\cite{li2011efficient}. The PMU placement has been studies for various applications in power systems~\cite{de2010synchronized}. Some state-of-the-art PMU deployment solutions targeting specific applications/areas in the power systems include:
 
+\begin{enumerate}
+\item preventing against state and topology attacks~\cite{kim2013phasor},
+\item electric appliance state monitoring~\cite{hao2012smart},
+\item error control using Belief propagation~\cite{deka2011pmu},
+\item wide-are monitoring~\cite{wen2013optimal}, and
+\item phase identification~\cite{short2013advanced}.
+\end{enumerate}
 
-Another work~\cite{chen2006placement} shows that adding few extra PMUs could improve the bad data detection in the network state estimation. A relevant work addressing the problem of distribution system state estimation (DSSE) was proposed~\cite{singh2011meter} to minimize the state estimation errors. The optimal PMU placement and its communication infrastructure was designed~\cite{shahraeini2012co} to address the problem of state estimation. A procedure finding the optimal trade-offs between PMUs and metering devices for distribution state estimation was investigated in~\cite{liu2012trade}. Nevertheless, we have not seen any work on studying optimal meter placement problem in the context of network-wide power quality estimation. Further, there are three major differences between the existing PMU placement algorithms and our algorithm.
+\vspace{0.5cm}
+\noindent Finally, the popular PMU placement techniques/algorithms proposed in the literature include exhaustive search~\cite{azizi2012optimal}, convex relaxation~\cite{kekatos2012optimal}, graph-theoretic~\cite{anderson2012graph}, information-theoretic \cite{li2013information}, reduced bounded error~\cite{lunden2014real}, and software defined networks-based PMU placement~\cite{goodney2013efficient}. Nevertheless, we have not seen any work on studying optimal meter placement problem in the context of network-wide power quality estimation. Further, there are three major differences between the existing PMU placement algorithms and our algorithm.
+
 \begin{enumerate}
 \item We focus on distribution networks at the enterprise level (e.g., a university campus).
 \item Our method is data driven and is based on statistical machine learning method.
 \item The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly.
 \end{enumerate}
 
+
 \subsection{Bayesian Inference}
 We use Bayesian inference to identify high information locations for deploying smart meters (detailed in Chapter~\ref{chap:meterPlacement}). The Bayesian inference methods are helpful in providing the new estimates of the PQ values on unmonitored links given evidences obtained from the metered locations. Bayesian inference is a general and well-investigated discipline which has applications in a wide range of fields. Several algorithms are available to address specific problem in this domain. For the problem of meter placement, several message passing algorithms could be used to
 help determine the optimal meter placement. We chose the belief propagation or sum-product algorithm~\cite{pearl1988probabilistic} since it is well understood, has been shown to work for general topologies~\cite{yedidia2001generalized} including tree networks, and has software libraries available to the public.
+
+
+\subsection{Fault Detection}
+
+
+\subsection{Cascaded Failure Detection}
+
