@@ -1,11 +1,11 @@
-\nomenclatureentry{01$f(d)$@[{$f(d)$}]\begingroup Device transfer function for a device $d$\nomeqref {6.0}|nompageref}{51}
-\nomenclatureentry{02$c_i^{(d)}$@[{$c_i^{(d)}$}]\begingroup Power quality of class $i$ at device $d$\nomeqref {6.0}|nompageref}{51}
-\nomenclatureentry{03$C_i$@[{$C_i$}]\begingroup Set of $c_i^{(d)}$ $\forall$ $d$\nomeqref {6.0}|nompageref}{51}
-\nomenclatureentry{04$p_{c_y \mid c_x}^{(d)}$@[{$p_{c_y \mid c_x}^{(d)}$}]\begingroup Probability that $c_x$ will be mapped to $c_y$ at device $d$\nomeqref {6.0}|nompageref}{51}
-\nomenclatureentry{05$\widehat d$@[{$\widehat d$}]\begingroup Parent node of a node $d$\nomeqref {6.0}|nompageref}{51}
-\nomenclatureentry{06$\widecheck d$@[{$\widecheck d$}]\begingroup Child node of a node $d$\nomeqref {6.0}|nompageref}{51}
-\nomenclatureentry{07$d_i$@[{$d_i$}]\begingroup Inferred device\nomeqref {6.0}|nompageref}{51}
-\nomenclatureentry{08$d_o$@[{$d_o$}]\begingroup Observed device\nomeqref {6.0}|nompageref}{51}
-\nomenclatureentry{09$F$@[{$F$}]\begingroup Conditional transfer function of device $d_o$ given $d_i$\nomeqref {6.0}|nompageref}{51}
-\nomenclatureentry{10$l_{out}^{(d)}$@[{$l_{out}^{(d)}$}]\begingroup Output link of device $d$\nomeqref {6.0}|nompageref}{51}
-\nomenclatureentry{11$l_{in}^{(d)}$@[{$l_{in}^{(d)}$}]\begingroup Input link of device $d$\nomeqref {6.0}|nompageref}{51}
+\nomenclatureentry{01$f(d)$@[{$f(d)$}]\begingroup Device transfer function for a device $d$\nomeqref {5.0}|nompageref}{37}
+\nomenclatureentry{02$c_i^{(d)}$@[{$c_i^{(d)}$}]\begingroup Power quality of class $i$ at device $d$\nomeqref {5.0}|nompageref}{37}
+\nomenclatureentry{03$C_i$@[{$C_i$}]\begingroup Set of $c_i^{(d)}$ $\forall$ $d$\nomeqref {5.0}|nompageref}{37}
+\nomenclatureentry{04$p_{c_y \mid c_x}^{(d)}$@[{$p_{c_y \mid c_x}^{(d)}$}]\begingroup Probability that $c_x$ will be mapped to $c_y$ at device $d$\nomeqref {5.0}|nompageref}{37}
+\nomenclatureentry{05$\widehat d$@[{$\widehat d$}]\begingroup Parent node of a node $d$\nomeqref {5.0}|nompageref}{37}
+\nomenclatureentry{06$\widecheck d$@[{$\widecheck d$}]\begingroup Child node of a node $d$\nomeqref {5.0}|nompageref}{37}
+\nomenclatureentry{07$d_i$@[{$d_i$}]\begingroup Inferred device\nomeqref {5.0}|nompageref}{37}
+\nomenclatureentry{08$d_o$@[{$d_o$}]\begingroup Observed device\nomeqref {5.0}|nompageref}{37}
+\nomenclatureentry{09$F$@[{$F$}]\begingroup Conditional transfer function of device $d_o$ given $d_i$\nomeqref {5.0}|nompageref}{37}
+\nomenclatureentry{10$l_{out}^{(d)}$@[{$l_{out}^{(d)}$}]\begingroup Output link of device $d$\nomeqref {5.0}|nompageref}{37}
+\nomenclatureentry{11$l_{in}^{(d)}$@[{$l_{in}^{(d)}$}]\begingroup Input link of device $d$\nomeqref {5.0}|nompageref}{37}
