@@ -1,0 +1,526 @@
+\documentclass[journal]{IEEEtran}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{changepage}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{scalerel,stackengine}
+\stackMath
+\newcommand\widecheck[1]{%
+\savestack{\tmpbox}{\stretchto{%
+  \scaleto{%
+    \scalerel*[\widthof{\ensuremath{#1}}]{\kern-.6pt\bigwedge\kern-.6pt}%
+    {\rule[-\textheight/2]{1ex}{\textheight}}%WIDTH-LIMITED BIG WEDGE
+  }{\textheight}% 
+}{0.5ex}}%
+\stackon[1pt]{#1}{\scalebox{-1}{\tmpbox}}%
+}
+
+\usepackage{enumitem}
+\onecolumn
+\newcommand{\nop}[1]{}
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\makeatletter
+
+\begin{document}
+\title{Thesis Revision Report}
+\maketitle
+
+ \Large
+\noindent \textbf{\underline{Response to Dr. Hao Liang:}}
+ \large
+
+\vspace{10pt}
+\textbf{Comment \#1:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Title: Smart Power Micro-grid (Enterprise level grid). Utility level micro-grid (more issues, voltage unbalance, disturbance, so on).}
+\end{adjustwidth}
+
+\vspace{5pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+I have changed the title to:
+
+\vspace{5pt}
+\noindent\textcolor{blue}{An Analytical Framework for Power Quality Monitoring in Enterprise Level Power Grid}
+\end{adjustwidth}
+ 
+ 
+ 
+\vspace{30pt}
+\textbf{Comment \#2:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Chapter 1: Add related work, before contributions}
+\end{adjustwidth}
+
+\vspace{5pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+I have updated the Introduction chapter by adding related work (before contributions). The new section added is as follows:
+
+\vspace{5pt}
+\noindent\textcolor{blue}{{\large 1.4 Existing Solutions on Power Quality Monitoring}
+\begin{adjustwidth}{2.5em}{0pt}
+abc \\ def
+\end{adjustwidth}}
+\end{adjustwidth}
+
+
+
+\vspace{30pt}
+\textbf{Comment \#3:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Power quality monitoring: Regular order: placement --\textgreater monitoring --\textgreater estimation. Why do you estimate first? Any reason for the change of order? Add some discussion over there.}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+I have reordered the chapters. Meter placement is now Chapter 5 while Estimation is Chapter 6.
+\end{adjustwidth}
+
+
+
+\vspace{20pt}
+\textbf{Comment \#4:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Page 12: Table 2.2. Swell (double check all values. Swell values normally are larger than 1).}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+Thanks for identifying this mistake. I double checked all the values in the table. The swell starting values are also changed from $0.1$ to $1.1$
+\end{adjustwidth}
+
+
+
+\vspace{30pt}
+\textbf{Comment \#5:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Page 17: Item 3. “The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly.” More explanation is required. What is the main difference between your problem and existing PMU Placement problem mathematically?}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text in thesis}
+\end{adjustwidth}
+
+
+
+\vspace{30pt}
+\textbf{Comment \#6:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Page 22, Figure 3.1: Circle represents the power quality meters. What types of power quality meters are used here? How about devices that only have one link to the smart grid (e.g. Capacitor bank)? It is better to change the title of the thesis and narrow down to Enterprise level power grid.}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text in thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#7:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Data collection: details of the data. How large is the size, voltage level,}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text in thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#8:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{14 power quality events. Explain the meaning of Power quality class (Table 3.2).}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+I have added a new table that list the power quality classes (classification) defined be the IEEE std. 1159.
+\end{adjustwidth}
+
+\begin{table}[!h]
+\center \color{blue}
+\caption{Power Quality Event Classification Defined by IEEE Standard 1159-2009 [2].}
+\begin{tabular}{|c|l|c|c|c|c|}
+\hline \multirow{2}{*}{ID} & \multirow{2}{*}{Class} & \multicolumn{2}{|c|}{Voltage (\% nominal)} & \multicolumn{2}{|c|}{Duration (seconds)} \\
+\cline{3-6}  &  & Min & Max & Min & Max \\ 
+\hline  1 & Microsecond Transient  & 0   & unlimited & 0           & 0.001    \\
+\hline  2 & Millisecond Transient  & 0   & unlimited & $>$0.001    & 0.008333 \\
+\hline  3 & Instantaneous Sag      & 10  & 90        & $>$0.008333 & 0.5      \\
+\hline  4 & Instantaneous Swell    & 110 & unlimited & $>$0.008333 & 0.5      \\
+\hline  5 & Momentary Interruption & 0   & $<$10     & $>$0.008333 & 3        \\
+\hline  6 & Momentary Sag          & 10  & 90        & $>$0.5      & 3        \\
+\hline  7 & Momentary Swell        & 114 & unlimited & $>$0.5      & 3        \\
+\hline  8 & Temporary Interruption & 0   & $<$10     & $>$3        & 60       \\
+\hline  9 & Temporary Sag          & 10  & 90        & $>$3        & 60       \\
+\hline 10 & Temporary Swell        & 110 & unlimited & $>$3        & 60       \\
+\hline 11 & Sustained Interruption & 0   & $<$10     & $>$60       & unlimited\\
+\hline 12 & Undervoltages          & 10  & 90        & $>$60       & unlimited\\
+\hline 13 & Overvoltages           & 110 & unlimited & $>$60       & unlimited\\
+\hline 14 & Nominal                & \multicolumn{4}{|c|}{Anything not covered above} \\ \hline
+\end{tabular}
+\end{table}
+
+
+\vspace{30pt}
+\textbf{Comment \#9:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Table 3.6: What is the device of D8? Why the output of C14 is high?  To help readers understand, detail of D8 needs to give.}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text in thesis}
+\end{adjustwidth}
+
+\vspace{30pt}
+\textbf{Comment \#10:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Page 49, comparison between EM and MaxEnt, how significant is the time saving? Put discussion here. When the network size becomes large and real-time estimation is required, the running time is more important.}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text in thesis}
+\end{adjustwidth}
+
+
+
+
+
+
+\vspace{50pt}
+ \Large
+\noindent \textbf{\underline{Response to Dr. Hong-Chuan Yang:}}
+ \large
+ 
+ \vspace{10pt}
+\textbf{Comment \#1:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Is there a reverse transfer function?}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#2:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Entropy maximization: Page 16. Put constraints in the problem formulation, change the notation from $R^n$ to $[0,1]^n$}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#3:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Does the transfer function change over time? }
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#4:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Presentation of thesis. Table of Nomenclature. Move ahead because this nomenclature has been used in all chapters.}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#5:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Abstract: (add one more sentence regarding the performance).}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+
+
+
+
+
+\vspace{50pt} 
+  \Large
+\noindent \textbf{\underline{Response to Dr. Dimitri Marinakis:}}
+ \large
+ 
+\vspace{10pt}
+\textbf{Comment \#1:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Page 24: Table 3.2, Table 3.5, Table 3.6, consistent problem. More explanation.}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#2:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{MaxEnt: MaxEnt has been compared with the BP/Sampling algorithms. In which situation MaxEnt will suffer? Does Network topology have impact on this?}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#3:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Could you extend the model to capture the temporal feature of transition function? For the four-your data, have you observed any changes of transfer function over time?}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#4:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Stochastic matrix: could you find some related literature on the roots of stochastic matrix, which may help your solution?}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#5:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Section 6.4.3: How does the number of samples impact the accuracy of CE?}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#6:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Put discussion on the condition when MaxEnt suffers (related to question 2).}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#7:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Page 65, Page 67 (What is the difference between BP benchmark vs. BP algorithm? How many samples? How does the size of samples impact the results? Add discussion to help readers understand better.}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#8:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Page 45, third constraint. If we remove the constraint, what is the impact?}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth} 
+ 
+ 
+ 
+ 
+ 
+\vspace{50pt}
+  \Large
+\noindent \textbf{\underline{Response to Dr. Kui Wu:}}
+ \large
+
+\vspace{10pt}
+\textbf{Comment \#1:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Chapter 7: Section 7.3.1, Correlation function. What is the underlying assumption in order to use the correlation function defined here?}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#2:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Suggestion: Title (reconsider)}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+
+\vspace{30pt}
+\textbf{Comment \#3:}
+\begin{adjustwidth}{2.5em}{0pt}
+\singlespacing \vspace{-10pt}
+\textcolor{red}{Equation 7.1 --$>$ Equation (7.1). Double check the whole thesis for the missing ( ).}
+\end{adjustwidth}
+
+\vspace{10pt}
+\textbf{Response:}
+\begin{adjustwidth}{2.5em}{0pt}
+response goes here
+
+\vspace{10pt}
+\noindent\textcolor{blue}{changed text from thesis}
+\end{adjustwidth}
+
+\end{document}
