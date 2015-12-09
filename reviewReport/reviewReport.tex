@@ -128,13 +128,13 @@ response goes here
 \textcolor{red}{Page 22, Figure 3.1: Circle represents the power quality meters. What types of power quality meters are used here? How about devices that only have one link to the smart grid (e.g. Capacitor bank)? It is better to change the title of the thesis and narrow down to Enterprise level power grid.}
 \end{adjustwidth}
 
-\vspace{10pt}
+\vspace{5pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+I have changed the title to:
 
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text in thesis}
+\vspace{5pt}
+\noindent\textcolor{blue}{An Analytical Framework for Power Quality Monitoring in Enterprise Level Power Grid}
 \end{adjustwidth}
 
 
@@ -172,22 +172,22 @@ I have added a new table that list the power quality classes (classification) de
 \center \color{blue}
 \caption{Power Quality Event Classification Defined by IEEE Standard 1159-2009 [2].}
 \begin{tabular}{|c|l|c|c|c|c|}
-\hline \multirow{2}{*}{ID} & \multirow{2}{*}{Class} & \multicolumn{2}{|c|}{Voltage (\% nominal)} & \multicolumn{2}{|c|}{Duration (seconds)} \\
-\cline{3-6}  &  & Min & Max & Min & Max \\ 
-\hline  1 & Microsecond Transient  & 0   & unlimited & 0           & 0.001    \\
-\hline  2 & Millisecond Transient  & 0   & unlimited & $>$0.001    & 0.008333 \\
-\hline  3 & Instantaneous Sag      & 10  & 90        & $>$0.008333 & 0.5      \\
-\hline  4 & Instantaneous Swell    & 110 & unlimited & $>$0.008333 & 0.5      \\
-\hline  5 & Momentary Interruption & 0   & $<$10     & $>$0.008333 & 3        \\
-\hline  6 & Momentary Sag          & 10  & 90        & $>$0.5      & 3        \\
-\hline  7 & Momentary Swell        & 114 & unlimited & $>$0.5      & 3        \\
-\hline  8 & Temporary Interruption & 0   & $<$10     & $>$3        & 60       \\
-\hline  9 & Temporary Sag          & 10  & 90        & $>$3        & 60       \\
-\hline 10 & Temporary Swell        & 110 & unlimited & $>$3        & 60       \\
-\hline 11 & Sustained Interruption & 0   & $<$10     & $>$60       & unlimited\\
-\hline 12 & Undervoltages          & 10  & 90        & $>$60       & unlimited\\
-\hline 13 & Overvoltages           & 110 & unlimited & $>$60       & unlimited\\
-\hline 14 & Nominal                & \multicolumn{4}{|c|}{Anything not covered above} \\ \hline
+\hline \multirow{2}{*}{PQ Class} & \multirow{2}{*}{Event Type} & \multicolumn{2}{|c|}{Voltage (\% nominal)} & \multicolumn{2}{|c|}{Duration (seconds)} \\
+\cline{3-6}   &  & Min & Max & Min & Max \\ 
+\hline  $c_1$ & Microsecond Transient  & 0   & unlimited & 0           & 0.001    \\
+\hline  $c_2$ & Millisecond Transient  & 0   & unlimited & $>$0.001    & 0.008333 \\
+\hline  $c_3$ & Instantaneous Sag      & 10  & 90        & $>$0.008333 & 0.5      \\
+\hline  $c_4$ & Instantaneous Swell    & 110 & unlimited & $>$0.008333 & 0.5      \\
+\hline  $c_5$ & Momentary Interruption & 0   & $<$10     & $>$0.008333 & 3        \\
+\hline  $c_6$ & Momentary Sag          & 10  & 90        & $>$0.5      & 3        \\
+\hline  $c_7$ & Momentary Swell        & 114 & unlimited & $>$0.5      & 3        \\
+\hline  $c_8$ & Temporary Interruption & 0   & $<$10     & $>$3        & 60       \\
+\hline  $c_9$ & Temporary Sag          & 10  & 90        & $>$3        & 60       \\
+\hline $c_{10}$ & Temporary Swell        & 110 & unlimited & $>$3        & 60       \\
+\hline $c_{11}$ & Sustained Interruption & 0   & $<$10     & $>$60       & unlimited\\
+\hline $c_{12}$ & Undervoltages          & 10  & 90        & $>$60       & unlimited\\
+\hline $c_{13}$ & Overvoltages           & 110 & unlimited & $>$60       & unlimited\\
+\hline $c_{14}$ & Nominal                & \multicolumn{4}{|c|}{Anything not covered above} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -202,7 +202,7 @@ I have added a new table that list the power quality classes (classification) de
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+The power quality classes from $c_1$ to $c_{13}$ represent the power disturbances (detailed in Table 3.2) while $c_{14}$ represents the nominal power quality (a good/normal power quality). Thus, as expected, the frequency of good power quality ($c_{14}$) events is high. We have clarified this in the revised version of the thesis by adding below text.
 
 \vspace{10pt}
 \noindent\textcolor{blue}{changed text in thesis}
