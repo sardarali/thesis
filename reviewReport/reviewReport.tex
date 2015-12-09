@@ -62,16 +62,29 @@ I have changed the title to:
 \vspace{5pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-I have updated the Introduction chapter by adding related work (before contributions). The new section added is as follows:
-
-\vspace{5pt}
-\noindent\textcolor{blue}{{\large 1.4 Existing Solutions on Power Quality Monitoring}
-\begin{adjustwidth}{2.5em}{0pt}
-abc \\ def
-\end{adjustwidth}}
+I have updated the Introduction chapter by adding related work (before contributions). The new section (Section 1.4) added is as follows:
 \end{adjustwidth}
 
+\vspace{5pt}
+\begin{adjustwidth}{2.5em}{0pt}
+\noindent\textcolor{blue}{{\Large Existing Solutions to Power Quality Monitoring} \vspace{0.4em} \\
+The existing solutions are divided into two categories: 1) meter placement; and 2) power quality estimation. The meter placement problem is related to optimal sensor/PMU placement and there is a great body of work on sensor and PMU placement [27--47]. These solutions are targeting specific applications/areas in the power systems (detailed in Section 2.3.4). Nevertheless, we have not seen any work on studying optimal meter placement problem in the context of network-wide power quality estimation. Further, there are three major differences between the existing PMU placement algorithms and our algorithm.}\end{adjustwidth}
 
+\vspace{-1em}
+\begin{adjustwidth}{3.5em}{0pt}
+\noindent\textcolor{blue}{
+\begin{enumerate}
+\item We focus on distribution networks at the enterprise level (e.g., a university
+campus).
+\item Our method is data driven and is based on statistical machine learning method.
+\item The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly. Further, each PMU solution target a specific problem in the power network (detailed in Section 2.3.4) and hence the objective function and problem parameters (e.g., phase angle) targeted are different. In other words, these solutions are mathematically different from the meter placement solutions we proposed in this thesis.
+\end{enumerate}
+}
+\end{adjustwidth}
+
+\begin{adjustwidth}{2.5em}{0pt}
+\noindent\textcolor{blue}{The power quality estimation problem was addressed in [72] using the expectation maximization (EM) algorithm. Our proposed MaxEnt solution significantly improve the running time while maintaining the accuracy of the estimation. The running time is particularly important when the network size becomes larger and the power quality needs to be estimated in real-time.}
+\end{adjustwidth}
 
 \vspace{30pt}
 \textbf{Comment \#3:}
@@ -113,10 +126,29 @@ Thanks for identifying this mistake. I double checked all the values in the tabl
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+I have added a new section in Chapter 1 to explain the difference between PMU and our meter placement solutions. The new section added is as follows.
 
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text in thesis}
+\end{adjustwidth}
+
+\vspace{5pt}
+\begin{adjustwidth}{2.5em}{0pt}
+\noindent\textcolor{blue}{{\Large Existing Solutions to Power Quality Monitoring} \vspace{0.4em} \\
+The existing solutions are divided into two categories: 1) meter placement; and 2) power quality estimation. The meter placement problem is related to optimal sensor/PMU placement and there is a great body of work on sensor and PMU placement [27--47]. These solutions are targeting specific applications/areas in the power systems (detailed in Section 2.3.4). Nevertheless, we have not seen any work on studying optimal meter placement problem in the context of network-wide power quality estimation. Further, there are three major differences between the existing PMU placement algorithms and our algorithm.}\end{adjustwidth}
+
+\vspace{-1em}
+\begin{adjustwidth}{3.5em}{0pt}
+\noindent\textcolor{blue}{
+\begin{enumerate}
+\item We focus on distribution networks at the enterprise level (e.g., a university
+campus).
+\item Our method is data driven and is based on statistical machine learning method.
+\item The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly. Further, each PMU solution target a specific problem in the power network (detailed in Section 2.3.4) and hence the objective function and problem parameters (e.g., phase angle) targeted are different. In other words, these solutions are mathematically different from the meter placement solutions we proposed in this thesis.
+\end{enumerate}
+}
+\end{adjustwidth}
+
+\begin{adjustwidth}{2.5em}{0pt}
+\noindent\textcolor{blue}{The power quality estimation problem was addressed in [72] using the expectation maximization (EM) algorithm. Our proposed MaxEnt solution significantly improve the running time while maintaining the accuracy of the estimation. The running time is particularly important when the network size becomes larger and the power quality needs to be estimated in real-time.}
 \end{adjustwidth}
 
 
