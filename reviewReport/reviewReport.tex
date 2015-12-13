@@ -6,6 +6,7 @@
 \usepackage{multirow}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{caption}
 \usepackage{scalerel,stackengine}
 \stackMath
 \newcommand\widecheck[1]{%
@@ -68,7 +69,7 @@ I have updated the Introduction chapter by adding related work (before contribut
 \vspace{5pt}
 \begin{adjustwidth}{2.5em}{0pt}
 \noindent\textcolor{blue}{{\Large Existing Solutions to Power Quality Monitoring} \vspace{0.4em} \\
-The existing solutions are divided into two categories: 1) meter placement; and 2) power quality estimation. The meter placement problem is related to optimal sensor/PMU placement and there is a great body of work on sensor and PMU placement [27--47]. These solutions are targeting specific applications/areas in the power systems (detailed in Section 2.3.4). Nevertheless, we have not seen any work on studying optimal meter placement problem in the context of network-wide power quality estimation. Further, there are three major differences between the existing PMU placement algorithms and our algorithm.}\end{adjustwidth}
+The existing solutions are divided into two categories: 1) meter placement; and 2) power quality estimation. The meter placement problem is related to optimal sensor/PMU placement and there is a great body of work on sensor and PMU placement [27--47]. These solutions are targeting specific applications/areas in the power systems (detailed in Section 2.3.4). Nevertheless, we have not seen any work on studying optimal meter placement problem in the context of network-wide power quality estimation. Further, there are three major differences between the existing PMU placement algorithms and our meter placement algorithms.}\end{adjustwidth}
 
 \vspace{-1em}
 \begin{adjustwidth}{3.5em}{0pt}
@@ -77,13 +78,13 @@ The existing solutions are divided into two categories: 1) meter placement; and 
 \item We focus on distribution networks at the enterprise level (e.g., a university
 campus).
 \item Our method is data driven and is based on statistical machine learning method.
-\item The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly. Further, each PMU solution target a specific problem in the power network (detailed in Section 2.3.4) and hence the objective function and problem parameters (e.g., phase angle) targeted are different. In other words, these solutions are mathematically different from the meter placement solutions we proposed in this thesis.
+\item The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly. Further, each PMU solution targets a specific problem in the power network (detailed in Section 2.3.4) and hence the objective function and problem parameters (e.g., phase angle) are different. In other words, these solutions are mathematically different from the meter placement solutions we proposed in this thesis.
 \end{enumerate}
 }
 \end{adjustwidth}
 
 \begin{adjustwidth}{2.5em}{0pt}
-\noindent\textcolor{blue}{The power quality estimation problem was addressed in [72] using the expectation maximization (EM) algorithm. Our proposed MaxEnt solution significantly improve the running time while maintaining the accuracy of the estimation. The running time is particularly important when the network size becomes larger and the power quality needs to be estimated in real-time.}
+\noindent\textcolor{blue}{The power quality estimation problem was addressed in [72] using the expectation maximization (EM) algorithm. Compared to the EM based algorithm, our proposed MaxEnt solution significantly improves the running time while maintaining the accuracy of the power quality values estimated. The running time is particularly important when the network size becomes larger and the power quality needs to be estimated in real-time.}
 \end{adjustwidth}
 
 \vspace{30pt}
@@ -126,14 +127,14 @@ Thanks for identifying this mistake. I double checked all the values in the tabl
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-I have added a new section in Chapter 1 to explain the difference between PMU and our meter placement solutions. The new section added is as follows.
+I have added a new section (Section 1.4) in Chapter 1 to explain the difference between PMU and our meter placement solutions. The new section added is as follows.
 
 \end{adjustwidth}
 
 \vspace{5pt}
 \begin{adjustwidth}{2.5em}{0pt}
 \noindent\textcolor{blue}{{\Large Existing Solutions to Power Quality Monitoring} \vspace{0.4em} \\
-The existing solutions are divided into two categories: 1) meter placement; and 2) power quality estimation. The meter placement problem is related to optimal sensor/PMU placement and there is a great body of work on sensor and PMU placement [27--47]. These solutions are targeting specific applications/areas in the power systems (detailed in Section 2.3.4). Nevertheless, we have not seen any work on studying optimal meter placement problem in the context of network-wide power quality estimation. Further, there are three major differences between the existing PMU placement algorithms and our algorithm.}\end{adjustwidth}
+The existing solutions are divided into two categories: 1) meter placement; and 2) power quality estimation. The meter placement problem is related to optimal sensor/PMU placement and there is a great body of work on sensor and PMU placement [27--47]. These solutions are targeting specific applications/areas in the power systems (detailed in Section 2.3.4). Nevertheless, we have not seen any work on studying optimal meter placement problem in the context of network-wide power quality estimation. Further, there are three major differences between the existing PMU placement algorithms and our meter placement algorithms.}\end{adjustwidth}
 
 \vspace{-1em}
 \begin{adjustwidth}{3.5em}{0pt}
@@ -142,13 +143,13 @@ The existing solutions are divided into two categories: 1) meter placement; and 
 \item We focus on distribution networks at the enterprise level (e.g., a university
 campus).
 \item Our method is data driven and is based on statistical machine learning method.
-\item The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly. Further, each PMU solution target a specific problem in the power network (detailed in Section 2.3.4) and hence the objective function and problem parameters (e.g., phase angle) targeted are different. In other words, these solutions are mathematically different from the meter placement solutions we proposed in this thesis.
+\item The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly. Further, each PMU solution targets a specific problem in the power network (detailed in Section 2.3.4) and hence the objective function and problem parameters (e.g., phase angle) are different. In other words, these solutions are mathematically different from the meter placement solutions we proposed in this thesis.
 \end{enumerate}
 }
 \end{adjustwidth}
 
 \begin{adjustwidth}{2.5em}{0pt}
-\noindent\textcolor{blue}{The power quality estimation problem was addressed in [72] using the expectation maximization (EM) algorithm. Our proposed MaxEnt solution significantly improve the running time while maintaining the accuracy of the estimation. The running time is particularly important when the network size becomes larger and the power quality needs to be estimated in real-time.}
+\noindent\textcolor{blue}{The power quality estimation problem was addressed in [72] using the expectation maximization (EM) algorithm. Compared to the EM based algorithm, our proposed MaxEnt solution significantly improves the running time while maintaining the accuracy of the power quality values estimated. The running time is particularly important when the network size becomes larger and the power quality needs to be estimated in real-time.}
 \end{adjustwidth}
 
 
@@ -174,16 +175,16 @@ I have changed the title to:
 \textbf{Comment \#7:}
 \begin{adjustwidth}{2.5em}{0pt}
 \singlespacing \vspace{-10pt}
-\textcolor{red}{Data collection: details of the data. How large is the size, voltage level,}
+\textcolor{red}{Data collection: details of the data. How large is the size, voltage level?}
 \end{adjustwidth}
 
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+I have provided details about the network and voltage levels as follows.
 
 \vspace{10pt}
-\noindent\textcolor{blue}{changed text in thesis}
+\noindent\textcolor{blue}{Our power quality dataset was collected at an enterprise power network for a period of four years. For privacy and security reasons, the physical network structure/diagram is omitted. Instead, we represent the topology/positions of the installed power quality meters via a graph network as shown in Fig. 3.2. There are a total of $10$ power quality meters (numbered from $m_1$ to $m_{10}$) installed. Each meter reported the power quality events (sag/swell, transient, etc.) to the data collection server via Ethernet network. It is important to mention that we currently do not consider power transmission network, which is large-scale and may involve multiple utilities across a country, but only focus on power distribution network at the enterprise-level, e.g., university campus. Hence, we collect the power quality dataset at an enterprise network located at the distribution level. The network is using a standard three-phase distribution system. Devices of varying loads are using this network, including electric vehicles and large motors. Three-phase transformers with four-wire output are used for $120$ volt service. Table 3.1 shows the number of events reported by each power quality meter while the positions of the meters are shown in Fig. 3.2.}
 \end{adjustwidth}
 
 
@@ -202,24 +203,25 @@ I have added a new table that list the power quality classes (classification) de
 
 \begin{table}[!h]
 \center \color{blue}
-\caption{Power Quality Event Classification Defined by IEEE Standard 1159-2009 [2].}
+\caption*{\color{blue}Table 3.4: Power Quality Event Classification Defined by IEEE Standard 1159-2009 [2].}
+\centering \renewcommand*{\arraystretch}{1.3} 
 \begin{tabular}{|c|l|c|c|c|c|}
-\hline \multirow{2}{*}{PQ Class} & \multirow{2}{*}{Event Type} & \multicolumn{2}{|c|}{Voltage (\% nominal)} & \multicolumn{2}{|c|}{Duration (seconds)} \\
-\cline{3-6}   &  & Min & Max & Min & Max \\ 
+\hline \multirow{2}{*}{\textbf{PQ Class}} & \multirow{2}{*}{\textbf{Event Type}} & \multicolumn{2}{c}{\textbf{Voltage (\% nominal)}} & \multicolumn{2}{|c|}{\textbf{Duration (seconds)}} \\
+\cline{3-6}   &  & \textbf{Min} & \textbf{Max} & \textbf{Min} & \textbf{Max} \\ 
 \hline  $c_1$ & Microsecond Transient  & 0   & unlimited & 0           & 0.001    \\
-\hline  $c_2$ & Millisecond Transient  & 0   & unlimited & $>$0.001    & 0.008333 \\
-\hline  $c_3$ & Instantaneous Sag      & 10  & 90        & $>$0.008333 & 0.5      \\
-\hline  $c_4$ & Instantaneous Swell    & 110 & unlimited & $>$0.008333 & 0.5      \\
-\hline  $c_5$ & Momentary Interruption & 0   & $<$10     & $>$0.008333 & 3        \\
-\hline  $c_6$ & Momentary Sag          & 10  & 90        & $>$0.5      & 3        \\
-\hline  $c_7$ & Momentary Swell        & 114 & unlimited & $>$0.5      & 3        \\
-\hline  $c_8$ & Temporary Interruption & 0   & $<$10     & $>$3        & 60       \\
-\hline  $c_9$ & Temporary Sag          & 10  & 90        & $>$3        & 60       \\
-\hline $c_{10}$ & Temporary Swell        & 110 & unlimited & $>$3        & 60       \\
-\hline $c_{11}$ & Sustained Interruption & 0   & $<$10     & $>$60       & unlimited\\
-\hline $c_{12}$ & Undervoltages          & 10  & 90        & $>$60       & unlimited\\
-\hline $c_{13}$ & Overvoltages           & 110 & unlimited & $>$60       & unlimited\\
-\hline $c_{14}$ & Nominal                & \multicolumn{4}{|c|}{Anything not covered above} \\ \hline
+$c_2$ & Millisecond Transient  & 0   & unlimited & $>$0.001    & 0.008333 \\
+$c_3$ & Instantaneous Sag      & 10  & 90        & $>$0.008333 & 0.5      \\
+$c_4$ & Instantaneous Swell    & 110 & unlimited & $>$0.008333 & 0.5      \\
+$c_5$ & Momentary Interruption & 0   & $<$10     & $>$0.008333 & 3        \\
+$c_6$ & Momentary Sag          & 10  & 90        & $>$0.5      & 3        \\
+$c_7$ & Momentary Swell        & 114 & unlimited & $>$0.5      & 3        \\
+$c_8$ & Temporary Interruption & 0   & $<$10     & $>$3        & 60       \\
+$c_9$ & Temporary Sag          & 10  & 90        & $>$3        & 60       \\
+$c_{10}$ & Temporary Swell        & 110 & unlimited & $>$3        & 60       \\
+$c_{11}$ & Sustained Interruption & 0   & $<$10     & $>$60       & unlimited\\
+$c_{12}$ & Undervoltages          & 10  & 90        & $>$60       & unlimited\\
+$c_{13}$ & Overvoltages           & 110 & unlimited & $>$60       & unlimited\\
+\hline $c_{14}$ & Nominal                & \multicolumn{4}{c|}{Anything not covered above} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -234,13 +236,21 @@ I have added a new table that list the power quality classes (classification) de
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-The power quality classes from $c_1$ to $c_{13}$ represent the power disturbances (detailed in Table 3.2) while $c_{14}$ represents the nominal power quality (a good/normal power quality). Thus, as expected, the frequency of good power quality ($c_{14}$) events is high. We have clarified this in the revised version of the thesis by adding below text.
+I agree with the fact that the frequency of the PQ class $c_{14}$ for all meters is reported as 0 (in Table 3.2) while the same for a single meter (device $d_8$ in Table 3.6) is reported as $2122$. The reason is as follows.
 
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text in thesis}
+\vspace{5pt}\noindent The power quality classes from $c_1$ to $c_{13}$ represent the power disturbances (described in Table 3.4) while $c_{14}$ represents the nominal power quality (a good/normal power quality). The power quality meters in our data collection network were configured to report only bad power quality events and hence the frequency of PQ class $c_{14}$) is 0 in table 3.2. We also noticed that, in some cases, there are bad power quality events reported at some links while nothing reported by other meters at that time instance. This happens when a device, for instance a UPS, maps a bad quality to good quality. In such cases, we assume a nominal PQ value (PQ class $c_{14}$) at the monitored but unreported points.
+
+\vspace{5pt}\noindent The same explanation is now added in Chapter 3. The revised explanation from the thesis is as follows.
+
+\vspace{5pt}
+\noindent\textcolor{blue}{Using IEEE Standard 1159 [2], we classify the power quality events based on the fluctuation of the voltage for a predefined period. There are $14$ different power quality classes defined in the standard, denoted from $c_1$ to $c_{14}$, respectively. Table 3.5 shows samples of the events we classify using the IEEE standard where the power quality class is shown in the last column of the table. The frequency of events belonging to the IEEE power quality class ($c_1$ to $c_{14}$) is shown in Table 3.2. Description of the IEEE power quality classes is provided in Table 3.4.}
+
+\vspace{5pt}
+\noindent\textcolor{blue}{The power quality meters in our data collection network were configured to report only bad power quality events. Therefore, the frequency of the nominal voltage events (PQ class $c_{14}$) in Table 3.2 is 0. We noticed that, in some cases, there are bad power quality events reported at some links while nothing reported by other meters at that time instance. This happens when a device, for instance a UPS, maps a bad quality to good quality. In such cases, we assume a nominal PQ value (PQ class $c_{14}$) at the monitored but unreported points.
+}
 \end{adjustwidth}
 
-\vspace{30pt}
+\vspace{20pt}
 \textbf{Comment \#10:}
 \begin{adjustwidth}{2.5em}{0pt}
 \singlespacing \vspace{-10pt}
@@ -250,10 +260,10 @@ The power quality classes from $c_1$ to $c_{13}$ represent the power disturbance
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+I have adding new discussion on the importance of the time saving. The updated discussion from the thesis is as follows.
 
 \vspace{10pt}
-\noindent\textcolor{blue}{changed text in thesis}
+\noindent\textcolor{blue}{Table 6.2 shows the convergence time comparison of both the EM and MaxEnt based solutions to power quality estimation. It can be seen that the convergence time of MaxEnt is much faster as compared to that of EM algorithm. The convergence time is exponentially increasing for the EM algorithm with the network size. For a real-time estimation, the convergence time is more important and the EM based solution is not feasible to operate in real-time given its huge convergence delays. We measure the estimation accuracy using Mean Squared Error (MSE), which is a statistical measure quantifying the difference between values implied by an estimator and the true values of the quantity being estimated. The results are shown in Table 6.3. From the results, we can see that both the methods give very close estimations of the power quality transition functions, i.e., the difference between the estimated and corresponding ground truth functions is negligible.}
 \end{adjustwidth}
 
 
@@ -276,10 +286,22 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+Yes, in order to calculate the impact of a child node on its parent, we use the reverse transfer function. This concept is explained in greater details in the thesis and quoted as follows.
 
 \vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+\noindent\textcolor{blue}{The problem is inherently challenging as the information received from a power meter flows not only the forward direction from the root nodes toward the leaf nodes, but also in reverse or upstream direction toward the root node (utility main) and back to all other nodes in the network.}
+
+\vspace{10pt}
+\noindent\textcolor{blue}{
+We calculate the influence of a child device on a parent device. Note that the parent may not necessarily be the immediate parent. To calculate the entropy of parent given child using the general formula of conditional entropy, we need to first calculate the conditional transition function $F$.}
+
+\vspace{10pt}
+\noindent\textcolor{blue}{We use the concept of posterior probability (the Bayes theorem) to calculate F. This function is simply the product of the reverse transition functions of devices all the way from child to parent. The reverse transition function $f^\prime(d)$ (consist of $p(parent \mid child)$ or $p(X \mid Y)$) is calculated as $p(X \mid Y) = \frac{p(X) p(Y/X)}{ p(Y)}$.  In our case, the function $f^\prime(d)$ of a device $d$ which list $p(x \mid y)$ in the $xth$ row and $yth$ column is calculated as:
+\[f^\prime(d) = \left[\begin{array}{c} f_x(\widehat d)\\ f_x(\widehat d)\\ \vdots\\ f_x(\widehat d) \end{array}\right] \otimes \left[f(d)\right]^T \oslash \left[\begin{array}{c} f_x(d)\\ f_x(d)\\ \vdots\\ f_x(d) \end{array}\right]^T,\]
+\noindent where $\otimes$ is the component-wise product, $\oslash$ is the component-wise division, and $\widehat d$ is the immediate parent of device $d$.
+Finally:
+%\vspace{-0.05in}
+\[F = f^\prime(d_o) \times f^\prime(\widehat {d_o}) \times \hdots \times f^\prime(\widecheck {d_i}).\]}
 \end{adjustwidth}
 
 
@@ -293,10 +315,10 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+I have changed the notation from $\vec{x}\in \mathbb{R}^n$ to $\vec{x}\in [0, 1]^n$. Updated text is as follows.
 
 \vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+\noindent\textcolor{blue}{where $\vec{x}\in [0, 1]^n$ is the optimization variable, $A \in \mathbb{R}^{m \times n}$, and $B \in \mathbb{R}^{m \times n}$ are problem parameters;  and \textbf{1} is a vector with all 1's.}
 \end{adjustwidth}
 
 
@@ -310,10 +332,10 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+In Chapter 3, using a real-time PQ dataset, we learned the device latent feature (transfer function). The $k$-fold validation proved that the transfer functions were consistent over time. The same is explained in Chapter 3 and quoted below.
 
 \vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+\noindent\textcolor{blue}{In this chapter, we proposed a device latent feature model which learns a device transfer function from real data. The device transfer function is needed to estimate the power quality values on unmonitored links in the power gird. In order to validate the proposed model, We used a real power quality dataset collected by Schneider Electric Inc. in a power grid in Canada. We demonstrated that the historical data can be used to capture the latent features of a device. The $k$-fold cross-validation technique was used to measure the accuracy of latent features we obtained using our dataset. \textbf{Experimental evaluations showed that the captured latent features are consistent}. The latent features learnt in this chapter are used by our meter placement algorithms proposed in Chapter 5.}
 \end{adjustwidth}
 
 
@@ -327,12 +349,8 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
-
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+I moved the nomenclature before Chapter 1 (after the Table of contents).
 \end{adjustwidth}
-
 
 \vspace{30pt}
 \textbf{Comment \#5:}
@@ -344,13 +362,11 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+Abstract has been updated for the explanation suggested. The updated lines are as follows.
 
 \vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+\noindent\textcolor{blue}{After deploying power quality meters on selected links, a maximum entropy (MaxEnt) based approach is presented to estimate the power quality on the unmonitored lines. Compared to other existing methods such as Monte Carlo Expectation Maximization (MCEM), the MaxEnt based approach is much faster while maintaining similar estimation accuracy. Convergence time of the MaxEnt algorithm is particularly important when the network size increases and we need to do the estimation in real-time.}
 \end{adjustwidth}
-
-
 
 
 
@@ -371,10 +387,18 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+I agree with the fact that the frequency of the PQ class $c_{14}$ for all meters is reported as 0 (in Table 3.2) while the same for a single meter (device $d_8$ in Table 3.6) is reported as $2122$. The reason is as follows.
 
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+\vspace{5pt}\noindent The power quality classes from $c_1$ to $c_{13}$ represent the power disturbances (described in Table 3.4) while $c_{14}$ represents the nominal power quality (a good/normal power quality). The power quality meters in our data collection network were configured to report only bad power quality events and hence the frequency of PQ class $c_{14}$) is 0 in table 3.2. We also noticed that, in some cases, there are bad power quality events reported at some links while nothing reported by other meters at that time instance. This happens when a device, for instance a UPS, maps a bad quality to good quality. In such cases, we assume a nominal PQ value (PQ class $c_{14}$) at the monitored but unreported points.
+
+\vspace{5pt}\noindent The same explanation is now added in Chapter 3. The revised explanation from the thesis is as follows.
+
+\vspace{5pt}
+\noindent\textcolor{blue}{Using IEEE Standard 1159 [2], we classify the power quality events based on the fluctuation of the voltage for a predefined period. There are $14$ different power quality classes defined in the standard, denoted from $c_1$ to $c_{14}$, respectively. Table 3.5 shows samples of the events we classify using the IEEE standard where the power quality class is shown in the last column of the table. The frequency of events belonging to the IEEE power quality class ($c_1$ to $c_{14}$) is shown in Table 3.2. Description of the IEEE power quality classes is provided in Table 3.4.}
+
+\vspace{5pt}
+\noindent\textcolor{blue}{The power quality meters in our data collection network were configured to report only bad power quality events. Therefore, the frequency of the nominal voltage events (PQ class $c_{14}$) in Table 3.2 is 0. We noticed that, in some cases, there are bad power quality events reported at some links while nothing reported by other meters at that time instance. This happens when a device, for instance a UPS, maps a bad quality to good quality. In such cases, we assume a nominal PQ value (PQ class $c_{14}$) at the monitored but unreported points.
+}
 \end{adjustwidth}
 
 
@@ -382,16 +406,16 @@ response goes here
 \textbf{Comment \#2:}
 \begin{adjustwidth}{2.5em}{0pt}
 \singlespacing \vspace{-10pt}
-\textcolor{red}{MaxEnt: MaxEnt has been compared with the BP/Sampling algorithms. In which situation MaxEnt will suffer? Does Network topology have impact on this?}
+\textcolor{red}{MaxEnt: In which situation MaxEnt will suffer? Does Network topology have impact on this?}
 \end{adjustwidth}
 
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+In MaxEnt solution, we divide the power network in sub-networks based on meter positions. Since the input and output links of each subnet are monitored, the network topology outside the subnet has no impact on the MaxEnt solution. For larger subnets, the size of unknown variables increases exponentially. Hence, for subnets of larger sizes, the MaxEnt will take longer to converge. We have discussed this potential problem and a possible solution in our thesis.
 
 \vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+\noindent\textcolor{blue}{The proposed solution may not converge efficiently for sub-nets of larger sizes. The scalability problem arises as the number of unknown variables increases exponentially with the increase in the number of components in a subnet. The idea for the extended work is to divide the larger subnets in logical components where each logical component will represent several physical components. Instead of computing individual transfer functions for each physical device, transfer functions of the logical components could be estimated first. In the second round, transfer functions of individual physical components could be estimated from the logical transfer functions. Note that this is a high level guideline which only serves as a starting point towards the final solution. The final solution could be based on a comprehensive mathematical model. Finally, for the evaluation of such a system, various larger IEEE standard test networks could be used.}
 \end{adjustwidth}
 
 
@@ -405,32 +429,16 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+In Chapter 3, using a real-time PQ dataset, we learned the device latent feature (transfer function). The $k$-fold validation proved that the transfer functions were consistent over time. The same is explained in Chapter 3 and quoted below.
 
 \vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+\noindent\textcolor{blue}{In this chapter, we proposed a device latent feature model which learns a device transfer function from real data. The device transfer function is needed to estimate the power quality values on unmonitored links in the power gird. In order to validate the proposed model, We used a real power quality dataset collected by Schneider Electric Inc. in a power grid in Canada. We demonstrated that the historical data can be used to capture the latent features of a device. The $k$-fold cross-validation technique was used to measure the accuracy of latent features we obtained using our dataset. \textbf{Experimental evaluations showed that the captured latent features are consistent}. The latent features learnt in this chapter are used by our meter placement algorithms proposed in Chapter 5.}
 \end{adjustwidth}
+
 
 
 \vspace{30pt}
 \textbf{Comment \#4:}
-\begin{adjustwidth}{2.5em}{0pt}
-\singlespacing \vspace{-10pt}
-\textcolor{red}{Stochastic matrix: could you find some related literature on the roots of stochastic matrix, which may help your solution?}
-\end{adjustwidth}
-
-\vspace{10pt}
-\textbf{Response:}
-\begin{adjustwidth}{2.5em}{0pt}
-response goes here
-
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
-\end{adjustwidth}
-
-
-\vspace{30pt}
-\textbf{Comment \#5:}
 \begin{adjustwidth}{2.5em}{0pt}
 \singlespacing \vspace{-10pt}
 \textcolor{red}{Section 6.4.3: How does the number of samples impact the accuracy of CE?}
@@ -439,15 +447,12 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
-
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+addressed in comment \#6 below.
 \end{adjustwidth}
 
 
 \vspace{30pt}
-\textbf{Comment \#6:}
+\textbf{Comment \#5:}
 \begin{adjustwidth}{2.5em}{0pt}
 \singlespacing \vspace{-10pt}
 \textcolor{red}{Put discussion on the condition when MaxEnt suffers (related to question 2).}
@@ -456,15 +461,12 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
-
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+Addressed in comment \#2 above.
 \end{adjustwidth}
 
 
 \vspace{30pt}
-\textbf{Comment \#7:}
+\textbf{Comment \#6:}
 \begin{adjustwidth}{2.5em}{0pt}
 \singlespacing \vspace{-10pt}
 \textcolor{red}{Page 65, Page 67 (What is the difference between BP benchmark vs. BP algorithm? How many samples? How does the size of samples impact the results? Add discussion to help readers understand better.}
@@ -481,7 +483,7 @@ response goes here
 
 
 \vspace{30pt}
-\textbf{Comment \#8:}
+\textbf{Comment \#7:}
 \begin{adjustwidth}{2.5em}{0pt}
 \singlespacing \vspace{-10pt}
 \textcolor{red}{Page 45, third constraint. If we remove the constraint, what is the impact?}

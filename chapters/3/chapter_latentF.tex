@@ -36,7 +36,7 @@ Our power quality dataset was collected at an enterprise power network for a per
 \centering 
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
 \hline \textbf{Meter ID} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\tabularnewline
-\hline \textbf{No. of Events} & 1705 & 629 & 756 & 764 & 777 & 282 & 309 & 181 & 44 & 657\tabularnewline
+\hline \textbf{No. of Events} & 1705 & 629 & 756 & 764 & 777 & 282 & 309 & 180 & 44 & 657\tabularnewline
 \hline 
 \end{tabular}
 \label{tbl:perDevFreq}
@@ -48,7 +48,7 @@ Our power quality dataset was collected at an enterprise power network for a per
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline & \multicolumn{14}{c|}{ \textbf{Power Quality Class} }\tabularnewline
 \cline{2-15} & $c_1$ & $c_2$ & $c_3$ & $c_4$ & $c_5$ & $c_6$ & $c_7$ & $c_8$ & $c_9$ & $c_{10}$ & $c_{11}$ & $c_{12}$ & $c_{13}$ & $c_{14}$\tabularnewline
-\hline \textbf{\thead{No. of\\Events}} & 3056 & 738 & 1485 & 274 & 144 & 354 & 10 & 11 & 0 & 2 & 8 & 2 & 19 & 1\tabularnewline
+\hline \textbf{\thead{No. of\\Events}} & 3056 & 738 & 1485 & 274 & 144 & 354 & 10 & 11 & 0 & 2 & 8 & 2 & 19 & 0\tablefootnote{The power quality meters in our data collection network were configured to report only bad power quality events. Therefore, the frequency of the nominal voltage events (PQ class $c_{14}$) is 0.} \tabularnewline
 \hline 
 \end{tabular}
 \label{tbl:perClassFreq}
@@ -68,6 +68,30 @@ Our power quality dataset was collected at an enterprise power network for a per
 \vspace{4cm}
 \end{table}
 
+\begin{table}[!p]
+\caption{Power Quality Event Classification Defined by IEEE Standard 1159-2009~\cite{IEEE09_1159}.}
+\centering \renewcommand*{\arraystretch}{1.5} 
+\begin{tabular}{|c|l|c|c|c|c|}
+\hline \multirow{2}{*}{\textbf{\thead{PQ\\Class}}} & \multirow{2}{*}{\textbf{Event Type}} & \multicolumn{2}{c}{\textbf{Voltage (\% nominal)}} & \multicolumn{2}{|c|}{\textbf{Duration (seconds)}} \\
+\cline{3-6}   &  & \textbf{Min} & \textbf{Max} & \textbf{Min} & \textbf{Max} \\ 
+\hline  $c_1$ & Microsecond Transient  & 0   & unlimited & 0           & 0.001    \\
+ $c_2$ & Millisecond Transient  & 0   & unlimited & $>$0.001    & 0.008333 \\
+ $c_3$ & Instantaneous Sag      & 10  & 90        & $>$0.008333 & 0.5      \\
+ $c_4$ & Instantaneous Swell    & 110 & unlimited & $>$0.008333 & 0.5      \\
+ $c_5$ & Momentary Interruption & 0   & $<$10     & $>$0.008333 & 3        \\
+ $c_6$ & Momentary Sag          & 10  & 90        & $>$0.5      & 3        \\
+ $c_7$ & Momentary Swell        & 114 & unlimited & $>$0.5      & 3        \\
+ $c_8$ & Temporary Interruption & 0   & $<$10     & $>$3        & 60       \\
+ $c_9$ & Temporary Sag          & 10  & 90        & $>$3        & 60       \\
+$c_{10}$ & Temporary Swell        & 110 & unlimited & $>$3        & 60       \\
+$c_{11}$ & Sustained Interruption & 0   & $<$10     & $>$60       & unlimited\\
+$c_{12}$ & Undervoltages          & 10  & 90        & $>$60       & unlimited\\
+$c_{13}$ & Overvoltages           & 110 & unlimited & $>$60       & unlimited\\
+\hline $c_{14}$ & Nominal                & \multicolumn{4}{c|}{Anything not covered above} \\ \hline
+\end{tabular}
+\label{tbl:PQClassesDescription}
+\end{table}
+
 The original power quality events reported by our power quality meters carry detailed information where some of the reported attributes are not directly relevant to power quality monitoring. For instance, we have a large number of branch circuit monitors installed that log every 15 minutes. Second, due to the detailed information content, the size of the raw dataset was about $40$ GB. In order to simplify the format and make the dataset concise and easy to analyze, we transform the reported events into a tabular form consisting of the power quality attributes we used. As a result, there are about $6000$ power quality events recorded in the dataset. Sample events from the dataset are shown in Table~\ref{tbl:sampleData}.
 
 \begin{enumerate}
@@ -76,7 +100,7 @@ The original power quality events reported by our power quality meters carry det
 \item The severity field is a calculated statistic that combines the magnitude, duration and class of an event to provide a ranking variable.
 \end{enumerate}
 
-Using IEEE Standard 1159~\cite{IEEE09_1159}, we classify the power quality events based on the fluctuation of the voltage for a predefined period. There are $14$ different power quality classes defined in the standard, denoted from $c_1$ to $c_{14}$, respectively. Table~\ref{tbl:sampleClassData} shows samples of the events we classify using the IEEE standard where the power quality class is shown in the last column of the table. The frequency of events belonging to the IEEE power quality class ($c_1$ to $c_{14}$) is shown in Table~\ref{tbl:perClassFreq}.
+Using IEEE Standard 1159~\cite{IEEE09_1159}, we classify the power quality events based on the fluctuation of the voltage for a predefined period. There are $14$ different power quality classes defined in the standard, denoted from $c_1$ to $c_{14}$, respectively. Table~\ref{tbl:sampleClassData} shows samples of the events we classify using the IEEE standard where the power quality class is shown in the last column of the table. The frequency of events belonging to the IEEE power quality class ($c_1$ to $c_{14}$) is shown in Table~\ref{tbl:perClassFreq}. Description of the IEEE power quality classes is provided in Table~\ref{tbl:PQClassesDescription}.
 
 
 \begin{table}[!p]
@@ -105,7 +129,7 @@ Using IEEE Standard 1159~\cite{IEEE09_1159}, we classify the power quality event
 \section{Capturing the Latent Feature/Transition Function ($f(d)$)}
 Using the real-world power quality dataset, we capture the device latent feature in three simple steps.
 
-\subsection{Synchronizing the PQ events} The power quality meters in our data collection network were configured to report only bad power quality events. We noticed that, in some cases, there are bad power quality events reported at some links while nothing reported by other meters at that time instance. This happens when a device, for instance a UPS, maps a bad quality to good quality. In such cases, we assume a nominal PQ value (PQ class $c_{14}$) at the monitored but unreported points.
+\subsection{Synchronizing the PQ events} The power quality meters in our data collection network were configured to report only bad power quality events. Therefore, the frequency of the nominal voltage events (PQ class $c_{14}$) in Table~\ref{tbl:perClassFreq} is 0. We noticed that, in some cases, there are bad power quality events reported at some links while nothing reported by other meters at that time instance. This happens when a device, for instance a UPS, maps a bad quality to good quality. In such cases, we assume a nominal PQ value (PQ class $c_{14}$) at the monitored but unreported points.
 
 \subsection{Building frequency tables} We now put all the PQ events in a $2$-dimensional array $M(i, j)$ of events where the first dimension of the array represents an event $i$ in the time series while the second dimension represents the corresponding event for each device $j$. We then count the input to output PQ mappings at each device. This results in a $14 \times 14$ frequency table ($fr(d)$) for each device $d$. As an example, frequency table for device $d_8$ is shown in Table~\ref{tbl:freqTable}.
 

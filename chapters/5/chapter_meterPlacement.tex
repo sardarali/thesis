@@ -2,23 +2,6 @@
 \label{chap:meterPlacement}
 In this chapter, we solve the meter placement problem using entropy-based measurements and Bayesian network models to identify the most suitable power links for power meter placement. To ease understanding, we list the nomenclature used in this chapter first. 
 
-\small
-\setlength{\nomitemsep}{-0.1em}
-\nomenclature[01]{$f(d)$}{Device transfer function for a device $d$}
-\nomenclature[02]{$c_i^{(d)}$}{Power quality of class $i$ at device $d$}
-\nomenclature[03]{$C_i$}{Set of $c_i^{(d)}$ $\forall$ $d$}
-\nomenclature[04]{$p_{c_y \mid c_x}^{(d)}$}{Probability that $c_x$ will be mapped to $c_y$ at device $d$}
-\nomenclature[05]{$\widehat d$}{Parent node of a node $d$}
-\nomenclature[06]{$\widecheck d$}{Child node of a node $d$}
-\nomenclature[07]{$d_i$}{Inferred device}
-\nomenclature[08]{$d_o$}{Observed device}
-\nomenclature[09]{$F$}{Conditional transfer function of device $d_o$ given $d_i$} 
-\nomenclature[10]{$l_{out}^{(d)}$}{Output link of device $d$} 
-\nomenclature[11]{$l_{in}^{(d)}$}{Input link of device $d$}
-%\renewcommand*{\nompreamble}{\large}
-\printnomenclature
-
-\normalsize
 \section{Introduction/Motivation}
 Monitoring power quality is not an easy task. Since the power quality measurement devices~\cite{schneider_meter} are expensive, it is financially impractical to monitor every segment of a power network. The overhead of interconnecting these power meters and developing the power management system further increases the cost. Therefore, we need to intelligently place power quality meters on selected power links to reduce the uncertainty of power quality estimation on unmonitored links in the power grid. The following core challenge needs to address: given a fixed number of available power meters, which grid segments should be selected for monitoring such that power quality can be inferred in the remaining unmonitored segments of the network.
 

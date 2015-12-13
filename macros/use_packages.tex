@@ -11,6 +11,8 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 
+\usepackage{tablefootnote}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 % Text Control
 \usepackage{xspace}
@@ -39,19 +41,13 @@
 \usepackage{cite}
 \usepackage{url}
 \usepackage{nomencl}
+\usepackage{ifthen}
+\renewcommand{\nomgroup}[1]{%
+    \ifthenelse{\equal{#1}{S}}{\item[\textbf{Symbols}]}{%
+        \ifthenelse{\equal{#1}{A}}{\item[\textbf{Acronyms}]}{}
+    }
+}
 \makenomenclature
-\makeatletter
-\def\thenomenclature{%
-  \section*{\nomname}
-  \if@intoc\addcontentsline{toc}{section}{\nomname}\fi%
-  \nompreamble
-  \list{}{%
-    \labelwidth\nom@tempdim
-    \leftmargin\labelwidth
-    \advance\leftmargin\labelsep
-    \itemsep\nomitemsep
-    \let\makelabel\nomlabel}}
-\makeatother
 
 
 % Widecheck

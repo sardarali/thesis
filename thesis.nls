@@ -1,0 +1,52 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{BP}]\begingroup Belief Propagation\nomeqref {0}
+		\nompageref{xi}
+  \item [{CBEMA}]\begingroup Computer and Business Equipment Manufacturers' Association\nomeqref {0}
+		\nompageref{xi}
+  \item [{CE}]\begingroup Conditional Entropy\nomeqref {0}
+		\nompageref{xi}
+  \item [{EM}]\begingroup Expectation Maximization\nomeqref {0}
+		\nompageref{xi}
+  \item [{IEC}]\begingroup International Electrotechnical Commission\nomeqref {0}
+		\nompageref{xi}
+  \item [{IEEE}]\begingroup Institute of Electrical and Electronics Engineers\nomeqref {0}
+		\nompageref{xi}
+  \item [{MaxEnt}]\begingroup Maximum Entropy\nomeqref {0}
+		\nompageref{xi}
+  \item [{MCEM}]\begingroup Monte Carlo Expectation Maximization\nomeqref {0}
+		\nompageref{xi}
+  \item [{PMU}]\begingroup Phasor Measurement Unit\nomeqref {0}
+		\nompageref{xi}
+  \item [{PQ}]\begingroup Power Quality\nomeqref {0}\nompageref{xi}
+  \item [{SARFI}]\begingroup System Average RMS Variation Frequency Index\nomeqref {0}
+		\nompageref{xi}
+
+ \nomgroup{S}
+
+  \item [{$\widecheck d$}]\begingroup Child node of a node $d$\nomeqref {0}
+		\nompageref{xi}
+  \item [{$\widehat d$}]\begingroup Parent node of a node $d$\nomeqref {0}
+		\nompageref{xi}
+  \item [{$C_i$}]\begingroup Set of $c_i^{(d)}$ $\forall$ $d$\nomeqref {0}
+		\nompageref{xi}
+  \item [{$c_i^{(d)}$}]\begingroup Power quality of class $i$ at device $d$\nomeqref {0}
+		\nompageref{xi}
+  \item [{$d_i$}]\begingroup Inferred device\nomeqref {0}
+		\nompageref{xi}
+  \item [{$d_o$}]\begingroup Observed device\nomeqref {0}
+		\nompageref{xi}
+  \item [{$F$}]\begingroup Conditional transfer function of device $d_o$ given $d_i$\nomeqref {0}
+		\nompageref{xi}
+  \item [{$f(d)$}]\begingroup Device transfer function for a device $d$\nomeqref {0}
+		\nompageref{xi}
+  \item [{$l_{in}^{(d)}$}]\begingroup Input link of device $d$\nomeqref {0}
+		\nompageref{xi}
+  \item [{$l_{out}^{(d)}$}]\begingroup Output link of device $d$\nomeqref {0}
+		\nompageref{xi}
+  \item [{$p_{c_y \mid c_x}^{(d)}$}]\begingroup Probability that $c_x$ will be mapped to $c_y$ at device $d$\nomeqref {0}
+		\nompageref{xi}
+
+\end{thenomenclature}

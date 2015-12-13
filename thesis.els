@@ -1,0 +1,28 @@
+\begin{thenomenclature} 
+
+ \nomgroup{Symbols}
+
+  \item [{$f(d)$}]\begingroup Device transfer function for a device $d$\nomeqref {5.0}
+		\nompageref{37}
+  \item [{$c_i^{(d)}$}]\begingroup Power quality of class $i$ at device $d$\nomeqref {5.0}
+		\nompageref{37}
+  \item [{$C_i$}]\begingroup Set of $c_i^{(d)}$ $\forall$ $d$\nomeqref {5.0}
+		\nompageref{37}
+  \item [{$p_{c_y \mid c_x}^{(d)}$}]\begingroup Probability that $c_x$ will be mapped to $c_y$ at device $d$\nomeqref {5.0}
+		\nompageref{37}
+  \item [{$\widehat d$}]\begingroup Parent node of a node $d$\nomeqref {5.0}
+		\nompageref{37}
+  \item [{$\widecheck d$}]\begingroup Child node of a node $d$\nomeqref {5.0}
+		\nompageref{37}
+  \item [{$d_i$}]\begingroup Inferred device\nomeqref {5.0}
+		\nompageref{37}
+  \item [{$d_o$}]\begingroup Observed device\nomeqref {5.0}
+		\nompageref{37}
+  \item [{$F$}]\begingroup Conditional transfer function of device $d_o$ given $d_i$\nomeqref {5.0}
+		\nompageref{37}
+  \item [{$l_{out}^{(d)}$}]\begingroup Output link of device $d$\nomeqref {5.0}
+		\nompageref{37}
+  \item [{$l_{in}^{(d)}$}]\begingroup Input link of device $d$\nomeqref {5.0}
+		\nompageref{37}
+
+\end{thenomenclature}

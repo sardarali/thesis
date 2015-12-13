@@ -47,6 +47,20 @@ The main objective of this work is to reduce the cost of power quality monitorin
 
 To address the challenge, using the power quality readings from the monitored links, we propose statistical measures that accurately detect a potential malfunction device in the power network. Our proposed solution and the simulation results of its accuracy evaluations are presented in Chapter~\ref{chap:predictionModel}.
 
+\section{Existing Solutions to Power Quality Monitoring}
+The existing solutions are divided into two categories: 1) meter placement; and 2) power quality estimation. The meter placement problem is related to optimal sensor/PMU placement and there is a great body of work on sensor and PMU placement [27--47]. These solutions are targeting specific applications/areas in the power systems (detailed in Section ~\ref{subsec:relatedwork_meterplacement}). Nevertheless, we have not seen any work on studying optimal meter placement problem in the context of network-wide power quality estimation. Further, there are three major differences between the existing PMU placement algorithms and our meter placement algorithms.
+
+\begin{enumerate}
+\item We focus on distribution networks at the enterprise level (e.g., a university
+campus).
+\item Our method is data driven and is based on statistical machine learning method.
+\item The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly. Further, each PMU solution targets a specific problem in the power network (detailed in Section ~\ref{subsec:relatedwork_meterplacement}) and hence the objective function and problem parameters (e.g., phase angle) are different. In other words, these solutions are mathematically different from the meter placement solutions we proposed in this thesis.
+\end{enumerate}
+
+The power quality estimation problem was addressed in~\cite{catherine_pri} using the expectation maximization (EM) algorithm. Compared to the EM based algorithm, our proposed MaxEnt solution significantly improves the running time while maintaining the accuracy of the power quality values estimated. The running time is particularly important when the network size becomes larger and the power quality needs to be estimated in real-time.
+
+
+
 \section{Contributions}
 The proposed thesis work investigate various algorithms to tackle our three research challenges in the area of power quality monitoring in power grid. As the first step to tackle the above challenges, we represent a device latent feature model used to capture the behavior of the devices in the power grid. With devices' latent features captured, we in the second step introduce a network model of the smart microgid as a data-driven network. This problem transformation significantly simplifies the complexity of the power grid network; it also give us the opportunity to use the well-investigated network monitoring and data estimation algorithms to solve the network quality monitoring in power grids.
 
