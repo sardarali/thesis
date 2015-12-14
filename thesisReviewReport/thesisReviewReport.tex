@@ -475,10 +475,10 @@ Addressed in comment \#2 above.
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+The BP benchmark is essentially a BP approach/algorithm. We used the BP with large sample size as a benchmark. The sample size for the benchmark was 1 million events on each link. This sample set is larger enough to be used as a benchmark. The BP algorithm was then used to place our meters using a sample size of 10,000 events per link. Experimental results show that the error rate was under 5\% for the BP meter placement solution. We add new discussion in the thesis to clarify this point.
 
 \vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+\noindent\textcolor{blue}{The meter placements are then passed to the belief propagation benchmark to compare the accuracy of the two algorithms in terms of mean-square error (MSE), i.e., the mean error between the estimated and actual transition functions on unmonitored links. We collect a set of 1 million known samples for a given meter configuration and infer the maximum likelihood power quality event that would appear at each unmetered node using belief propagation. We then estimate the error rate for each node. If the inferred event differs from the event given by the MC sample, we add $1/N$ for that sample. The sample size of 1 million is large enough to be used as a benchmark. The mean error rate across all nodes is taken as the final performance metric. As shown in Table 5.2, the MSEs are very small for both algorithms in all networks we tested. The BP algorithm gave slightly better estimations than MinEntropy in some cases at a cost of longer running times.}
 \end{adjustwidth}
 
 
@@ -492,10 +492,7 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
-
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+The third constraint of the MaxEnt objective function is: the estimated functions $f(d_j)$ satisfy the condition $\prod_j f(d_j) = f(s)$. Since we know the transfer $f(s)$ of the subnet, we should use this known information to accurately estimate the individual transfer functions. Without using this constraint, we can still estimate the individual transfer functions considering the other 3 constraints but the accuracy of the estimated functions may not always be accurate.
 \end{adjustwidth} 
  
  
@@ -517,10 +514,13 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+The assumptions to use the Pearson correlation measure include: related pairs, absence of outliers, normality of variables, and linearity. These assumptions may not always be true and hence we cannot use this measure as a complete solution. I have updated this explanation in the revised version of the thesis.
 
 \vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+\noindent\textcolor{blue}{Although this technique is simple to use, there are certain assumptions to be true in order to effectively use it. These assumptions include: related pairs, absence of outliers, normality of variables, and linearity. These assumptions may not always be true and hence we cannot use this measure as a complete solution.}
+
+\vspace{10pt}
+\noindent\textcolor{blue}{We demonstrate various scenarios where the above correlation assumptions do not hold and hence we cannot effectively use it to accurately detect a malfunction device in the power network. We classify the identified scenarios in two classes: 1) a malfunction device is not detected; and 2) a better PQ producing device is classified as a malfunction.}
 \end{adjustwidth}
 
 
@@ -531,13 +531,13 @@ response goes here
 \textcolor{red}{Suggestion: Title (reconsider)}
 \end{adjustwidth}
 
-\vspace{10pt}
+\vspace{5pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
+I have changed the title to:
 
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+\vspace{5pt}
+\noindent\textcolor{blue}{An Analytical Framework for Power Quality Monitoring in Enterprise Level Power Grid}
 \end{adjustwidth}
 
 
@@ -551,10 +551,7 @@ response goes here
 \vspace{10pt}
 \textbf{Response:}
 \begin{adjustwidth}{2.5em}{0pt}
-response goes here
-
-\vspace{10pt}
-\noindent\textcolor{blue}{changed text from thesis}
+I have changed the Equation 7.1 to Eq. (7.1) to make it consistent with other equation references in the thesis.
 \end{adjustwidth}
 
 \end{document}
