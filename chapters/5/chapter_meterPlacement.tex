@@ -17,10 +17,10 @@ Finally, we solve the intelligent meter placement problem by proposing an iterat
 \end{enumerate}
 
 \section{Related Work}
-This work is related to four categories of research and development: power quality (PQ) classification, power reliability, power quality improvement/estimation, and meter placement. We summarize the relevant literature in these categorize in Section~\ref{sec:related_work}. We re-iterate the three main differences between the existing PMU placement algorithms and our proposed algorithm as follows.
+This work is related to four categories of research and development: power quality classification, power reliability, power quality improvement/estimation, and meter placement. We summarize the relevant literature in these categorize in Section~\ref{sec:related_work}. We re-iterate the three main differences between the existing PMU placement algorithms and our proposed algorithm as follows.
 
 \begin{enumerate}
-\item We focus on distribution networks at the enterprise-level (e.g., a university campus).
+\item We focus on distribution networks at the enterprise level (e.g., a university campus).
 \item Our method is data driven and is based on statistical machine learning method.
 \item The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly.
 \end{enumerate}
@@ -34,7 +34,7 @@ Note that this is a
 reasonable assumption at any particular instance in time. While enterprise-level power grids used in places such as hospitals and data centers often have two utility feeds available as well as an independent emergency power source, only one power source is typically used at one time. See the IEEE Gold Book~\cite{goldbook} for further information on recommended practices in the design of critical power systems. 
 
 \item \emph{The probability mass function (pmf) of power quality values at the input link to the root node is known.} In other words, the distribution of power quality at the input to the network, usually the utility feed, is known.
-This is also a reasonable assumption, since electrical utilities typically report on indices such as System Average RMS Variation Frequency Index (SARFI) which is essentially a count of the number of times the magnitude and duration falls below a threshold.  
+This is also a reasonable assumption, since electrical utilities typically report on indices such as SARFI which is essentially a count of the number of times the magnitude and duration falls below a threshold.  
 Furthermore, there are often independent bodies that gather statistics on power delivery service reliability that can also be incorporated into an estimate of power quality distribution~\cite{chowdhury2004reliability}. 
 
 \item \emph{The power quality transfer function $f(d)$ is known for every device $d$.}  
@@ -375,7 +375,7 @@ Figure~\ref{NetworkDiagrams} shows the meters placed by the two algorithms in va
 \vspace{2cm}
 \end{table}
 
-The meter placements are then passed to the belief propagation benchmark to compare the accuracy of the two algorithms in terms of mean-square error (MSE), i.e., the mean error between the estimated and actual transition functions on unmonitored links. We collect a set of known samples for a given meter configuration and infer the maximum likelihood power quality event that would appear at each unmetered node using belief propagation. We then estimate the error rate for each node. If the inferred event differs from the event given by the MC sample, we add $1/N$ for that sample. The mean error rate across all nodes is taken as the final performance metric. As shown in Table~\ref{network_configuration_results}, the MSEs are very small for both algorithms in all networks we tested. The BP algorithm gave slightly better estimations than MinEntropy in some cases at a cost of longer running times.
+The meter placements are then passed to the belief propagation benchmark to compare the accuracy of the two algorithms in terms of mean-square error, i.e., the mean error between the estimated and actual transition functions on unmonitored links. We collect a set of known samples for a given meter configuration and infer the maximum likelihood power quality event that would appear at each unmetered node using belief propagation. We then estimate the error rate for each node. If the inferred event differs from the event given by the MC sample, we add $1/N$ for that sample. The mean error rate across all nodes is taken as the final performance metric. As shown in Table~\ref{network_configuration_results}, the MSEs are very small for both algorithms in all networks we tested. The BP algorithm gave slightly better estimations than MinEntropy in some cases at a cost of longer running times.
 
 We also compare the accuracy of our algorithms in terms of cost savings. Table~\ref{cost_analysis} shows the number of meters needed by each algorithm where it can be clearly seen that using our solution to achieve the same accuracy (error rate of $< 0.05$) can reduce the number of meters by 33\%. Results of the Random placement algorithm were obtained by randomly placing meters until the desired accuracy was achieved.
 
