@@ -20,7 +20,7 @@ Finally, we solve the intelligent meter placement problem by proposing an iterat
 This work is related to four categories of research and development: power quality (PQ) classification, power reliability, power quality improvement/estimation, and meter placement. We summarize the relevant literature in these categorize in Section~\ref{sec:related_work}. We re-iterate the three main differences between the existing PMU placement algorithms and our proposed algorithm as follows.
 
 \begin{enumerate}
-\item We focus on distribution networks at the enterprise level (e.g., a university campus).
+\item We focus on distribution networks at the enterprise-level (e.g., a university campus).
 \item Our method is data driven and is based on statistical machine learning method.
 \item The existing PMU placement algorithms address the problem of estimating network states and do not consider power quality estimation explicitly.
 \end{enumerate}
@@ -31,7 +31,7 @@ Before we formally illustrate our proposed algorithms for the deployment of powe
 \begin{enumerate}
 \item \emph{The power grid network is a tree-structured network where the electric current flows from root node to the child nodes.}
 Note that this is a 
-reasonable assumption at any particular instance in time. While enterprise level power grids used in places such as hospitals and data centers often have two utility feeds available as well as an independent emergency power source, only one power source is typically used at one time. See the IEEE Gold Book~\cite{goldbook} for further information on recommended practices in the design of critical power systems. 
+reasonable assumption at any particular instance in time. While enterprise-level power grids used in places such as hospitals and data centers often have two utility feeds available as well as an independent emergency power source, only one power source is typically used at one time. See the IEEE Gold Book~\cite{goldbook} for further information on recommended practices in the design of critical power systems. 
 
 \item \emph{The probability mass function (pmf) of power quality values at the input link to the root node is known.} In other words, the distribution of power quality at the input to the network, usually the utility feed, is known.
 This is also a reasonable assumption, since electrical utilities typically report on indices such as System Average RMS Variation Frequency Index (SARFI) which is essentially a count of the number of times the magnitude and duration falls below a threshold.  
