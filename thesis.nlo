@@ -1,23 +1,23 @@
-\nomenclatureentry{s$f(d)$@[{$f(d)$}]\begingroup Device transfer function for a device $d$\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{s$c_i^{(d)}$@[{$c_i^{(d)}$}]\begingroup Power quality of class $i$ at device $d$\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{s$C_i$@[{$C_i$}]\begingroup Set of $c_i^{(d)}$ $\forall$ $d$\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{s$p_{c_y \mid c_x}^{(d)}$@[{$p_{c_y \mid c_x}^{(d)}$}]\begingroup Probability that $c_x$ will be mapped to $c_y$ at device $d$\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{s$\widehat d$@[{$\widehat d$}]\begingroup Parent node of a node $d$\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{s$\widecheck d$@[{$\widecheck d$}]\begingroup Child node of a node $d$\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{s$d_i$@[{$d_i$}]\begingroup Inferred device\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{s$d_o$@[{$d_o$}]\begingroup Observed device\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{s$F$@[{$F$}]\begingroup Conditional transfer function of device $d_o$ given $d_i$\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{s$l_{out}^{(d)}$@[{$l_{out}^{(d)}$}]\begingroup Output link of device $d$\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{s$l_{in}^{(d)}$@[{$l_{in}^{(d)}$}]\begingroup Input link of device $d$\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aPMU@[{PMU}]\begingroup Phasor Measurement Unit\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aMaxEnt@[{MaxEnt}]\begingroup Maximum Entropy\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aMCEM@[{MCEM}]\begingroup Monte Carlo Expectation Maximization\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aMSE@[{MSE}]\begingroup Mean-Square Error\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aCBEMA@[{CBEMA}]\begingroup Computer and Business Equipment Manufacturers' Association\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aIEC@[{IEC}]\begingroup International Electrotechnical Commission\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aIEEE@[{IEEE}]\begingroup Institute of Electrical and Electronics Engineers\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aSARFI@[{SARFI}]\begingroup System Average RMS Variation Frequency Index\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aEM@[{EM}]\begingroup Expectation Maximization\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aBP@[{BP}]\begingroup Belief Propagation\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aCE@[{CE}]\begingroup Conditional Entropy\nomeqref {0}|nompageref}{xii}
-\nomenclatureentry{aPQ@[{PQ}]\begingroup Power Quality\nomeqref {0}|nompageref}{xii}
+\nomenclatureentry{s$f(d)$@[{$f(d)$}]\begingroup Device transfer function for a device $d$\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{s$c_i^{(d)}$@[{$c_i^{(d)}$}]\begingroup Power quality of class $i$ at device $d$\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{s$C_i$@[{$C_i$}]\begingroup Set of $c_i^{(d)}$ $\forall$ $d$\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{s$p_{c_y \mid c_x}^{(d)}$@[{$p_{c_y \mid c_x}^{(d)}$}]\begingroup Probability that $c_x$ will be mapped to $c_y$ at device $d$\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{s$\widehat d$@[{$\widehat d$}]\begingroup Parent node of a node $d$\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{s$\widecheck d$@[{$\widecheck d$}]\begingroup Child node of a node $d$\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{s$d_i$@[{$d_i$}]\begingroup Inferred device\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{s$d_o$@[{$d_o$}]\begingroup Observed device\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{s$F$@[{$F$}]\begingroup Conditional transfer function of device $d_o$ given $d_i$\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{s$l_{out}^{(d)}$@[{$l_{out}^{(d)}$}]\begingroup Output link of device $d$\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{s$l_{in}^{(d)}$@[{$l_{in}^{(d)}$}]\begingroup Input link of device $d$\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aPMU@[{PMU}]\begingroup Phasor Measurement Unit\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aMaxEnt@[{MaxEnt}]\begingroup Maximum Entropy\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aMCEM@[{MCEM}]\begingroup Monte Carlo Expectation Maximization\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aMSE@[{MSE}]\begingroup Mean-Square Error\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aCBEMA@[{CBEMA}]\begingroup Computer and Business Equipment Manufacturers' Association\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aIEC@[{IEC}]\begingroup International Electrotechnical Commission\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aIEEE@[{IEEE}]\begingroup Institute of Electrical and Electronics Engineers\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aSARFI@[{SARFI}]\begingroup System Average RMS Variation Frequency Index\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aEM@[{EM}]\begingroup Expectation Maximization\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aBP@[{BP}]\begingroup Belief Propagation\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aCE@[{CE}]\begingroup Conditional Entropy\nomeqref {0}|nompageref}{xiii}
+\nomenclatureentry{aPQ@[{PQ}]\begingroup Power Quality\nomeqref {0}|nompageref}{xiii}
